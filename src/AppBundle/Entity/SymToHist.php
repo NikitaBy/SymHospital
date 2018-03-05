@@ -3,6 +3,12 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * SymToHist
+ *
+ * @ORM\Table(name="symtohist")
+ * @ORM\Entity
+ */
 class SymToHist
 {
     /**

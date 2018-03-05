@@ -3,6 +3,12 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * DocToSch
+ *
+ * @ORM\Table(name="doctosch")
+ * @ORM\Entity
+ */
 class DocToSch
 {
     /**

@@ -3,6 +3,12 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * HisToDis
+ *
+ * @ORM\Table(name="histodis")
+ * @ORM\Entity
+ */
 class HisToDis
 {
     /**

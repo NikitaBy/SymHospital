@@ -3,6 +3,12 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * RoomToEq
+ *
+ * @ORM\Table(name="roomtoeq")
+ * @ORM\Entity
+ */
 class RoomToEq
 {
     /**

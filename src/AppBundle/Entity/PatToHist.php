@@ -3,6 +3,12 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * PatToHist
+ *
+ * @ORM\Table(name="pattohist")
+ * @ORM\Entity
+ */
 class PatToHist
 {
     /**

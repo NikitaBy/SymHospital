@@ -4,6 +4,12 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * HisToMed
+ *
+ * @ORM\Table(name="histomed")
+ * @ORM\Entity
+ */
 class HisToMed
 {
     /**
