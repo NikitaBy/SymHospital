@@ -35,6 +35,13 @@ class Specialty
      */
     private $domain;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor", inversedBy="docToSpec")
+     * @ORM\JoinTable(DocToSpec)
+     */
+    private $doctor;
+
+
 
 }
 

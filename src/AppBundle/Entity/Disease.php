@@ -35,6 +35,12 @@ class Disease
      */
     private $domain;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History", inversedBy="hisToDis")
+     * @ORM\JoinTable(HisToDis)
+     */
+    private $history;
+
 
 }
 

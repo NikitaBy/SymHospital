@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Doctor
  *
  * @ORM\Table(name="doctor")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="DoctorRepository")
  */
 class Doctor
 {
@@ -42,6 +42,34 @@ class Doctor
      */
     private $lastname;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Schedule", inversedBy="docToSch")
+     * @ORM\JoinTable(DocToSch)
+     */
+    private $schedule;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Specialty", inversedBy="docToSpec")
+     * @ORM\JoinTable(DocToSpec)
+     */
+    private $speciality;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Room", inversedBy="roomToDoc")
+     * @ORM\JoinTable(RoomToDoc)
+     */
+    private $room;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History", inversedBy="hisToDoc")
+     * @ORM\JoinTable(HisToDoc)
+     */
+    private $history;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Ticket", inversedBy="ticket", cascade={"persist", "remove"})
+     */
+    private $ticket;
 
 }
 

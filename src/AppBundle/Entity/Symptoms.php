@@ -28,6 +28,12 @@ class Symptoms
      */
     private $description;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History", inversedBy="symToHis")
+     * @ORM\JoinTable(SymToHis)
+     */
+    private $history;
+
 
 }
 

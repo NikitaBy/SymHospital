@@ -35,6 +35,40 @@ class History
      */
     private $cureperiod;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Disease", inversedBy="hisToDis")
+     * @ORM\JoinTable(HisToDis)
+     */
+    private $disease;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Medicine", inversedBy="hisToMed")
+     * @ORM\JoinTable(HisToMed)
+     */
+    private $medicine;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Symptoms", inversedBy="symToHis")
+     * @ORM\JoinTable(SymToHis)
+     */
+    private $symptoms;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Patient", inversedBy="patToHis")
+     * @ORM\JoinTable(PatToHis)
+     */
+    private $patient;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor", inversedBy="hisToDoc")
+     * @ORM\JoinTable(HisToDoc)
+     */
+    private $doctor;
+
+
+
+
+
 
 }
 

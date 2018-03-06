@@ -49,6 +49,14 @@ class Patient
      */
     private $age;
 
+    private $ticket;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History", inversedBy="patToHis")
+     * @ORM\JoinTable(PatToHis)
+     */
+    private $history;
+
 
 }
 

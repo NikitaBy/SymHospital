@@ -35,6 +35,13 @@ class Schedule
      */
     private $worktime;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor", inversedBy="docToSch")
+     * @ORM\JoinTable(DocToSch)
+     */
+    private $doctor;
+
+
 
 }
 

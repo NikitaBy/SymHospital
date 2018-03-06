@@ -13,9 +13,9 @@ use Symfony\Component\Validator\Constraints\Date;
 class Ticket
 {
     /**
-     * @var integer
      *
-     * @ORM\Column(name="Patient", type="integer", nullable=false)
+     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Patient")
+     *
      */
     private $patient;
 
@@ -34,9 +34,7 @@ class Ticket
     private $visitTime;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="Doctor", type="integer", nullable=false)
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Doctor")
      */
     private $doctor;
 }
