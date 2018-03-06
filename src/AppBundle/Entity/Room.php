@@ -37,13 +37,13 @@ class Room
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor", inversedBy="roomToDoc")
-     * @ORM\JoinTable(RoomToDoc)
+     * @ORM\JoinTable(name="RoomToDoc")
      */
     private $doctor;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Equipment", inversedBy="roomToEq")
-     * @ORM\JoinTable(RoomToEq)
+     * @ORM\JoinTable(name="RoomToEq")
      */
     private $equipment;
 

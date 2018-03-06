@@ -44,30 +44,30 @@ class Doctor
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Schedule", inversedBy="docToSch")
-     * @ORM\JoinTable(DocToSch)
+     * @ORM\JoinTable(name="DocToSch")
      */
     private $schedule;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Specialty", inversedBy="docToSpec")
-     * @ORM\JoinTable(DocToSpec)
+     * @ORM\JoinTable(name="DocToSpec")
      */
     private $speciality;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Room", inversedBy="roomToDoc")
-     * @ORM\JoinTable(RoomToDoc)
+     * @ORM\JoinTable(name="RoomToDoc")
      */
     private $room;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History", inversedBy="hisToDoc")
-     * @ORM\JoinTable(HisToDoc)
+     * @ORM\JoinTable(name="HisToDoc")
      */
     private $history;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Ticket", inversedBy="ticket", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Ticket", mappedBy="ticDoc", cascade={"persist", "remove"})
      */
     private $ticket;
 

@@ -15,11 +15,11 @@ class Disease
     /**
      * @var integer
      *
-     * @ORM\Column(name="ID_Dis", type="integer", nullable=false)
+     * @ORM\Column(name="ID", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idDis;
+    private $id;
 
     /**
      * @var string
@@ -37,7 +37,7 @@ class Disease
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History", inversedBy="hisToDis")
-     * @ORM\JoinTable(HisToDis)
+     * @ORM\JoinTable(name="HisToDis")
      */
     private $history;
 

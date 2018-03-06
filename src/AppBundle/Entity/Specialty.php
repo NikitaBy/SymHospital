@@ -37,7 +37,7 @@ class Specialty
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor", inversedBy="docToSpec")
-     * @ORM\JoinTable(DocToSpec)
+     * @ORM\JoinTable(name="DocToSpec")
      */
     private $doctor;
 

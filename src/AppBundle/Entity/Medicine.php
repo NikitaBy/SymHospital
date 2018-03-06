@@ -37,7 +37,7 @@ class Medicine
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History", inversedBy="hisToMed")
-     * @ORM\JoinTable(HisToMed)
+     * @ORM\JoinTable(name="HisToMed")
      */
     private $history;
 

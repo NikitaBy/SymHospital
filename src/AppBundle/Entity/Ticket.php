@@ -13,8 +13,18 @@ use Symfony\Component\Validator\Constraints\Date;
 class Ticket
 {
     /**
+     * @var integer
      *
-     *@ORM\OneToMany(targetEntity="AppBundle\Entity\Patient")
+     * @ORM\Column(name="ID_T", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idT;
+
+
+    /**
+     *
+     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Patient", inversedBy="patTic")
      *
      */
     private $patient;
@@ -34,7 +44,7 @@ class Ticket
     private $visitTime;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Doctor")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Doctor", inversedBy="ticDoc")
      */
     private $doctor;
 }

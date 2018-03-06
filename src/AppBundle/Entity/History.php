@@ -37,31 +37,31 @@ class History
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Disease", inversedBy="hisToDis")
-     * @ORM\JoinTable(HisToDis)
+     * @ORM\JoinTable(name="HisToDis")
      */
     private $disease;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Medicine", inversedBy="hisToMed")
-     * @ORM\JoinTable(HisToMed)
+     * @ORM\JoinTable(name="HisToMed")
      */
     private $medicine;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Symptoms", inversedBy="symToHis")
-     * @ORM\JoinTable(SymToHis)
+     * @ORM\JoinTable(name="SymToHis")
      */
     private $symptoms;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Patient", inversedBy="patToHis")
-     * @ORM\JoinTable(PatToHis)
+     * @ORM\JoinTable(name="PatToHis")
      */
     private $patient;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor", inversedBy="hisToDoc")
-     * @ORM\JoinTable(HisToDoc)
+     * @ORM\JoinTable(name="HisToDoc")
      */
     private $doctor;
 

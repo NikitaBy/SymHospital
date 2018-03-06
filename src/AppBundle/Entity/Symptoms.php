@@ -30,7 +30,7 @@ class Symptoms
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History", inversedBy="symToHis")
-     * @ORM\JoinTable(SymToHis)
+     * @ORM\JoinTable(name="SymToHis")
      */
     private $history;
 
