@@ -35,12 +35,6 @@ class Equipment
      */
     private $application;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Room", inversedBy="roomToEq")
-     * @ORM\JoinTable(name="RoomToEq")
-     */
-    private $room;
-
 
 }
 

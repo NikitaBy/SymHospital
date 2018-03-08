@@ -35,20 +35,6 @@ class Room
      */
     private $type;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor", inversedBy="roomToDoc")
-     * @ORM\JoinTable(name="RoomToDoc")
-     */
-    private $doctor;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Equipment", inversedBy="roomToEq")
-     * @ORM\JoinTable(name="RoomToEq")
-     */
-    private $equipment;
-
-
-
 
 }
 
