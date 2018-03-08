@@ -15,7 +15,7 @@ class Symptoms
     /**
      * @var integer
      *
-     * @ORM\Column(name="ID_S", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -28,6 +28,10 @@ class Symptoms
      */
     private $description;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
+     */
+    private $history;
 
 }
 

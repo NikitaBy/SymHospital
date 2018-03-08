@@ -15,7 +15,7 @@ class Medicine
     /**
      * @var integer
      *
-     * @ORM\Column(name="ID_M", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -34,6 +34,11 @@ class Medicine
      * @ORM\Column(name="Type", type="string", length=15, nullable=false)
      */
     private $type;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
+     */
+    private $history;
 
 
 }

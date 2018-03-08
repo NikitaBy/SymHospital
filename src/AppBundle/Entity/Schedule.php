@@ -15,7 +15,7 @@ class Schedule
     /**
      * @var integer
      *
-     * @ORM\Column(name="ID_SCH", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -35,6 +35,10 @@ class Schedule
      */
     private $worktime;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor")
+     */
+    private $doctor;
 
 }
 

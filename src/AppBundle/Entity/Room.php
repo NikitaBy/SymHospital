@@ -15,7 +15,7 @@ class Room
     /**
      * @var integer
      *
-     * @ORM\Column(name="ID_R", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -35,6 +35,15 @@ class Room
      */
     private $type;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor")
+     */
+    private $doctor;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Equipment")
+     */
+    private $equipment;
 
 }
 

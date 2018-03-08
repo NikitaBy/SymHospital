@@ -15,7 +15,7 @@ class Doctor
     /**
      * @var integer
      *
-     * @ORM\Column(name="ID_D", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -42,6 +42,29 @@ class Doctor
      */
     private $lastname;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Ticket", mappedBy="doctor")
+     */
+    private $ticket;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
+     */
+    private $history;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Specialty")
+     */
+    private $specialty;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Schedule")
+     */
+    private $schedule;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Room")
+     */
+    private $room;
 }
 
