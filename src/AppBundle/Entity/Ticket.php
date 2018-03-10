@@ -22,8 +22,6 @@ class Ticket
     private $id;
 
     /**
-     * @var string
-     *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Patient", inversedBy="ticket")
      */
     private $patient;
@@ -38,7 +36,7 @@ class Ticket
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="visit_time", type="datetime")
+     * @ORM\Column(name="visit_time", type="time")
      */
     private $visitTime;
 
@@ -61,7 +59,7 @@ class Ticket
     /**
      * Set patient
      *
-     * @param string $patient
+     * @param mixed $patient
      *
      * @return Ticket
      */
@@ -75,7 +73,7 @@ class Ticket
     /**
      * Get patient
      *
-     * @return string
+     * @return mixed
      */
     public function getPatient()
     {
