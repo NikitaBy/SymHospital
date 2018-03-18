@@ -40,5 +40,69 @@ class Schedule
      */
     private $doctor;
 
+    /**
+     * @return int
+     */
+    public function getIdSch()
+    {
+        return $this->idSch;
+    }
+
+    /**
+     * @param int $idSch
+     */
+    public function setIdSch($idSch)
+    {
+        $this->idSch = $idSch;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDay()
+    {
+        return $this->day;
+    }
+
+    /**
+     * @param string $day
+     */
+    public function setDay($day)
+    {
+        $this->day = $day;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWorktime()
+    {
+        return $this->worktime;
+    }
+
+    /**
+     * @param string $worktime
+     */
+    public function setWorktime($worktime)
+    {
+        $this->worktime = $worktime;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDoctor()
+    {
+        return $this->doctor;
+    }
+
+    /**
+     * @param mixed $doctor
+     */
+    public function setDoctor($doctor)
+    {
+        $this->doctor = $doctor;
+    }
+
 }
 

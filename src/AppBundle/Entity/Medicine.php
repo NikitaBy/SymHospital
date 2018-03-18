@@ -22,6 +22,70 @@ class Medicine
     private $idM;
 
     /**
+     * @return int
+     */
+    public function getIdM()
+    {
+        return $this->idM;
+    }
+
+    /**
+     * @param int $idM
+     */
+    public function setIdM($idM)
+    {
+        $this->idM = $idM;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHistory()
+    {
+        return $this->history;
+    }
+
+    /**
+     * @param mixed $history
+     */
+    public function setHistory($history)
+    {
+        $this->history = $history;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
      * @var string
      *
      * @ORM\Column(name="Name", type="string", length=15, nullable=false)

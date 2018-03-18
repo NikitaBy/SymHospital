@@ -13,6 +13,36 @@ use Doctrine\ORM\Mapping as ORM;
 class Disease
 {
     /**
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->domain;
+    }
+
+    /**
+     * @param string $domain
+     */
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+    }
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)

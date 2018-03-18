@@ -38,19 +38,75 @@ services:
         class: AppBundle\Admin\PatientAdmin
         arguments: [~, AppBundle\Entity\Patient, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Patient }
+            - { name: sonata.admin, manager_type: orm,  group: Admin, label: Patient }
         public: true
 
     admin.ticket:
         class: AppBundle\Admin\TicketAdmin
         arguments: [~, AppBundle\Entity\Ticket, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Ticket }
+            - { name: sonata.admin, manager_type: orm, group: Admin, label: Ticket }
         public: true
 
     admin.doctor:
         class: AppBundle\Admin\DoctorAdmin
         arguments: [~, AppBundle\Entity\Doctor, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Doctor }
+            - { name: sonata.admin, manager_type: orm,  group: Admin, label: Doctor }
         public: true
+
+    admin.medicine:
+            class: AppBundle\Admin\MedicineAdmin
+            arguments: [~, AppBundle\Entity\Medicine, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm,  group: Admin, label: Medicine }
+            public: true
+
+    admin.disease:
+            class: AppBundle\Admin\DiseaseAdmin
+            arguments: [~, AppBundle\Entity\Disease, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm,  group: Admin, label: Disease }
+            public: true
+
+    admin.history:
+            class: AppBundle\Admin\HistoryAdmin
+            arguments: [~, AppBundle\Entity\History, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm,  group: Admin, label: History }
+            public: true
+
+    admin.symptoms:
+                class: AppBundle\Admin\SymptomsAdmin
+                arguments: [~, AppBundle\Entity\Symptoms, ~]
+                tags:
+                    - { name: sonata.admin, manager_type: orm,  group: Admin, label: Symptoms }
+                public: true
+
+    admin.specialty:
+                class: AppBundle\Admin\SpecialtyAdmin
+                arguments: [~, AppBundle\Entity\Specialty, ~]
+                tags:
+                    - { name: sonata.admin, manager_type: orm,  group: Admin, label: Specialty }
+                public: true
+
+    admin.schedule:
+                class: AppBundle\Admin\ScheduleAdmin
+                arguments: [~, AppBundle\Entity\Schedule, ~]
+                tags:
+                    - { name: sonata.admin, manager_type: orm,  group: Admin, label: Schedule }
+                public: true
+
+    admin.room:
+                class: AppBundle\Admin\RoomAdmin
+                arguments: [~, AppBundle\Entity\Room, ~]
+                tags:
+                    - { name: sonata.admin, manager_type: orm,  group: Admin, label: Room }
+                public: true
+
+    admin.equipment:
+                class: AppBundle\Admin\EquipmentAdmin
+                arguments: [~, AppBundle\Entity\Equipment, ~]
+                tags:
+                    - { name: sonata.admin, manager_type: orm,  group: Admin, label: Equipment }
+                public: true

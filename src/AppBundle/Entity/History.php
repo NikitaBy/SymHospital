@@ -22,6 +22,118 @@ class History
     private $idH;
 
     /**
+     * @return \DateTime
+     */
+    public function getVisitdate()
+    {
+        return $this->visitdate;
+    }
+
+    /**
+     * @param \DateTime $visitdate
+     */
+    public function setVisitdate($visitdate)
+    {
+        $this->visitdate = $visitdate;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCureperiod()
+    {
+        return $this->cureperiod;
+    }
+
+    /**
+     * @param \DateTime $cureperiod
+     */
+    public function setCureperiod($cureperiod)
+    {
+        $this->cureperiod = $cureperiod;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDoctor()
+    {
+        return $this->doctor;
+    }
+
+    /**
+     * @param mixed $doctor
+     */
+    public function setDoctor($doctor)
+    {
+        $this->doctor = $doctor;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPatient()
+    {
+        return $this->patient;
+    }
+
+    /**
+     * @param mixed $patient
+     */
+    public function setPatient($patient)
+    {
+        $this->patient = $patient;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSymptoms()
+    {
+        return $this->symptoms;
+    }
+
+    /**
+     * @param mixed $symptoms
+     */
+    public function setSymptoms($symptoms)
+    {
+        $this->symptoms = $symptoms;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDisease()
+    {
+        return $this->disease;
+    }
+
+    /**
+     * @param mixed $disease
+     */
+    public function setDisease($disease)
+    {
+        $this->disease = $disease;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMedicine()
+    {
+        return $this->medicine;
+    }
+
+    /**
+     * @param mixed $medicine
+     */
+    public function setMedicine($medicine)
+    {
+        $this->medicine = $medicine;
+    }
+
+    /**
      * @return int
      */
     public function getIdH()
