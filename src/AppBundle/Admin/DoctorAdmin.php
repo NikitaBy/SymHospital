@@ -7,7 +7,8 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use AppBundle\Entity\Room;
 
 class DoctorAdmin extends AbstractAdmin
 {
@@ -16,6 +17,10 @@ class DoctorAdmin extends AbstractAdmin
         $formMapper->add('firstname', TextType::class);
         $formMapper->add('midlname', TextType::class);
         $formMapper->add('lastname', TextType::class);
+        $formMapper->add('room', EntityType::class, [
+            'class' => Room::class,
+            'choice_label' => 'number',
+        ]);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
