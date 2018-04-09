@@ -8,7 +8,6 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use AppBundle\Entity\Room;
 
 class DoctorAdmin extends AbstractAdmin

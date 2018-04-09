@@ -41,11 +41,13 @@ class RoomAdmin extends AbstractAdmin
     {
         $datagridMapper->add('number');
         $datagridMapper->add('type');
+       // $datagridMapper->add('equipment');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->add('number');
         $listMapper->add('type');
+      //  $listMapper->add('equipment');
     }
 }

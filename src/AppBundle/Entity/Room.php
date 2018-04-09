@@ -146,6 +146,14 @@ class Room
     }
 
     /**
+     * @param mixed $doctor
+     */
+    public function setDoctor($doctor)
+    {
+        $this->doctor = $doctor;
+    }
+
+    /**
      * Add equipment
      *
      * @param Equipment $equipment
