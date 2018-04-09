@@ -20,7 +20,7 @@ class DoctorAdmin extends AbstractAdmin
         $formMapper->add('lastname', TextType::class);
         $formMapper->add('room', ModelType::class, [
             'class' => Room::class,
-            'choice_label' => 'number',
+            'property' => 'number',
         ]);
     }
 

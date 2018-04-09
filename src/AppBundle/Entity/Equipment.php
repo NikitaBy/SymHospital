@@ -106,6 +106,5 @@ class Equipment
     private $room;
 
 
-
 }
 
