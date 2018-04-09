@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Equipment
@@ -103,6 +104,8 @@ class Equipment
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Room")
      */
     private $room;
+
+
 
 }
 

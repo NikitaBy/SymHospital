@@ -22,86 +22,6 @@ class Room
     private $idR;
 
     /**
-     * @return int
-     */
-    public function getIdR()
-    {
-        return $this->idR;
-    }
-
-    /**
-     * @param int $idR
-     */
-    public function setIdR($idR)
-    {
-        $this->idR = $idR;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
-
-    /**
-     * @param int $number
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDoctor()
-    {
-        return $this->doctor;
-    }
-
-    /**
-     * @param mixed $doctor
-     */
-    public function setDoctor($doctor)
-    {
-        $this->doctor = $doctor;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEquipment()
-    {
-        return $this->equipment;
-    }
-
-    /**
-     * @param mixed $equipment
-     */
-    public function setEquipment($equipment)
-    {
-        $this->equipment = $equipment;
-    }
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="Number", type="integer", nullable=false)
@@ -124,6 +44,138 @@ class Room
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Equipment")
      */
     private $equipment;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->doctor = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->equipment = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Get idR
+     *
+     * @return integer
+     */
+    public function getIdR()
+    {
+        return $this->idR;
+    }
+
+    /**
+     * Set number
+     *
+     * @param integer $number
+     *
+     * @return Room
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return integer
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Room
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Add doctor
+     *
+     * @param Doctor $doctor
+     *
+     * @return Room
+     */
+    public function addDoctor(Doctor $doctor)
+    {
+        $this->doctor[] = $doctor;
+        $doctor->setRoom($this);
+        return $this;
+    }
+
+    /**
+     * Remove doctor
+     *
+     * @param Doctor $doctor
+     */
+    public function removeDoctor(Doctor $doctor)
+    {
+        $this->doctor->removeElement($doctor);
+    }
+
+    /**
+     * Get doctor
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDoctor()
+    {
+        return $this->doctor;
+    }
+
+    /**
+     * Add equipment
+     *
+     * @param Equipment $equipment
+     *
+     * @return Room
+     */
+    public function addEquipment(Equipment $equipment)
+    {
+        $this->equipment[] = $equipment;
+        $equipment->setRoom($this);
+        return $this;
+    }
+
+    /**
+     * Remove equipment
+     *
+     * @param Equipment $equipment
+     */
+    public function removeEquipment(Equipment $equipment)
+    {
+        $this->equipment->removeElement($equipment);
+    }
+
+    /**
+     * Get equipment
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEquipment()
+    {
+        return $this->equipment;
+    }
 }
-
