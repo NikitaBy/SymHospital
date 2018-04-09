@@ -5,6 +5,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ModelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -17,7 +18,7 @@ class DoctorAdmin extends AbstractAdmin
         $formMapper->add('firstname', TextType::class);
         $formMapper->add('midlname', TextType::class);
         $formMapper->add('lastname', TextType::class);
-        $formMapper->add('room', EntityType::class, [
+        $formMapper->add('room', ModelType::class, [
             'class' => Room::class,
             'choice_label' => 'number',
         ]);

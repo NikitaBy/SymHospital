@@ -13,7 +13,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Sonata\AdminBundle\Form\Type\ModelType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -31,9 +31,10 @@ class RoomAdmin extends AbstractAdmin
         $formMapper->add('number', IntegerType::class);
         $formMapper->add('type', TextType::class);
 
-        $formMapper->add('equipment', EntityType::class, [
-            'multiple' => true,
+        $formMapper->add('equipment', ModelType::class, [
+          //  'multiple' => true,
             'class' => Equipment::class,
+            'choice_label' => 'name',
         ]);
     }
 
