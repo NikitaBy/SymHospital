@@ -33,6 +33,9 @@ class PatientAdmin extends AbstractAdmin
         $listMapper->add('Midl Name');
         $listMapper->add('Last Name');
         $listMapper->add('Age', 'date', ['format'=>'d-M-Y']);
+       /* $listMapper->add('Age', 'date', [
+
+        ]);*/
     }
 
 

@@ -248,4 +248,9 @@ class Patient
     {
         return $this->history;
     }
+
+    public function getYrs()
+    {
+        return date('Y')-date('Y',strtotime($this->age));
+    }
 }
