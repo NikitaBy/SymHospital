@@ -308,7 +308,7 @@ class Doctor
     public function addRoom(Room $room)
     {
         $this->room[] = $room;
-        $room->setDocttor($this);
+        $room->setDoctor($this);
         return $this;
     }
 
