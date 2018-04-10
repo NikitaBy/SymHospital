@@ -5,8 +5,8 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\CoreBundle\Form\Type\DatePickerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 
 class PatientAdmin extends AbstractAdmin
@@ -16,7 +16,7 @@ class PatientAdmin extends AbstractAdmin
         $formMapper->add('firstname', TextType::class);
         $formMapper->add('midlname', TextType::class);
         $formMapper->add('lastname', TextType::class);
-        $formMapper->add('age', DateType::class);
+        $formMapper->add('age', DatePickerType::class, array('format'=>'yyyy-MMM-dd'));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -32,7 +32,7 @@ class PatientAdmin extends AbstractAdmin
         $listMapper->add('First Name');
         $listMapper->add('Midl Name');
         $listMapper->add('Last Name');
-        $listMapper->add('Age', 'date', ['format'=>'F Y']);
+        $listMapper->add('Age', 'date', ['format'=>'d-M-Y']);
     }
 
 
