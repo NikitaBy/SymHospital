@@ -54,8 +54,26 @@ class Patient
      */
     private $ticket;
 
+
     /**
-     * @return int
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
+     */
+    private $history;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ticket = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->history = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -63,14 +81,22 @@ class Patient
     }
 
     /**
-     * @param int $id
+     * Set firstname
+     *
+     * @param string $firstname
+     *
+     * @return Patient
      */
-    public function setId($id)
+    public function setFirstname($firstname)
     {
-        $this->id = $id;
+        $this->firstname = $firstname;
+
+        return $this;
     }
 
     /**
+     * Get firstname
+     *
      * @return string
      */
     public function getFirstname()
@@ -79,14 +105,22 @@ class Patient
     }
 
     /**
-     * @param string $firstname
+     * Set midlname
+     *
+     * @param string $midlname
+     *
+     * @return Patient
      */
-    public function setFirstname($firstname)
+    public function setMidlname($midlname)
     {
-        $this->firstname = $firstname;
+        $this->midlname = $midlname;
+
+        return $this;
     }
 
     /**
+     * Get midlname
+     *
      * @return string
      */
     public function getMidlname()
@@ -95,14 +129,22 @@ class Patient
     }
 
     /**
-     * @param string $midlname
+     * Set lastname
+     *
+     * @param string $lastname
+     *
+     * @return Patient
      */
-    public function setMidlname($midlname)
+    public function setLastname($lastname)
     {
-        $this->midlname = $midlname;
+        $this->lastname = $lastname;
+
+        return $this;
     }
 
     /**
+     * Get lastname
+     *
      * @return string
      */
     public function getLastname()
@@ -111,14 +153,22 @@ class Patient
     }
 
     /**
-     * @param string $lastname
+     * Set age
+     *
+     * @param \DateTime $age
+     *
+     * @return Patient
      */
-    public function setLastname($lastname)
+    public function setAge($age)
     {
-        $this->lastname = $lastname;
+        $this->age = $age;
+
+        return $this;
     }
 
     /**
+     * Get age
+     *
      * @return \DateTime
      */
     public function getAge()
@@ -127,15 +177,33 @@ class Patient
     }
 
     /**
-     * @param \DateTime $age
+     * Add ticket
+     *
+     * @param \AppBundle\Entity\Ticket $ticket
+     *
+     * @return Patient
      */
-    public function setAge($age)
+    public function addTicket(\AppBundle\Entity\Ticket $ticket)
     {
-        $this->age = $age;
+        $this->ticket[] = $ticket;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Remove ticket
+     *
+     * @param \AppBundle\Entity\Ticket $ticket
+     */
+    public function removeTicket(\AppBundle\Entity\Ticket $ticket)
+    {
+        $this->ticket->removeElement($ticket);
+    }
+
+    /**
+     * Get ticket
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getTicket()
     {
@@ -143,34 +211,36 @@ class Patient
     }
 
     /**
-     * @param mixed $ticket
+     * Add history
+     *
+     * @param \AppBundle\Entity\History $history
+     *
+     * @return Patient
      */
-    public function setTicket($ticket)
+    public function addHistory(\AppBundle\Entity\History $history)
     {
-        $this->ticket = $ticket;
+        $this->history[] = $history;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Remove history
+     *
+     * @param \AppBundle\Entity\History $history
+     */
+    public function removeHistory(\AppBundle\Entity\History $history)
+    {
+        $this->history->removeElement($history);
+    }
+
+    /**
+     * Get history
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getHistory()
     {
         return $this->history;
     }
-
-    /**
-     * @param mixed $history
-     */
-    public function setHistory($history)
-    {
-        $this->history = $history;
-    }
-
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
-     */
-    private $history;
-
-
 }
-
