@@ -7,7 +7,6 @@
  use Sonata\AdminBundle\Form\FormMapper;
  use Sonata\CoreBundle\Form\Type\DatePickerType;
  use Symfony\Component\Form\Extension\Core\Type\TimeType;
-
  use Symfony\Bridge\Doctrine\Form\Type\EntityType;
  use AppBundle\Entity\Patient;
  use AppBundle\Entity\Doctor;

@@ -24,14 +24,14 @@ class Schedule
     /**
      * @var string
      *
-     * @ORM\Column(name="Day", type="string", length=10, nullable=false)
+     * @ORM\Column(name="Day", type="string", length=30, nullable=false)
      */
     private $day;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Worktime", type="string", length=10, nullable=true)
+     * @ORM\Column(name="Worktime", type="string", length=50, nullable=true)
      */
     private $worktime;
 
