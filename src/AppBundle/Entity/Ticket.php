@@ -114,7 +114,7 @@ class Ticket
     public function setPatient(Patient $patient = null)
     {
         $this->patient = $patient;
-
+        $patient->addTicket($this);
         return $this;
     }
 
@@ -138,7 +138,7 @@ class Ticket
     public function setDoctor(Doctor $doctor = null)
     {
         $this->doctor = $doctor;
-
+        $doctor->addTicket($this);
         return $this;
     }
 

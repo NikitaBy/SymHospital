@@ -140,4 +140,9 @@ class Disease
     {
         return $this->history;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getName();
+    }
 }

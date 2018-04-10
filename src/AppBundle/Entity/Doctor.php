@@ -159,7 +159,7 @@ class Doctor
      */
     public function getLastname()
     {
-        return $this->lastname;
+        return (string) $this->lastname;
     }
 
     /**

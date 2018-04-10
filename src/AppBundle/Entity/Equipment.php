@@ -21,69 +21,7 @@ class Equipment
      */
     private $idE;
 
-    /**
-     * @return int
-     */
-    public function getIdE()
-    {
-        return $this->idE;
-    }
 
-    /**
-     * @param int $idE
-     */
-    public function setIdE($idE)
-    {
-        $this->idE = $idE;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getApplication()
-    {
-        return $this->application;
-    }
-
-    /**
-     * @param string $application
-     */
-    public function setApplication($application)
-    {
-        $this->application = $application;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRoom()
-    {
-        return $this->room;
-    }
-
-    /**
-     * @param mixed $room
-     */
-    public function setRoom($room)
-    {
-        $this->room = $room;
-    }
 
     /**
      * @var string
@@ -105,5 +43,104 @@ class Equipment
     private $room;
 
 
-}
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->room = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get idE
+     *
+     * @return integer
+     */
+    public function getIdE()
+    {
+        return $this->idE;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Equipment
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set application
+     *
+     * @param string $application
+     *
+     * @return Equipment
+     */
+    public function setApplication($application)
+    {
+        $this->application = $application;
+
+        return $this;
+    }
+
+    /**
+     * Get application
+     *
+     * @return string
+     */
+    public function getApplication()
+    {
+        return $this->application;
+    }
+
+    /**
+     * Add room
+     *
+     * @param Room $room
+     *
+     * @return Equipment
+     */
+    public function addRoom(Room $room)
+    {
+        $this->room[] = $room;
+
+        return $this;
+    }
+
+    /**
+     * Remove room
+     *
+     * @param Room $room
+     */
+    public function removeRoom(Room $room)
+    {
+        $this->room->removeElement($room);
+    }
+
+    /**
+     * Get room
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRoom()
+    {
+        return $this->room;
+    }
+}

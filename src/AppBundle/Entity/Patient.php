@@ -56,7 +56,7 @@ class Patient
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\History", mappedBy="patient")
      */
     private $history;
 
@@ -210,6 +210,11 @@ class Patient
         return $this->ticket;
     }
 
+    public function __toString()
+    {
+        return (string) $this->getLastname();
+    }
+
     /**
      * Add history
      *
@@ -242,18 +247,5 @@ class Patient
     public function getHistory()
     {
         return $this->history;
-    }
-
-    /**
-     * @param mixed $history
-     */
-    public function setHistory($history): void
-    {
-        $this->history = $history;
-    }
-
-    public function __toString()
-    {
-        return (string) $this->getLastname();
     }
 }

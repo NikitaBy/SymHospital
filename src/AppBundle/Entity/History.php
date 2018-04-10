@@ -44,7 +44,7 @@ class History
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Patient")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Patient", inversedBy="history")
      */
     private $patient;
 
@@ -59,7 +59,7 @@ class History
     private $disease;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Medicine")
+     * @ORM\ManyToMany(targetEntity=Medicine::class)
      */
     private $medicine;
     /**
@@ -101,11 +101,11 @@ class History
     /**
      * Get visitdate
      *
-     * @return \DateTime
+     * @return string
      */
     public function getVisitdate()
     {
-        return $this->visitdate;
+        return  $this->visitdate->format('Y-M-d');
     }
 
     /**
@@ -125,11 +125,11 @@ class History
     /**
      * Get cureperiod
      *
-     * @return \DateTime
+     * @return string
      */
     public function getCureperiod()
     {
-        return $this->cureperiod;
+        return $this->cureperiod->format('Y-M-d');
     }
 
     /**
@@ -142,7 +142,7 @@ class History
     public function addDoctor(Doctor $doctor)
     {
         $this->doctor[] = $doctor;
-
+        $doctor->addHistory($this);
         return $this;
     }
 
@@ -173,32 +173,7 @@ class History
      *
      * @return History
      */
-    public function addPatient(Patient $patient)
-    {
-        $this->patient[] = $patient;
-        $patient->setHistory();
-        return $this;
-    }
 
-    /**
-     * Remove patient
-     *
-     * @param Patient $patient
-     */
-    public function removePatient(Patient $patient)
-    {
-        $this->patient->removeElement($patient);
-    }
-
-    /**
-     * Get patient
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPatient()
-    {
-        return $this->patient;
-    }
 
     /**
      * Add symptom
@@ -210,7 +185,7 @@ class History
     public function addSymptom(Symptoms $symptom)
     {
         $this->symptoms[] = $symptom;
-
+        $symptom->addHistory($this);
         return $this;
     }
 
@@ -244,7 +219,7 @@ class History
     public function addDisease(Disease $disease)
     {
         $this->disease[] = $disease;
-
+        $disease->addHistory($this);
         return $this;
     }
 
@@ -300,5 +275,29 @@ class History
     public function getMedicine()
     {
         return $this->medicine;
+    }
+
+    /**
+     * Set patient
+     *
+     * @param Patient $patient
+     *
+     * @return History
+     */
+    public function setPatient(Patient $patient = null)
+    {
+        $this->patient = $patient;
+        $patient->addHistory($this);
+        return $this;
+    }
+
+    /**
+     * Get patient
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPatient()
+    {
+        return $this->patient;
     }
 }
