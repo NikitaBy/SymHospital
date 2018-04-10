@@ -5,9 +5,8 @@
  use Sonata\AdminBundle\Datagrid\ListMapper;
  use Sonata\AdminBundle\Datagrid\DatagridMapper;
  use Sonata\AdminBundle\Form\FormMapper;
- use Symfony\Component\Form\Extension\Core\Type\TextType;
+ use Sonata\CoreBundle\Form\Type\DatePickerType;
  use Symfony\Component\Form\Extension\Core\Type\TimeType;
- use Symfony\Component\Form\Extension\Core\Type\DateType;
 
  use Symfony\Bridge\Doctrine\Form\Type\EntityType;
  use AppBundle\Entity\Patient;
@@ -22,7 +21,7 @@
                  'class' => Patient::class,
                  'choice_label' => 'lastname',
              ]);
-         $formMapper->add('visitDate', DateType::class);
+         $formMapper->add('visitDate', DatePickerType::class, array('format'=>'dd-MMM-yyyy'));
          $formMapper->add('visitTime', TimeType::class);
 
          $formMapper->add('doctor', EntityType::class, [

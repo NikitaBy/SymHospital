@@ -6,7 +6,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Form\Type\ModelType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 use AppBundle\Entity\Room;
@@ -18,15 +18,15 @@ class DoctorAdmin extends AbstractAdmin
         $formMapper->add('firstname', TextType::class);
         $formMapper->add('midlname', TextType::class);
         $formMapper->add('lastname', TextType::class);
-        $formMapper->add('room', ModelType::class, [
+        $formMapper->add('room', EntityType::class, [
             'multiple' => true,
             'class' => Room::class,
-            'property' => 'number',
+            //'property' => 'number',
         ]);
-        $formMapper->add('specialty', ModelType::class, [
+        $formMapper->add('specialty', EntityType::class, [
             'multiple' => true,
             'class' => Specialty::class,
-            'property' => 'spec',
+            //'property' => 'spec',
         ]);
     }
 

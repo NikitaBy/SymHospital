@@ -60,13 +60,23 @@ class HistoryAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
+        $datagridMapper->add('patient');
+        $datagridMapper->add('doctor');
+        $datagridMapper->add('symptoms');
+        $datagridMapper->add('disease');
+        $datagridMapper->add('medicine');
         $datagridMapper->add('visitDate', 'doctrine_orm_date', array('field_type'=>'sonata_type_date_picker',));
         $datagridMapper->add('curePeriod', 'doctrine_orm_date', array('field_type'=>'sonata_type_date_picker',));
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->add('visitDate');
-        $listMapper->add('curePeriod');
+        $listMapper->add('patient');
+        $listMapper->add('doctor');
+        $listMapper->add('symptoms');
+        $listMapper->add('disease');
+        $listMapper->add('medicine');
+        $listMapper->add('visitDate', 'date', array('format'=>'d-M-Y'));
+        $listMapper->add('curePeriod', 'date', array('format'=>'d-M-Y'));
     }
 }

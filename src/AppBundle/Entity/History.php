@@ -54,7 +54,7 @@ class History
     private $symptoms;
 
     /**
-     *
+     * @ORM\ManyToMany(targetEntity=Disease::class)
      */
     private $disease;
 
@@ -101,11 +101,11 @@ class History
     /**
      * Get visitdate
      *
-     * @return string
+     * @return \DateTime
      */
     public function getVisitdate()
     {
-        return  $this->visitdate->format('Y-M-d');
+        return $this->visitdate;
     }
 
     /**
@@ -125,11 +125,11 @@ class History
     /**
      * Get cureperiod
      *
-     * @return string
+     * @return \DateTime
      */
     public function getCureperiod()
     {
-        return $this->cureperiod->format('Y-M-d');
+        return $this->cureperiod;
     }
 
     /**
