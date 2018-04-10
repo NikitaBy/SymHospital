@@ -110,11 +110,11 @@ class Schedule
     /**
      * Add doctor
      *
-     * @param \AppBundle\Entity\Doctor $doctor
+     * @param Doctor $doctor
      *
      * @return Schedule
      */
-    public function addDoctor(\AppBundle\Entity\Doctor $doctor)
+    public function addDoctor(Doctor $doctor)
     {
         $this->doctor[] = $doctor;
 
@@ -124,9 +124,9 @@ class Schedule
     /**
      * Remove doctor
      *
-     * @param \AppBundle\Entity\Doctor $doctor
+     * @param Doctor $doctor
      */
-    public function removeDoctor(\AppBundle\Entity\Doctor $doctor)
+    public function removeDoctor(Doctor $doctor)
     {
         $this->doctor->removeElement($doctor);
     }

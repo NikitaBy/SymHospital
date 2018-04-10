@@ -339,4 +339,9 @@ class Doctor
     {
         return $this->room;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getLastname();
+    }
 }

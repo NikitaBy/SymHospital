@@ -5,6 +5,7 @@
  use Sonata\AdminBundle\Datagrid\ListMapper;
  use Sonata\AdminBundle\Datagrid\DatagridMapper;
  use Sonata\AdminBundle\Form\FormMapper;
+ use Symfony\Component\Form\Extension\Core\Type\TextType;
  use Symfony\Component\Form\Extension\Core\Type\TimeType;
  use Symfony\Component\Form\Extension\Core\Type\DateType;
 
@@ -32,14 +33,19 @@
 
      protected function configureDatagridFilters(DatagridMapper $datagridMapper)
      {
+         $datagridMapper->add('patient');
          $datagridMapper->add('visitDate');
          $datagridMapper->add('visitTime');
+         $datagridMapper->add('doctor');
+         //$datagridMapper->add('room');
      }
 
      protected function configureListFields(ListMapper $listMapper)
      {
+         $listMapper->add('patient');
          $listMapper->add('visitDate');
          $listMapper->add('visitTime');
+         $listMapper->add('doctor');
      }
 
  }

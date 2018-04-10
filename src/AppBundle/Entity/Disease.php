@@ -36,6 +36,10 @@ class Disease
      */
     private $domain;
 
+    /**
+     *  @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
+     */
+    private $history;
 
 
     /**
@@ -94,5 +98,46 @@ class Disease
     public function getDomain()
     {
         return $this->domain;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->history = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add history
+     *
+     * @param History $history
+     *
+     * @return Disease
+     */
+    public function addHistory(History $history)
+    {
+        $this->history[] = $history;
+
+        return $this;
+    }
+
+    /**
+     * Remove history
+     *
+     * @param History $history
+     */
+    public function removeHistory(History $history)
+    {
+        $this->history->removeElement($history);
+    }
+
+    /**
+     * Get history
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getHistory()
+    {
+        return $this->history;
     }
 }

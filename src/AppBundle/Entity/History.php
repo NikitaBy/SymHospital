@@ -25,7 +25,7 @@ class History
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="VisitDate", type="datetime", nullable=false)
+     * @ORM\Column( type="datetime", nullable=false)
      */
     private $visitdate;
 
@@ -54,7 +54,7 @@ class History
     private $symptoms;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Disease")
+     *
      */
     private $disease;
 
@@ -135,11 +135,11 @@ class History
     /**
      * Add doctor
      *
-     * @param \AppBundle\Entity\Doctor $doctor
+     * @param Doctor $doctor
      *
      * @return History
      */
-    public function addDoctor(\AppBundle\Entity\Doctor $doctor)
+    public function addDoctor(Doctor $doctor)
     {
         $this->doctor[] = $doctor;
 
@@ -149,9 +149,9 @@ class History
     /**
      * Remove doctor
      *
-     * @param \AppBundle\Entity\Doctor $doctor
+     * @param Doctor $doctor
      */
-    public function removeDoctor(\AppBundle\Entity\Doctor $doctor)
+    public function removeDoctor(Doctor $doctor)
     {
         $this->doctor->removeElement($doctor);
     }
@@ -169,23 +169,23 @@ class History
     /**
      * Add patient
      *
-     * @param \AppBundle\Entity\Patient $patient
+     * @param Patient $patient
      *
      * @return History
      */
-    public function addPatient(\AppBundle\Entity\Patient $patient)
+    public function addPatient(Patient $patient)
     {
         $this->patient[] = $patient;
-
+        $patient->setHistory();
         return $this;
     }
 
     /**
      * Remove patient
      *
-     * @param \AppBundle\Entity\Patient $patient
+     * @param Patient $patient
      */
-    public function removePatient(\AppBundle\Entity\Patient $patient)
+    public function removePatient(Patient $patient)
     {
         $this->patient->removeElement($patient);
     }
@@ -203,11 +203,11 @@ class History
     /**
      * Add symptom
      *
-     * @param \AppBundle\Entity\Symptoms $symptom
+     * @param Symptoms $symptom
      *
      * @return History
      */
-    public function addSymptom(\AppBundle\Entity\Symptoms $symptom)
+    public function addSymptom(Symptoms $symptom)
     {
         $this->symptoms[] = $symptom;
 
@@ -217,9 +217,9 @@ class History
     /**
      * Remove symptom
      *
-     * @param \AppBundle\Entity\Symptoms $symptom
+     * @param Symptoms $symptom
      */
-    public function removeSymptom(\AppBundle\Entity\Symptoms $symptom)
+    public function removeSymptom(Symptoms $symptom)
     {
         $this->symptoms->removeElement($symptom);
     }
@@ -237,11 +237,11 @@ class History
     /**
      * Add disease
      *
-     * @param \AppBundle\Entity\Disease $disease
+     * @param Disease $disease
      *
      * @return History
      */
-    public function addDisease(\AppBundle\Entity\Disease $disease)
+    public function addDisease(Disease $disease)
     {
         $this->disease[] = $disease;
 
@@ -251,9 +251,9 @@ class History
     /**
      * Remove disease
      *
-     * @param \AppBundle\Entity\Disease $disease
+     * @param Disease $disease
      */
-    public function removeDisease(\AppBundle\Entity\Disease $disease)
+    public function removeDisease(Disease $disease)
     {
         $this->disease->removeElement($disease);
     }
@@ -271,11 +271,11 @@ class History
     /**
      * Add medicine
      *
-     * @param \AppBundle\Entity\Medicine $medicine
+     * @param Medicine $medicine
      *
      * @return History
      */
-    public function addMedicine(\AppBundle\Entity\Medicine $medicine)
+    public function addMedicine(Medicine $medicine)
     {
         $this->medicine[] = $medicine;
 
@@ -285,9 +285,9 @@ class History
     /**
      * Remove medicine
      *
-     * @param \AppBundle\Entity\Medicine $medicine
+     * @param Medicine $medicine
      */
-    public function removeMedicine(\AppBundle\Entity\Medicine $medicine)
+    public function removeMedicine(Medicine $medicine)
     {
         $this->medicine->removeElement($medicine);
     }

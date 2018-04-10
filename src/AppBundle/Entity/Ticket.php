@@ -107,11 +107,11 @@ class Ticket
     /**
      * Set patient
      *
-     * @param \AppBundle\Entity\Patient $patient
+     * @param Patient $patient
      *
      * @return Ticket
      */
-    public function setPatient(\AppBundle\Entity\Patient $patient = null)
+    public function setPatient(Patient $patient = null)
     {
         $this->patient = $patient;
 
@@ -121,7 +121,7 @@ class Ticket
     /**
      * Get patient
      *
-     * @return \AppBundle\Entity\Patient
+     * @return Patient
      */
     public function getPatient()
     {
@@ -131,11 +131,11 @@ class Ticket
     /**
      * Set doctor
      *
-     * @param \AppBundle\Entity\Doctor $doctor
+     * @param Doctor $doctor
      *
      * @return Ticket
      */
-    public function setDoctor(\AppBundle\Entity\Doctor $doctor = null)
+    public function setDoctor(Doctor $doctor = null)
     {
         $this->doctor = $doctor;
 
@@ -145,7 +145,7 @@ class Ticket
     /**
      * Get doctor
      *
-     * @return \AppBundle\Entity\Doctor
+     * @return Doctor
      */
     public function getDoctor()
     {

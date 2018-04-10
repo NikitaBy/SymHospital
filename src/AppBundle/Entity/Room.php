@@ -186,4 +186,9 @@ class Room
     {
         return $this->equipment;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getNumber();
+    }
 }

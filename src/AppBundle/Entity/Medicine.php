@@ -110,11 +110,11 @@ class Medicine
     /**
      * Add history
      *
-     * @param \AppBundle\Entity\History $history
+     * @param History $history
      *
      * @return Medicine
      */
-    public function addHistory(\AppBundle\Entity\History $history)
+    public function addHistory(History $history)
     {
         $this->history[] = $history;
 
@@ -124,9 +124,9 @@ class Medicine
     /**
      * Remove history
      *
-     * @param \AppBundle\Entity\History $history
+     * @param History $history
      */
-    public function removeHistory(\AppBundle\Entity\History $history)
+    public function removeHistory(History $history)
     {
         $this->history->removeElement($history);
     }

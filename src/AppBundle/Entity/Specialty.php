@@ -109,11 +109,11 @@ class Specialty
     /**
      * Add doctor
      *
-     * @param \AppBundle\Entity\Doctor $doctor
+     * @param Doctor $doctor
      *
      * @return Specialty
      */
-    public function addDoctor(\AppBundle\Entity\Doctor $doctor)
+    public function addDoctor(Doctor $doctor)
     {
         $this->doctor[] = $doctor;
 
@@ -123,9 +123,9 @@ class Specialty
     /**
      * Remove doctor
      *
-     * @param \AppBundle\Entity\Doctor $doctor
+     * @param Doctor $doctor
      */
-    public function removeDoctor(\AppBundle\Entity\Doctor $doctor)
+    public function removeDoctor(Doctor $doctor)
     {
         $this->doctor->removeElement($doctor);
     }
@@ -139,4 +139,11 @@ class Specialty
     {
         return $this->doctor;
     }
+
+    public function __toString()
+    {
+        //return (string) $this->getIdS();
+        return $this->getSpec().' '.$this->getDomain();
+    }
+
 }

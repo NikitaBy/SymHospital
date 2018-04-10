@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Admin;
 
+use AppBundle\Entity\Specialty;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -22,6 +23,11 @@ class DoctorAdmin extends AbstractAdmin
             'class' => Room::class,
             'property' => 'number',
         ]);
+        $formMapper->add('specialty', ModelType::class, [
+            'multiple' => true,
+            'class' => Specialty::class,
+            'property' => 'spec',
+        ]);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -29,12 +35,16 @@ class DoctorAdmin extends AbstractAdmin
         $datagridMapper->add('firstname');
         $datagridMapper->add('midlname');
         $datagridMapper->add('lastname');
+        $datagridMapper->add('room');
+        $datagridMapper->add('specialty');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('firstName');
-        $listMapper->addIdentifier('midlName');
-        $listMapper->addIdentifier('lastName');
+        $listMapper->add('firstName');
+        $listMapper->add('midlName');
+        $listMapper->add('lastName');
+        $listMapper->add('room');
+        $listMapper->add('specialty');
     }
 }

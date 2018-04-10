@@ -179,11 +179,11 @@ class Patient
     /**
      * Add ticket
      *
-     * @param \AppBundle\Entity\Ticket $ticket
+     * @param Ticket $ticket
      *
      * @return Patient
      */
-    public function addTicket(\AppBundle\Entity\Ticket $ticket)
+    public function addTicket(Ticket $ticket)
     {
         $this->ticket[] = $ticket;
 
@@ -193,9 +193,9 @@ class Patient
     /**
      * Remove ticket
      *
-     * @param \AppBundle\Entity\Ticket $ticket
+     * @param Ticket $ticket
      */
-    public function removeTicket(\AppBundle\Entity\Ticket $ticket)
+    public function removeTicket(Ticket $ticket)
     {
         $this->ticket->removeElement($ticket);
     }
@@ -213,11 +213,11 @@ class Patient
     /**
      * Add history
      *
-     * @param \AppBundle\Entity\History $history
+     * @param History $history
      *
      * @return Patient
      */
-    public function addHistory(\AppBundle\Entity\History $history)
+    public function addHistory(History $history)
     {
         $this->history[] = $history;
 
@@ -227,9 +227,9 @@ class Patient
     /**
      * Remove history
      *
-     * @param \AppBundle\Entity\History $history
+     * @param History $history
      */
-    public function removeHistory(\AppBundle\Entity\History $history)
+    public function removeHistory(History $history)
     {
         $this->history->removeElement($history);
     }
@@ -242,5 +242,18 @@ class Patient
     public function getHistory()
     {
         return $this->history;
+    }
+
+    /**
+     * @param mixed $history
+     */
+    public function setHistory($history): void
+    {
+        $this->history = $history;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getLastname();
     }
 }

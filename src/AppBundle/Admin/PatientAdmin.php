@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 
 class PatientAdmin extends AbstractAdmin
@@ -15,7 +16,7 @@ class PatientAdmin extends AbstractAdmin
         $formMapper->add('firstname', TextType::class);
         $formMapper->add('midlname', TextType::class);
         $formMapper->add('lastname', TextType::class);
-      //  $formMapper->add('age', DateType::class);
+        $formMapper->add('age', DateType::class);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
