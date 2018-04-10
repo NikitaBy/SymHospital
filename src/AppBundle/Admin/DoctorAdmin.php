@@ -18,6 +18,7 @@ class DoctorAdmin extends AbstractAdmin
         $formMapper->add('midlname', TextType::class);
         $formMapper->add('lastname', TextType::class);
         $formMapper->add('room', ModelType::class, [
+            'multiple' => true,
             'class' => Room::class,
             'property' => 'number',
         ]);
