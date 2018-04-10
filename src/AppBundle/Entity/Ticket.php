@@ -49,35 +49,11 @@ class Ticket
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set patient
-     *
-     * @param mixed $patient
-     *
-     * @return Ticket
-     */
-    public function setPatient($patient)
-    {
-        $this->patient = $patient;
-
-        return $this;
-    }
-
-    /**
-     * Get patient
-     *
-     * @return mixed
-     */
-    public function getPatient()
-    {
-        return $this->patient;
     }
 
     /**
@@ -129,13 +105,37 @@ class Ticket
     }
 
     /**
-     * Set doctor
+     * Set patient
      *
-     * @param string $doctor
+     * @param \AppBundle\Entity\Patient $patient
      *
      * @return Ticket
      */
-    public function setDoctor($doctor)
+    public function setPatient(\AppBundle\Entity\Patient $patient = null)
+    {
+        $this->patient = $patient;
+
+        return $this;
+    }
+
+    /**
+     * Get patient
+     *
+     * @return \AppBundle\Entity\Patient
+     */
+    public function getPatient()
+    {
+        return $this->patient;
+    }
+
+    /**
+     * Set doctor
+     *
+     * @param \AppBundle\Entity\Doctor $doctor
+     *
+     * @return Ticket
+     */
+    public function setDoctor(\AppBundle\Entity\Doctor $doctor = null)
     {
         $this->doctor = $doctor;
 
@@ -145,11 +145,10 @@ class Ticket
     /**
      * Get doctor
      *
-     * @return string
+     * @return \AppBundle\Entity\Doctor
      */
     public function getDoctor()
     {
         return $this->doctor;
     }
 }
-

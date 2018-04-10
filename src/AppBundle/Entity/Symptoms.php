@@ -29,7 +29,22 @@ class Symptoms
     private $description;
 
     /**
-     * @return int
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
+     */
+    private $history;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->history = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get idS
+     *
+     * @return integer
      */
     public function getIdS()
     {
@@ -37,14 +52,22 @@ class Symptoms
     }
 
     /**
-     * @param int $idS
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Symptoms
      */
-    public function setIdS($idS)
+    public function setDescription($description)
     {
-        $this->idS = $idS;
+        $this->description = $description;
+
+        return $this;
     }
 
     /**
+     * Get description
+     *
      * @return string
      */
     public function getDescription()
@@ -53,33 +76,36 @@ class Symptoms
     }
 
     /**
-     * @param string $description
+     * Add history
+     *
+     * @param \AppBundle\Entity\History $history
+     *
+     * @return Symptoms
      */
-    public function setDescription($description)
+    public function addHistory(\AppBundle\Entity\History $history)
     {
-        $this->description = $description;
+        $this->history[] = $history;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Remove history
+     *
+     * @param \AppBundle\Entity\History $history
+     */
+    public function removeHistory(\AppBundle\Entity\History $history)
+    {
+        $this->history->removeElement($history);
+    }
+
+    /**
+     * Get history
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getHistory()
     {
         return $this->history;
     }
-
-    /**
-     * @param mixed $history
-     */
-    public function setHistory($history)
-    {
-        $this->history = $history;
-    }
-
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
-     */
-    private $history;
-
 }
-

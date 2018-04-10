@@ -40,8 +40,19 @@ class Schedule
      */
     private $doctor;
 
+
     /**
-     * @return int
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->doctor = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get idSch
+     *
+     * @return integer
      */
     public function getIdSch()
     {
@@ -49,14 +60,22 @@ class Schedule
     }
 
     /**
-     * @param int $idSch
+     * Set day
+     *
+     * @param string $day
+     *
+     * @return Schedule
      */
-    public function setIdSch($idSch)
+    public function setDay($day)
     {
-        $this->idSch = $idSch;
+        $this->day = $day;
+
+        return $this;
     }
 
     /**
+     * Get day
+     *
      * @return string
      */
     public function getDay()
@@ -65,14 +84,22 @@ class Schedule
     }
 
     /**
-     * @param string $day
+     * Set worktime
+     *
+     * @param string $worktime
+     *
+     * @return Schedule
      */
-    public function setDay($day)
+    public function setWorktime($worktime)
     {
-        $this->day = $day;
+        $this->worktime = $worktime;
+
+        return $this;
     }
 
     /**
+     * Get worktime
+     *
      * @return string
      */
     public function getWorktime()
@@ -81,28 +108,36 @@ class Schedule
     }
 
     /**
-     * @param string $worktime
+     * Add doctor
+     *
+     * @param \AppBundle\Entity\Doctor $doctor
+     *
+     * @return Schedule
      */
-    public function setWorktime($worktime)
+    public function addDoctor(\AppBundle\Entity\Doctor $doctor)
     {
-        $this->worktime = $worktime;
+        $this->doctor[] = $doctor;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Remove doctor
+     *
+     * @param \AppBundle\Entity\Doctor $doctor
+     */
+    public function removeDoctor(\AppBundle\Entity\Doctor $doctor)
+    {
+        $this->doctor->removeElement($doctor);
+    }
+
+    /**
+     * Get doctor
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getDoctor()
     {
         return $this->doctor;
     }
-
-    /**
-     * @param mixed $doctor
-     */
-    public function setDoctor($doctor)
-    {
-        $this->doctor = $doctor;
-    }
-
 }
-

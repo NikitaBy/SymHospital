@@ -12,36 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Disease
 {
-    /**
-     * @return string
-     */
-    public function getDomain()
-    {
-        return $this->domain;
-    }
 
-    /**
-     * @param string $domain
-     */
-    public function setDomain($domain)
-    {
-        $this->domain = $domain;
-    }
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
     /**
      * @var integer
      *
@@ -50,14 +21,6 @@ class Disease
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * @var string
@@ -74,5 +37,62 @@ class Disease
     private $domain;
 
 
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Disease
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set domain
+     *
+     * @param string $domain
+     *
+     * @return Disease
+     */
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Get domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->domain;
+    }
+}
