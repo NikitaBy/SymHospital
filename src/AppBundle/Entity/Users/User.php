@@ -27,12 +27,41 @@ class User extends BaseUser
 
 
     const ROLE_DEFAULT = 'ROLE_PATIENT';
-
     const ROLE_DOCTOR = 'ROLE_DOCTOR';
-
     const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
-//    public function __construct()
-//    {
-//        parent::__construct();
-//    }
+
+
+
+    public function __construct()
+    {
+       //parent::__construct();
+       // $this->roles->
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="UserRole", mappedBy="user")
+     */
+    protected $roles;
+
+
+
+
+    /**
+     * Get role
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+    * @param mixed $role
+    */
+    public function setRoles($role): void
+    {
+        $this->roles = $role;
+    }
+
 }
