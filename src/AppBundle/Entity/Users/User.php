@@ -25,8 +25,14 @@ class User extends BaseUser
      */
     protected $id;
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
+
+    const ROLE_DEFAULT = 'ROLE_PATIENT';
+
+    const ROLE_DOCTOR = 'ROLE_DOCTOR';
+
+    const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
+//    public function __construct()
+//    {
+//        parent::__construct();
+//    }
 }

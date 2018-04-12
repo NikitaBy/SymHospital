@@ -1,7 +1,9 @@
 {% trans_default_domain 'FOSUserBundle' %}
-{% extends "::base.html.twig" %}
+{#{% extends "::base.html.twig" %}#}
 
 {% block fos_user_content %}
+
+    <link rel="stylesheet" href="{{ asset('public/css/login_stylesheet.css') }}" >
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}

@@ -110,7 +110,8 @@ fos_user:
         sender_name: Demo App
 
 assetic:
-    debug: '%kernel.debug%'
-    use_controller: '%kernel.debug%'
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ ]
     filters:
         cssrewrite: ~
