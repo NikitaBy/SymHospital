@@ -32,36 +32,50 @@ class User extends BaseUser
 
 
 
-    public function __construct()
-    {
-       //parent::__construct();
-       // $this->roles->
-    }
+//    public function __construct()
+//    {
+//       //parent::__construct();
+//       // $this->roles->
+//    }
 
     /**
      * @ORM\OneToMany(targetEntity="UserRole", mappedBy="user")
      */
-    protected $roles;
-
+    protected $usr_roles;
 
 
 
     /**
-     * Get role
+     * Add usrRole
+     *
+     * @param UserRole $usrRole
+     *
+     * @return User
+     */
+    public function addUsrRole(UserRole $usrRole)
+    {
+        $this->usr_roles[] = $usrRole;
+
+        return $this;
+    }
+
+    /**
+     * Remove usrRole
+     *
+     * @param UserRole $usrRole
+     */
+    public function removeUsrRole(UserRole $usrRole)
+    {
+        $this->usr_roles->removeElement($usrRole);
+    }
+
+    /**
+     * Get usrRoles
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getRoles()
+    public function getUsrRoles()
     {
-        return $this->roles;
+        return $this->usr_roles;
     }
-
-    /**
-    * @param mixed $role
-    */
-    public function setRoles($role): void
-    {
-        $this->roles = $role;
-    }
-
 }
