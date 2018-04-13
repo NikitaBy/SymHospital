@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Users\User;
 
 
 /**
@@ -26,7 +27,7 @@ class Doctor
 
 
     /**
-     * @ORM\OneToMany(targetEntity=Ticket, mappedBy="doctor")
+     * @ORM\OneToMany(targetEntity=Ticket::class, mappedBy="doctor")
      */
     private $ticket;
 
@@ -49,6 +50,12 @@ class Doctor
      * @ORM\ManyToMany(targetEntity=Room::class)
      */
     private $room;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class)
+     */
+    private $userId;
+
     /**
      * Constructor
      */
@@ -251,4 +258,28 @@ class Doctor
     }
 
 
+
+    /**
+     * Set userId
+     *
+     * @param User $userId
+     *
+     * @return Doctor
+     */
+    public function setUserId(User $userId = null)
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get userId
+     *
+     * @return User
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
 }

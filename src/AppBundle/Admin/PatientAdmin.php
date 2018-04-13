@@ -13,29 +13,27 @@ class PatientAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('firstname', TextType::class);
-        $formMapper->add('midlname', TextType::class);
-        $formMapper->add('lastname', TextType::class);
+        $formMapper->add('app.user.firstName', TextType::class);
+        $formMapper->add('app.user.middleName', TextType::class);
+        $formMapper->add('app.user.lastName', TextType::class);
         $formMapper->add('age', DatePickerType::class, array('format'=>'yyyy-MMM-dd'));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('firstname');
-        $datagridMapper->add('midlname');
-        $datagridMapper->add('lastname');
+        $datagridMapper->add('app.user.firstName');
+        $datagridMapper->add('app.user.middleName');
+        $datagridMapper->add('app.user.lastName');
         $datagridMapper->add('age');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->add('First Name');
-        $listMapper->add('Midl Name');
+        $listMapper->add('Middle Name');
         $listMapper->add('Last Name');
         $listMapper->add('Age', 'date', ['format'=>'d-M-Y']);
-       /* $listMapper->add('Age', 'date', [
 
-        ]);*/
     }
 
 

@@ -15,9 +15,9 @@ class DoctorAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('firstname', TextType::class);
-        $formMapper->add('midlname', TextType::class);
-        $formMapper->add('lastname', TextType::class);
+        $formMapper->add('app.user.firstName', TextType::class);
+        $formMapper->add('app.user.middleName', TextType::class);
+        $formMapper->add('app.user.lastName', TextType::class);
         $formMapper->add('room', EntityType::class, [
             'multiple' => true,
             'class' => Room::class,
@@ -32,18 +32,18 @@ class DoctorAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('firstname');
-        $datagridMapper->add('midlname');
-        $datagridMapper->add('lastname');
+        $datagridMapper->add('app.user.firstName');
+        $datagridMapper->add('app.user.middleName');
+        $datagridMapper->add('app.user.lastName');
         $datagridMapper->add('room');
         $datagridMapper->add('specialty');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->add('firstName');
-        $listMapper->add('midlName');
-        $listMapper->add('lastName');
+        $listMapper->add('First Name');
+        $listMapper->add('Middle Name');
+        $listMapper->add('Last Name');
         $listMapper->add('room');
         $listMapper->add('specialty');
     }

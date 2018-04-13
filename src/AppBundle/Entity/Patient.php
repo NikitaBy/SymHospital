@@ -129,7 +129,7 @@ class Patient
 
     public function __toString()
     {
-        return (string) $this->userId->getLastName();
+        return (string) $this->userId;
     }
 
     /**
