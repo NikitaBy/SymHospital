@@ -20,7 +20,7 @@ class Symptoms
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idS;
+    private $id;
 
     /**
      * @var string
@@ -47,9 +47,9 @@ class Symptoms
      *
      * @return integer
      */
-    public function getIdS()
+    public function getId()
     {
-        return $this->idS;
+        return $this->id;
     }
 
     /**

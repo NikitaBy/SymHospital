@@ -23,7 +23,7 @@ class Doctor
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idD;
+    private $id;
 
 
     /**
@@ -54,7 +54,7 @@ class Doctor
     /**
      * @ORM\OneToOne(targetEntity=User::class)
      */
-    private $userId;
+    private $user;
 
     /**
      * Constructor
@@ -73,9 +73,9 @@ class Doctor
      *
      * @return integer
      */
-    public function getIdD()
+    public function getId()
     {
-        return $this->idD;
+        return $this->id;
     }
 
 
@@ -262,13 +262,13 @@ class Doctor
     /**
      * Set userId
      *
-     * @param User $userId
+     * @param User $user
      *
      * @return Doctor
      */
-    public function setUserId(User $userId = null)
+    public function setUser(User $user = null)
     {
-        $this->userId = $userId;
+        $this->user = $user;
 
         return $this;
     }
@@ -278,8 +278,8 @@ class Doctor
      *
      * @return User
      */
-    public function getUserId()
+    public function getUser()
     {
-        return $this->userId;
+        return $this->user;
     }
 }

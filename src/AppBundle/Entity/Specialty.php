@@ -21,7 +21,7 @@ class Specialty
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idS;
+    private $id;
 
     /**
      * @var string
@@ -55,9 +55,9 @@ class Specialty
      *
      * @return integer
      */
-    public function getIdS()
+    public function getId()
     {
-        return $this->idS;
+        return $this->id;
     }
 
     /**

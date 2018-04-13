@@ -21,7 +21,7 @@ class Medicine
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idM;
+    private $id;
 
      /**
      * @var string
@@ -56,9 +56,9 @@ class Medicine
      *
      * @return integer
      */
-    public function getIdM()
+    public function getId()
     {
-        return $this->idM;
+        return $this->id;
     }
 
     /**

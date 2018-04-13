@@ -21,7 +21,7 @@ class Schedule
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idSch;
+    private $id;
 
     /**
      * @var string
@@ -56,9 +56,9 @@ class Schedule
      *
      * @return integer
      */
-    public function getIdSch()
+    public function getId()
     {
-        return $this->idSch;
+        return $this->id;
     }
 
     /**

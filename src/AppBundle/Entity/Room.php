@@ -21,7 +21,7 @@ class Room
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idR;
+    private $id;
 
     /**
      * @var integer
@@ -60,9 +60,9 @@ class Room
      *
      * @return integer
      */
-    public function getIdR()
+    public function getId()
     {
-        return $this->idR;
+        return $this->id;
     }
 
     /**

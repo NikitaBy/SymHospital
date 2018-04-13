@@ -21,7 +21,7 @@ class History
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idH;
+    private $id;
 
 
     /**
@@ -46,7 +46,7 @@ class History
 
 
     /**
-     * @ORM\ManyToOne(targetEntity=Patient, inversedBy="history")
+     * @ORM\ManyToOne(targetEntity=Patient::class, inversedBy="history")
      */
     private $patient;
 
@@ -81,9 +81,9 @@ class History
      *
      * @return integer
      */
-    public function getIdH()
+    public function getId()
     {
-        return $this->idH;
+        return $this->id;
     }
 
     /**

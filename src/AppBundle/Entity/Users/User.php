@@ -42,7 +42,7 @@ class User extends BaseUser
     /**
      * @ORM\OneToMany(targetEntity="UserRole", mappedBy="user")
      */
-    protected $usr_roles;
+    protected $usrRoles;
 
     /**
      * @var string
@@ -67,6 +67,11 @@ class User extends BaseUser
 
 
 
+
+
+
+
+
     /**
      * Add usrRole
      *
@@ -76,7 +81,7 @@ class User extends BaseUser
      */
     public function addUsrRole(UserRole $usrRole)
     {
-        $this->usr_roles[] = $usrRole;
+        $this->usrRoles[] = $usrRole;
 
         return $this;
     }
@@ -88,7 +93,7 @@ class User extends BaseUser
      */
     public function removeUsrRole(UserRole $usrRole)
     {
-        $this->usr_roles->removeElement($usrRole);
+        $this->usrRoles->removeElement($usrRole);
     }
 
     /**
@@ -98,7 +103,7 @@ class User extends BaseUser
      */
     public function getUsrRoles()
     {
-        return $this->usr_roles;
+        return $this->usrRoles;
     }
 
     /**

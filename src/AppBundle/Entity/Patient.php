@@ -46,7 +46,7 @@ class Patient
     /**
      * @ORM\OneToOne(targetEntity=User::class)
      */
-    private $userId;
+    private $user;
 
 
     /**
@@ -129,7 +129,7 @@ class Patient
 
     public function __toString()
     {
-        return (string) $this->userId;
+        return (string) $this->user;
     }
 
     /**
@@ -169,5 +169,29 @@ class Patient
     public function getYrs()
     {
         return date('Y')-date('Y',strtotime($this->age));
+    }
+
+    /**
+     * Set userId
+     *
+     * @param User $user
+     *
+     * @return Patient
+     */
+    public function setUser(User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

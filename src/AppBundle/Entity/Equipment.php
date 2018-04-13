@@ -21,7 +21,7 @@ class Equipment
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idE;
+    private $id;
 
 
 
@@ -59,9 +59,9 @@ class Equipment
      *
      * @return integer
      */
-    public function getIdE()
+    public function getId()
     {
-        return $this->idE;
+        return $this->id;
     }
 
     /**
