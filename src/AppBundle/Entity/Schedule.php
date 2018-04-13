@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,7 +17,7 @@ class Schedule
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -24,19 +26,19 @@ class Schedule
     /**
      * @var string
      *
-     * @ORM\Column(name="Day", type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $day;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Worktime", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $worktime;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor")
+     * @ORM\ManyToMany(targetEntity=Doctor::class)
      */
     private $doctor;
 
@@ -46,7 +48,7 @@ class Schedule
      */
     public function __construct()
     {
-        $this->doctor = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->doctor = new ArrayCollection();
     }
 
     /**
@@ -134,7 +136,7 @@ class Schedule
     /**
      * Get doctor
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getDoctor()
     {

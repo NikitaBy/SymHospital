@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity\Users;
 
+use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -43,6 +44,27 @@ class User extends BaseUser
      */
     protected $usr_roles;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=10, nullable=false)
+     */
+    private $firstName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=10, nullable=false)
+     */
+    private $middleName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column( type="string", length=10, nullable=false)
+     */
+    private $lastName;
+
 
 
     /**
@@ -72,10 +94,87 @@ class User extends BaseUser
     /**
      * Get usrRoles
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getUsrRoles()
     {
         return $this->usr_roles;
+    }
+
+    /**
+     * Set firstName
+     *
+     * @param string $firstName
+     *
+     * @return User
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get firstName
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set midleName
+     *
+     * @param string $middleName
+     *
+     * @return User
+     */
+    public function setMiddleName($middleName)
+    {
+        $this->middleName = $middleName;
+
+        return $this;
+    }
+
+    /**
+     * Get midleName
+     *
+     * @return string
+     */
+    public function getMiddleName()
+    {
+        return $this->middleName;
+    }
+
+    /**
+     * Set lastName
+     *
+     * @param string $lastName
+     *
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    public function __toString()
+    {
+        return $this->getFirstName().' '.$this->getMiddleName().' '.$this->getLastName();
     }
 }

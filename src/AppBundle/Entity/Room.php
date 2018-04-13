@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,7 +17,7 @@ class Room
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -24,24 +26,24 @@ class Room
     /**
      * @var integer
      *
-     * @ORM\Column(name="Number", type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $number;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Type", type="string", length=20, nullable=false)
+     * @ORM\Column(type="string", length=20, nullable=false)
      */
     private $type;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor")
+     * @ORM\ManyToMany(targetEntity=Doctor::class)
      */
     private $doctor;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Equipment")
+     * @ORM\ManyToMany(targetEntity=Equipment::class)
      */
     private $equipment;
     /**
@@ -49,8 +51,8 @@ class Room
      */
     public function __construct()
     {
-        $this->doctor = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->equipment = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->doctor = new ArrayCollection();
+        $this->equipment = new ArrayCollection();
     }
 
     /**
@@ -138,7 +140,7 @@ class Room
     /**
      * Get doctor
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getDoctor()
     {
@@ -163,7 +165,7 @@ class Room
     public function addEquipment(Equipment $equipment)
     {
         $this->equipment[] = $equipment;
-        $equipment->setRoom($this);
+        $equipment->addRoom($this);
         return $this;
     }
 
@@ -180,7 +182,7 @@ class Room
     /**
      * Get equipment
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getEquipment()
     {

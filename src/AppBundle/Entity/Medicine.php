@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,19 +26,19 @@ class Medicine
      /**
      * @var string
      *
-     * @ORM\Column(name="Name", type="string", length=15, nullable=false)
+     * @ORM\Column(type="string", length=15, nullable=false)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Type", type="string", length=15, nullable=false)
+     * @ORM\Column(type="string", length=15, nullable=false)
      */
     private $type;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
+     * @ORM\ManyToMany(targetEntity=History::class)
      */
     private $history;
 
@@ -46,7 +48,7 @@ class Medicine
      */
     public function __construct()
     {
-        $this->history = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->history = new ArrayCollection();
     }
 
     /**
@@ -134,7 +136,7 @@ class Medicine
     /**
      * Get history
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getHistory()
     {

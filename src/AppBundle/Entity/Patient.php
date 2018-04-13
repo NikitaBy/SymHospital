@@ -2,7 +2,10 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Users\User;
 
 /**
  * Patient
@@ -15,50 +18,35 @@ class Patient
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="FirstName", type="string", length=10, nullable=false)
-     */
-    private $firstname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="MidlName", type="string", length=15, nullable=true)
-     */
-    private $midlname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="LastName", type="string", length=15, nullable=false)
-     */
-    private $lastname;
+    
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="Age", type="datetime", nullable=false)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $age;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Ticket", mappedBy="patient")
+     * @ORM\OneToMany(targetEntity=Ticket::class, mappedBy="patient")
      */
     private $ticket;
 
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\History", mappedBy="patient")
+     * @ORM\OneToMany(targetEntity=History::class, mappedBy="patient")
      */
     private $history;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class)
+     */
+    private $userId;
 
 
     /**
@@ -66,8 +54,8 @@ class Patient
      */
     public function __construct()
     {
-        $this->ticket = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->history = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->ticket = new ArrayCollection();
+        $this->history = new ArrayCollection();
     }
 
     /**
@@ -80,78 +68,7 @@ class Patient
         return $this->id;
     }
 
-    /**
-     * Set firstname
-     *
-     * @param string $firstname
-     *
-     * @return Patient
-     */
-    public function setFirstname($firstname)
-    {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    /**
-     * Get firstname
-     *
-     * @return string
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-
-    /**
-     * Set midlname
-     *
-     * @param string $midlname
-     *
-     * @return Patient
-     */
-    public function setMidlname($midlname)
-    {
-        $this->midlname = $midlname;
-
-        return $this;
-    }
-
-    /**
-     * Get midlname
-     *
-     * @return string
-     */
-    public function getMidlname()
-    {
-        return $this->midlname;
-    }
-
-    /**
-     * Set lastname
-     *
-     * @param string $lastname
-     *
-     * @return Patient
-     */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    /**
-     * Get lastname
-     *
-     * @return string
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
-    }
-
+    
     /**
      * Set age
      *
@@ -203,7 +120,7 @@ class Patient
     /**
      * Get ticket
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getTicket()
     {
@@ -212,7 +129,7 @@ class Patient
 
     public function __toString()
     {
-        return (string) $this->getLastname();
+        return (string) $this->userId->getLastName();
     }
 
     /**
@@ -242,7 +159,7 @@ class Patient
     /**
      * Get history
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getHistory()
     {

@@ -15,33 +15,33 @@ class Ticket
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Patient", inversedBy="ticket")
+     * @ORM\ManyToOne(targetEntity=Patient::class, inversedBy="ticket")
      */
     private $patient;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="visit_date", type="date")
+     * @ORM\Column(type="date")
      */
     private $visitDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="visit_time", type="time")
+     * @ORM\Column(type="time")
      */
     private $visitTime;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Doctor", inversedBy="ticket")
+     * @ORM\ManyToOne(targetEntity=Doctor::class, inversedBy="ticket")
      */
     private $doctor;
 

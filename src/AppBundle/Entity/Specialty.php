@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,7 +17,7 @@ class Specialty
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -24,19 +26,19 @@ class Specialty
     /**
      * @var string
      *
-     * @ORM\Column(name="Spec", type="string", length=15, nullable=false)
+     * @ORM\Column(type="string", length=15, nullable=false)
      */
     private $spec;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Domain", type="string", length=15, nullable=true)
+     * @ORM\Column(type="string", length=15, nullable=true)
      */
     private $domain;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor")
+     * @ORM\ManyToMany(targetEntity=Doctor::class)
      */
     private $doctor;
 
@@ -45,7 +47,7 @@ class Specialty
      */
     public function __construct()
     {
-        $this->doctor = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->doctor = new ArrayCollection();
     }
 
     /**
@@ -133,7 +135,7 @@ class Specialty
     /**
      * Get doctor
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getDoctor()
     {

@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -16,7 +18,7 @@ class Doctor
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -24,48 +26,27 @@ class Doctor
 
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="FirstName", type="string", length=10, nullable=false)
-     */
-    private $firstname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="MidlName", type="string", length=15, nullable=true)
-     */
-    private $midlname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="LastName", type="string", length=15, nullable=false)
-     */
-    private $lastname;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Ticket", mappedBy="doctor")
+     * @ORM\OneToMany(targetEntity=Ticket, mappedBy="doctor")
      */
     private $ticket;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
+     * @ORM\ManyToMany(targetEntity=History::class)
      */
     private $history;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Specialty")
+     * @ORM\ManyToMany(targetEntity=Specialty::class)
      */
     private $specialty;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Schedule")
+     * @ORM\ManyToMany(targetEntity=Schedule::class)
      */
     private $schedule;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Room")
+     * @ORM\ManyToMany(targetEntity=Room::class)
      */
     private $room;
     /**
@@ -73,11 +54,11 @@ class Doctor
      */
     public function __construct()
     {
-        $this->ticket = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->history = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->specialty = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->schedule = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->room = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->ticket = new ArrayCollection();
+        $this->history = new ArrayCollection();
+        $this->specialty = new ArrayCollection();
+        $this->schedule = new ArrayCollection();
+        $this->room = new ArrayCollection();
     }
 
     /**
@@ -90,77 +71,6 @@ class Doctor
         return $this->idD;
     }
 
-    /**
-     * Set firstname
-     *
-     * @param string $firstname
-     *
-     * @return Doctor
-     */
-    public function setFirstname($firstname)
-    {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    /**
-     * Get firstname
-     *
-     * @return string
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-
-    /**
-     * Set midlname
-     *
-     * @param string $midlname
-     *
-     * @return Doctor
-     */
-    public function setMidlname($midlname)
-    {
-        $this->midlname = $midlname;
-
-        return $this;
-    }
-
-    /**
-     * Get midlname
-     *
-     * @return string
-     */
-    public function getMidlname()
-    {
-        return $this->midlname;
-    }
-
-    /**
-     * Set lastname
-     *
-     * @param string $lastname
-     *
-     * @return Doctor
-     */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    /**
-     * Get lastname
-     *
-     * @return string
-     */
-    public function getLastname()
-    {
-        return (string) $this->lastname;
-    }
 
     /**
      * Add ticket
@@ -189,7 +99,7 @@ class Doctor
     /**
      * Get ticket
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getTicket()
     {
@@ -223,7 +133,7 @@ class Doctor
     /**
      * Get history
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getHistory()
     {
@@ -257,7 +167,7 @@ class Doctor
     /**
      * Get specialty
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getSpecialty()
     {
@@ -291,7 +201,7 @@ class Doctor
     /**
      * Get schedule
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getSchedule()
     {
@@ -333,15 +243,12 @@ class Doctor
     /**
      * Get room
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getRoom()
     {
         return $this->room;
     }
 
-    public function __toString()
-    {
-        return (string) $this->getLastname();
-    }
+
 }

@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,7 +17,7 @@ class Equipment
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -26,19 +28,19 @@ class Equipment
     /**
      * @var string
      *
-     * @ORM\Column(name="Name", type="string", length=20, nullable=false)
+     * @ORM\Column(type="string", length=20, nullable=false)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Application", type="string", length=20, nullable=false)
+     * @ORM\Column(type="string", length=20, nullable=false)
      */
     private $application;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Room")
+     * @ORM\ManyToMany(targetEntity=Room::class)
      */
     private $room;
 
@@ -49,7 +51,7 @@ class Equipment
      */
     public function __construct()
     {
-        $this->room = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->room = new ArrayCollection();
     }
 
     /**
@@ -137,7 +139,7 @@ class Equipment
     /**
      * Get room
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getRoom()
     {

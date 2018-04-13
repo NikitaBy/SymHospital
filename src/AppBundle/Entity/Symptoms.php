@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,7 +16,7 @@ class Symptoms
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -24,12 +25,12 @@ class Symptoms
     /**
      * @var string
      *
-     * @ORM\Column(name="Description", type="string", length=30, nullable=false)
+     * @ORM\Column(type="string", length=30, nullable=false)
      */
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\History")
+     * @ORM\ManyToMany(targetEntity=History::class)
      */
     private $history;
 
@@ -38,7 +39,7 @@ class Symptoms
      */
     public function __construct()
     {
-        $this->history = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->history = new ArrayCollection();
     }
 
     /**

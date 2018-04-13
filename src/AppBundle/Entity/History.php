@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,7 +17,7 @@ class History
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -32,24 +34,24 @@ class History
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="CurePeriod", type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $cureperiod;
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Doctor")
+     * @ORM\ManyToMany(targetEntity=Doctor::class)
      */
     private $doctor;
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Patient", inversedBy="history")
+     * @ORM\ManyToOne(targetEntity=Patient, inversedBy="history")
      */
     private $patient;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Symptoms")
+     * @ORM\ManyToMany(targetEntity=Symptoms::class)
      */
     private $symptoms;
 
@@ -67,11 +69,11 @@ class History
      */
     public function __construct()
     {
-        $this->doctor = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->patient = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->symptoms = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->disease = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->medicine = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->doctor = new ArrayCollection();
+        $this->patient = new ArrayCollection();
+        $this->symptoms = new ArrayCollection();
+        $this->disease = new ArrayCollection();
+        $this->medicine = new ArrayCollection();
     }
 
     /**
@@ -159,7 +161,7 @@ class History
     /**
      * Get doctor
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getDoctor()
     {
@@ -202,7 +204,7 @@ class History
     /**
      * Get symptoms
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getSymptoms()
     {
@@ -236,7 +238,7 @@ class History
     /**
      * Get disease
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getDisease()
     {
@@ -270,7 +272,7 @@ class History
     /**
      * Get medicine
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getMedicine()
     {
@@ -294,7 +296,7 @@ class History
     /**
      * Get patient
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getPatient()
     {
