@@ -28,15 +28,17 @@ class HistoryAdmin extends AbstractAdmin
 
         $formMapper->add('patient', EntityType::class, [
             'class' => Patient::class,
-            'choice_label' => 'lastName',
+            'choice_label' => 'user.lastName',
         ]);
         $formMapper->add('doctor', EntityType::class, [
             'multiple'=>true,
             'class' => Doctor::class,
-            'choice_label' => function (Doctor $doctor)
-            {
-                return $doctor->getUser();
-            },
+            'choice_label' => 'user.lastName',
+
+            //            'choice_label' => function (Doctor $doctor)
+//            {
+//                return $doctor->getUser();
+//            },
         ]);
         $formMapper->add('symptoms', EntityType::class, [
             'multiple'=>true,

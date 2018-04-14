@@ -18,14 +18,14 @@
      {
          $formMapper->add('patient', EntityType::class, [
                  'class' => Patient::class,
-                 'choice_label' => 'lastName',
+                 'choice_label' => 'user.lastName',
              ]);
          $formMapper->add('visitDate', DatePickerType::class, array('format'=>'dd-MMM-yyyy'));
          $formMapper->add('visitTime', TimeType::class);
 
          $formMapper->add('doctor', EntityType::class, [
              'class' => Doctor::class,
-             'choice_label' => 'lasName',
+             'choice_label' => 'user.lastName',
          ]);
      }
 
