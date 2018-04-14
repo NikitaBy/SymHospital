@@ -43,5 +43,6 @@ class UserAdmin extends AbstractAdmin
         $listMapper->add('username');
         $listMapper->add('email');
         $listMapper->add('password');
+        $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
     }
 }

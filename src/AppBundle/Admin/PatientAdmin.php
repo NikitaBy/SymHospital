@@ -3,12 +3,13 @@ namespace AppBundle\Admin;
 
 use AppBundle\Entity\Patient;
 use FOS\UserBundle\Model\UserManager;
+use FOS\UserBundle\Util\PasswordUpdaterInterface;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\CoreBundle\Form\Type\DatePickerType;
-
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class PatientAdmin extends AbstractAdmin
 {
@@ -16,6 +17,11 @@ class PatientAdmin extends AbstractAdmin
      * @var UserManager
      */
     protected $userManager;
+
+    /**
+     * @var UserPasswordEncoderInterface
+     */
+    protected $encoder;
 
     /**
      * @param UserManager $userManager
@@ -59,6 +65,7 @@ class PatientAdmin extends AbstractAdmin
         /** @var Patient $patient */
         $patient =  parent::getNewInstance();
         $user = $this->userManager->createUser();
+        $this->encoder->encodePassword($user,$user->getPassword());
         $patient->setUser($user);
         return $patient;
     }
