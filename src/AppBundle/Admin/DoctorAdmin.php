@@ -44,5 +44,7 @@ class DoctorAdmin extends AbstractAdmin
         $listMapper->add('Last Name');
         $listMapper->add('room');
         $listMapper->add('specialty');
+        $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
+
     }
 }

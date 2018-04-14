@@ -28,14 +28,14 @@ class HistoryAdmin extends AbstractAdmin
 
         $formMapper->add('patient', EntityType::class, [
             'class' => Patient::class,
-            'choice_label' => 'lastname',
+            'choice_label' => 'lastName',
         ]);
         $formMapper->add('doctor', EntityType::class, [
             'multiple'=>true,
             'class' => Doctor::class,
             'choice_label' => function (Doctor $doctor)
             {
-                return $doctor->getLastname();
+                return $doctor->getUser();
             },
         ]);
         $formMapper->add('symptoms', EntityType::class, [
@@ -54,8 +54,8 @@ class HistoryAdmin extends AbstractAdmin
            // 'choice_label' => 'name',
         ]);
 
-        $formMapper->add('visitDate', DatePickerType::class, array('format'=>'yyyy-MM-dd'));
-        $formMapper->add('curePeriod', DatePickerType::class, array('format'=>'yyyy-MM-dd'));
+        $formMapper->add('visitDate', DatePickerType::class);//, array('format'=>'yyyy-MM-dd'));
+        $formMapper->add('curePeriod', DatePickerType::class);//, array('format'=>'yyyy-MM-dd'));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -76,7 +76,9 @@ class HistoryAdmin extends AbstractAdmin
         $listMapper->add('symptoms');
         $listMapper->add('disease');
         $listMapper->add('medicine');
-        $listMapper->add('visitDate', 'date', array('format'=>'d-M-Y'));
-        $listMapper->add('curePeriod', 'date', array('format'=>'d-M-Y'));
+        $listMapper->add('visitDate', 'date');//, array('format'=>'d-M-Y'));
+        $listMapper->add('curePeriod', 'date');//, array('format'=>'d-M-Y'));
+        $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
+
     }
 }

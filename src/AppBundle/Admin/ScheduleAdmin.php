@@ -20,18 +20,19 @@ class ScheduleAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->add('day', TextType::class);
-        $formMapper->add('worktime', TextType::class);
+        $formMapper->add('workTime', TextType::class);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper->add('day');
-        $datagridMapper->add('worktime');
+        $datagridMapper->add('workTime');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->add('day');
-        $listMapper->add('worktime');
+        $listMapper->add('workTime');
+        $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
     }
 }

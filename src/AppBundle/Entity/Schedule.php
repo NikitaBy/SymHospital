@@ -35,7 +35,7 @@ class Schedule
      *
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $worktime;
+    private $workTime;
 
     /**
      * @ORM\ManyToMany(targetEntity=Doctor::class)
@@ -88,13 +88,13 @@ class Schedule
     /**
      * Set worktime
      *
-     * @param string $worktime
+     * @param string $workTime
      *
      * @return Schedule
      */
-    public function setWorktime($worktime)
+    public function setWorkTime($workTime)
     {
-        $this->worktime = $worktime;
+        $this->workTime = $workTime;
 
         return $this;
     }
@@ -104,9 +104,9 @@ class Schedule
      *
      * @return string
      */
-    public function getWorktime()
+    public function getWorkTime()
     {
-        return $this->worktime;
+        return $this->workTime;
     }
 
     /**

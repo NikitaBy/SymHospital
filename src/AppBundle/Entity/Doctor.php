@@ -282,4 +282,9 @@ class Doctor
     {
         return $this->user;
     }
+
+    public function __toString()
+    {
+        return (string) $this->user;
+    }
 }

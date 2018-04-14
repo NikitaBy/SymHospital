@@ -15,7 +15,7 @@ class PatientAdmin extends AbstractAdmin
         $formMapper->add('user.firstName');
         $formMapper->add('user.middleName');
         $formMapper->add('user.lastName');
-        $formMapper->add('birthDate', DatePickerType::class, array('format'=>'yyyy-MMM-dd'));
+        $formMapper->add('birthDate', DatePickerType::class);//, array('format'=>'yyyy-MMM-dd'));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -31,7 +31,7 @@ class PatientAdmin extends AbstractAdmin
         $listMapper->add('user.firstName');
         $listMapper->add('user.middleName');
         $listMapper->add('user.lastName');
-        $listMapper->add('birthDate', 'date', ['format'=>'d-M-Y']);
+        $listMapper->add('birthDate', 'date');//, ['format'=>'d-M-Y']);
         $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
 
     }

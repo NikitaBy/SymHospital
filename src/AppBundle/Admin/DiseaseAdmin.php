@@ -32,5 +32,6 @@ class DiseaseAdmin extends AbstractAdmin
     {
         $listMapper->add('name');
         $listMapper->add('domain');
+        $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
     }
 }

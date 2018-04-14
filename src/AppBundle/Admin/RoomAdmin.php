@@ -49,5 +49,6 @@ class RoomAdmin extends AbstractAdmin
         $listMapper->add('number');
         $listMapper->add('type');
         $listMapper->add('equipment');
+        $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
     }
 }

@@ -18,14 +18,14 @@
      {
          $formMapper->add('patient', EntityType::class, [
                  'class' => Patient::class,
-                 'choice_label' => 'lastname',
+                 'choice_label' => 'lastName',
              ]);
          $formMapper->add('visitDate', DatePickerType::class, array('format'=>'dd-MMM-yyyy'));
          $formMapper->add('visitTime', TimeType::class);
 
          $formMapper->add('doctor', EntityType::class, [
              'class' => Doctor::class,
-             'choice_label' => 'lastname',
+             'choice_label' => 'lasName',
          ]);
      }
 
@@ -35,7 +35,6 @@
          $datagridMapper->add('visitDate');
          $datagridMapper->add('visitTime');
          $datagridMapper->add('doctor');
-         //$datagridMapper->add('room');
      }
 
      protected function configureListFields(ListMapper $listMapper)
@@ -44,6 +43,8 @@
          $listMapper->add('visitDate');
          $listMapper->add('visitTime');
          $listMapper->add('doctor');
+         $listMapper->add('doctor.room');
+         $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
      }
 
  }

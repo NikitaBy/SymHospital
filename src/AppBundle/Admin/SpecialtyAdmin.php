@@ -32,6 +32,7 @@ class SpecialtyAdmin extends AbstractAdmin
     {
         $listMapper->add('spec');
         $listMapper->add('domain');
+        $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
     }
 }
 

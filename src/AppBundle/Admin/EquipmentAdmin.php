@@ -33,5 +33,7 @@ class EquipmentAdmin extends AbstractAdmin
     {
         $listMapper->add('name');
         $listMapper->add('application');
+        $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
+
     }
 }

@@ -34,5 +34,6 @@ class MedicineAdmin extends AbstractAdmin
     {
         $listMapper->add('name');
         $listMapper->add('type');
+        $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
     }
 }
