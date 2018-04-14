@@ -37,6 +37,8 @@ services:
     admin.patient:
         class: AppBundle\Admin\PatientAdmin
         arguments: [~, AppBundle\Entity\Patient, ~]
+        calls:
+            - [setUserManager, ['@fos_user.user_manager']]
         tags:
             - { name: sonata.admin, manager_type: orm,  group: Admin, label: Patient }
         public: true
@@ -51,6 +53,8 @@ services:
     admin.doctor:
         class: AppBundle\Admin\DoctorAdmin
         arguments: [~, AppBundle\Entity\Doctor, ~]
+        calls:
+            - [setUserManager, ['@fos_user.user_manager']]
         tags:
             - { name: sonata.admin, manager_type: orm,  group: Admin, label: Doctor }
         public: true

@@ -44,7 +44,7 @@ class Patient
     private $history;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class)
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist"})
      */
     private $user;
 

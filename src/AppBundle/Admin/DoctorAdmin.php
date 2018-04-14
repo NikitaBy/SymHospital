@@ -1,23 +1,40 @@
 <?php
 namespace AppBundle\Admin;
 
+use AppBundle\Entity\Doctor;
 use AppBundle\Entity\Specialty;
+use FOS\UserBundle\Model\UserManager;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 use AppBundle\Entity\Room;
 
 class DoctorAdmin extends AbstractAdmin
 {
+    /**
+     * @var UserManager
+     */
+    protected $userManager;
+
+    /**
+     * @param UserManager $userManager
+     */
+    public function setUserManager(UserManager $userManager)
+    {
+        $this->userManager = $userManager;
+    }
+
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('user.firstName', TextType::class);
-        $formMapper->add('user.middleName', TextType::class);
-        $formMapper->add('user.lastName', TextType::class);
+        $formMapper->add('user.firstName');
+        $formMapper->add('user.middleName');
+        $formMapper->add('user.lastName');
+        $formMapper->add('user.username');
+        $formMapper->add('user.email');
+        $formMapper->add('user.password');
         $formMapper->add('room', EntityType::class, [
             'multiple' => true,
             'class' => Room::class,
@@ -39,12 +56,21 @@ class DoctorAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->add('First Name');
-        $listMapper->add('Middle Name');
-        $listMapper->add('Last Name');
+        $listMapper->add('user.firstName');
+        $listMapper->add('user.middleName');
+        $listMapper->add('user.lastName');
         $listMapper->add('room');
         $listMapper->add('specialty');
         $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
 
+    }
+
+    public function getNewInstance()
+    {
+        /**@var Doctor $doctor*/
+        $doctor = parent::getNewInstance();
+        $user=$this->userManager->createUser();
+        $doctor->setUser($user);
+        return $doctor;
     }
 }
