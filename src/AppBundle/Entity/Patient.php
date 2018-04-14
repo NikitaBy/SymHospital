@@ -10,7 +10,7 @@ use AppBundle\Entity\Users\User;
 /**
  * Patient
  *
- * @ORM\Table(name="patient")
+ * @ORM\Table
  * @ORM\Entity
  */
 class Patient
@@ -30,7 +30,7 @@ class Patient
      *
      * @ORM\Column(type="datetime", nullable=false)
      */
-    private $age;
+    private $birthDate;
 
     /**
      * @ORM\OneToMany(targetEntity=Ticket::class, mappedBy="patient")
@@ -70,27 +70,27 @@ class Patient
 
     
     /**
-     * Set age
+     * Set birthDate
      *
-     * @param \DateTime $age
+     * @param \DateTime $birthDate
      *
      * @return Patient
      */
-    public function setAge($age)
+    public function setBirthDate($birthDate)
     {
-        $this->age = $age;
+        $this->birthDate = $birthDate;
 
         return $this;
     }
 
     /**
-     * Get age
+     * Get birthDate
      *
      * @return \DateTime
      */
-    public function getAge()
+    public function getBirthDate()
     {
-        return $this->age;
+        return $this->birthDate;
     }
 
     /**
@@ -168,7 +168,7 @@ class Patient
 
     public function getYrs()
     {
-        return date('Y')-date('Y',strtotime($this->age));
+        return date('Y')-date('Y',strtotime($this->birthDate));
     }
 
     /**

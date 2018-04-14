@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Specialty
  *
- * @ORM\Table(name="specialty")
+ * @ORM\Table
  * @ORM\Entity
  */
 class Specialty

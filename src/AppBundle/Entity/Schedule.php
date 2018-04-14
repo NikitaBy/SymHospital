@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Schedule
  *
- * @ORM\Table(name="schedule")
+ * @ORM\Table
  * @ORM\Entity
  */
 class Schedule

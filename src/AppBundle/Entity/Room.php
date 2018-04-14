@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Room
  *
- * @ORM\Table(name="room")
+ * @ORM\Table
  * @ORM\Entity
  */
 class Room

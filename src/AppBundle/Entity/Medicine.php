@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Medicine
  *
- * @ORM\Table(name="medicine")
+ * @ORM\Table
  * @ORM\Entity
  */
 class Medicine
@@ -17,7 +17,7 @@ class Medicine
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */

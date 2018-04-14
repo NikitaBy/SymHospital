@@ -11,7 +11,7 @@ use AppBundle\Entity\Users\User;
 /**
  * Doctor
  *
- * @ORM\Table(name="doctor")
+ * @ORM\Table
  * @ORM\Entity
  */
 class Doctor

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Symptoms
  *
- * @ORM\Table(name="symptoms")
+ * @ORM\Table
  * @ORM\Entity
  */
 class Symptoms

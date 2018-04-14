@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * History
  *
- * @ORM\Table(name="history")
+ * @ORM\Table
  * @ORM\Entity(repositoryClass="HistoryRepository")
  */
 class History
