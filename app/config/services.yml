@@ -114,3 +114,10 @@ services:
                 tags:
                     - { name: sonata.admin, manager_type: orm,  group: Admin, label: Equipment }
                 public: true
+
+    admin.user_admin:
+                class: AppBundle\Admin\User\UserAdmin
+                arguments: [~, AppBundle\Entity\Users\User, ~]
+                tags:
+                    - { name: sonata.admin, manager_type: orm,  group: User, label: User }
+                public: true
