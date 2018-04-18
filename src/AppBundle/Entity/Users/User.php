@@ -65,13 +65,6 @@ class User extends BaseUser
      */
     private $lastName;
 
-
-
-
-
-
-
-
     /**
      * Add usrRole
      *

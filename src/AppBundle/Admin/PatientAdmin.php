@@ -3,7 +3,6 @@ namespace AppBundle\Admin;
 
 use AppBundle\Entity\Patient;
 use FOS\UserBundle\Model\UserManager;
-use FOS\UserBundle\Util\PasswordUpdaterInterface;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -38,7 +37,7 @@ class PatientAdmin extends AbstractAdmin
         $formMapper->add('user.lastName');
         $formMapper->add('user.username');
         $formMapper->add('user.email');
-        $formMapper->add('user.password');
+        $formMapper->add('user.plainPassword');
         $formMapper->add('birthDate', DatePickerType::class, array('format'=>'yyyy-MMM-dd'));
     }
 
@@ -65,7 +64,7 @@ class PatientAdmin extends AbstractAdmin
         /** @var Patient $patient */
         $patient =  parent::getNewInstance();
         $user = $this->userManager->createUser();
-        $this->encoder->encodePassword($user,$user->getPassword());
+        //$this->encoder->encodePassword($user,$user->getPassword());
         $patient->setUser($user);
         return $patient;
     }

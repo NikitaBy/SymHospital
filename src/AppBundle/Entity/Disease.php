@@ -39,7 +39,7 @@ class Disease
     private $domain;
 
     /**
-     *  @ORM\ManyToMany(targetEntity=History::class)
+     *  @ORM\ManyToMany(targetEntity=History::class, cascade={"persist", "remove"})
      */
     private $history;
 

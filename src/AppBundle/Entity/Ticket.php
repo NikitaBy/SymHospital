@@ -22,7 +22,7 @@ class Ticket
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Patient::class, inversedBy="ticket")
+     * @ORM\ManyToOne(targetEntity=Patient::class, inversedBy="ticket", cascade={"persist", "remove"},)
      */
     private $patient;
 
@@ -41,7 +41,7 @@ class Ticket
     private $visitTime;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Doctor::class, inversedBy="ticket")
+     * @ORM\ManyToOne(targetEntity=Doctor::class, inversedBy="ticket", cascade={"persist", "remove"},)
      */
     private $doctor;
 

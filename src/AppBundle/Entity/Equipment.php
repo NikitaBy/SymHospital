@@ -40,7 +40,7 @@ class Equipment
     private $application;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Room::class)
+     * @ORM\ManyToMany(targetEntity=Room::class,cascade={"persist", "remove"})
      */
     private $room;
 

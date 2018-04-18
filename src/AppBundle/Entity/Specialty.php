@@ -38,7 +38,7 @@ class Specialty
     private $domain;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Doctor::class)
+     * @ORM\ManyToMany(targetEntity=Doctor::class,cascade={"persist", "remove"})
      */
     private $doctor;
 

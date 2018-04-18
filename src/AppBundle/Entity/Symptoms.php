@@ -30,7 +30,7 @@ class Symptoms
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity=History::class)
+     * @ORM\ManyToMany(targetEntity=History::class,cascade={"persist", "remove"})
      */
     private $history;
 

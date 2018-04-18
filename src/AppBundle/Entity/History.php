@@ -40,28 +40,28 @@ class History
 
 
     /**
-     * @ORM\ManyToMany(targetEntity=Doctor::class)
+     * @ORM\ManyToMany(targetEntity=Doctor::class,cascade={"persist", "remove"})
      */
     private $doctor;
 
 
     /**
-     * @ORM\ManyToOne(targetEntity=Patient::class, inversedBy="history")
+     * @ORM\ManyToOne(targetEntity=Patient::class, inversedBy="history", cascade={"persist", "remove"})
      */
     private $patient;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Symptoms::class)
+     * @ORM\ManyToMany(targetEntity=Symptoms::class,cascade={"persist", "remove"})
      */
     private $symptoms;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Disease::class)
+     * @ORM\ManyToMany(targetEntity=Disease::class,cascade={"persist", "remove"})
      */
     private $disease;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Medicine::class)
+     * @ORM\ManyToMany(targetEntity=Medicine::class,cascade={"persist", "remove"})
      */
     private $medicine;
     /**

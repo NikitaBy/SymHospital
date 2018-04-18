@@ -38,7 +38,7 @@ class Schedule
     private $workTime;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Doctor::class)
+     * @ORM\ManyToMany(targetEntity=Doctor::class,cascade={"persist", "remove"})
      */
     private $doctor;
 

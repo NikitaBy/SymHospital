@@ -38,7 +38,7 @@ class Medicine
     private $type;
 
     /**
-     * @ORM\ManyToMany(targetEntity=History::class)
+     * @ORM\ManyToMany(targetEntity=History::class,cascade={"persist", "remove"})
      */
     private $history;
 

@@ -27,32 +27,32 @@ class Doctor
 
 
     /**
-     * @ORM\OneToMany(targetEntity=Ticket::class, mappedBy="doctor")
+     * @ORM\OneToMany(targetEntity=Ticket::class,cascade={"persist", "remove"}, mappedBy="doctor", cascade={"persist", "remove"})
      */
     private $ticket;
 
     /**
-     * @ORM\ManyToMany(targetEntity=History::class)
+     * @ORM\ManyToMany(targetEntity=History::class,cascade={"persist", "remove"})
      */
     private $history;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Specialty::class)
+     * @ORM\ManyToMany(targetEntity=Specialty::class,cascade={"persist", "remove"})
      */
     private $specialty;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Schedule::class)
+     * @ORM\ManyToMany(targetEntity=Schedule::class,cascade={"persist", "remove"})
      */
     private $schedule;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Room::class)
+     * @ORM\ManyToMany(targetEntity=Room::class,cascade={"persist", "remove"})
      */
     private $room;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class)
+     * @ORM\OneToOne(targetEntity=User::class,cascade={"persist", "remove"})
      */
     private $user;
 

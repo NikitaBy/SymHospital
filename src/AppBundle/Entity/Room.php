@@ -38,12 +38,12 @@ class Room
     private $type;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Doctor::class)
+     * @ORM\ManyToMany(targetEntity=Doctor::class,cascade={"persist", "remove"})
      */
     private $doctor;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Equipment::class)
+     * @ORM\ManyToMany(targetEntity=Equipment::class,cascade={"persist", "remove"})
      */
     private $equipment;
     /**

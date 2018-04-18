@@ -33,13 +33,13 @@ class Patient
     private $birthDate;
 
     /**
-     * @ORM\OneToMany(targetEntity=Ticket::class, mappedBy="patient")
+     * @ORM\OneToMany(targetEntity=Ticket::class, mappedBy="patient", cascade={"persist", "remove"})
      */
     private $ticket;
 
 
     /**
-     * @ORM\OneToMany(targetEntity=History::class, mappedBy="patient")
+     * @ORM\OneToMany(targetEntity=History::class, mappedBy="patient", cascade={"persist", "remove"})
      */
     private $history;
 
