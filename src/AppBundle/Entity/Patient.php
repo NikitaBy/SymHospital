@@ -11,7 +11,7 @@ use AppBundle\Entity\Users\User;
  * Patient
  *
  * @ORM\Table
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PatientRepository")
  */
 class Patient
 {

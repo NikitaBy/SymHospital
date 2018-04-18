@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\CoreBundle\Form\Type\DatePickerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class PatientAdmin extends AbstractAdmin
@@ -37,7 +38,7 @@ class PatientAdmin extends AbstractAdmin
         $formMapper->add('user.lastName');
         $formMapper->add('user.username');
         $formMapper->add('user.email');
-        $formMapper->add('user.plainPassword');
+        $formMapper->add('user.plainPassword', TextType::class);
         $formMapper->add('birthDate', DatePickerType::class, array('format'=>'yyyy-MMM-dd'));
     }
 
@@ -64,14 +65,8 @@ class PatientAdmin extends AbstractAdmin
         /** @var Patient $patient */
         $patient =  parent::getNewInstance();
         $user = $this->userManager->createUser();
-        //$this->encoder->encodePassword($user,$user->getPassword());
+        //$this->userManager->updatePassword($user);
         $patient->setUser($user);
         return $patient;
     }
 }
-/**
- * Created by PhpStorm.
- * User: zastr
- * Date: 10.03.2018
- * Time: 14:24
- */

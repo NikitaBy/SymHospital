@@ -12,6 +12,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UserAdmin extends AbstractAdmin
 {
@@ -22,7 +23,7 @@ class UserAdmin extends AbstractAdmin
         $formMapper->add('lastName');
         $formMapper->add('username');
         $formMapper->add('email');
-        $formMapper->add('password');
+        $formMapper->add('plainPassword', TextType::class);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
