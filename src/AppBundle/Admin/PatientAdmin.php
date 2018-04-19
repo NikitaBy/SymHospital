@@ -65,7 +65,6 @@ class PatientAdmin extends AbstractAdmin
         /** @var Patient $patient */
         $patient =  parent::getNewInstance();
         $user = $this->userManager->createUser();
-        //$this->userManager->updatePassword($user);
         $patient->setUser($user);
         return $patient;
     }

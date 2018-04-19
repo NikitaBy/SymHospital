@@ -12,7 +12,7 @@ use AppBundle\Entity\Users\User;
  * Doctor
  *
  * @ORM\Table
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\DoctorRepository")
  */
 class Doctor
 {

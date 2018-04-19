@@ -56,6 +56,7 @@ services:
         arguments: [~, AppBundle\Entity\Doctor, ~]
         calls:
             - [setUserManager, ['@fos_user.user_manager']]
+            - [setModelManager, ['@AppBundle\AdminProxy\DoctorModelManagerProxy']]
         tags:
             - { name: sonata.admin, manager_type: orm,  group: Admin, label: Doctor }
         public: true
@@ -145,5 +146,20 @@ services:
         class: AppBundle\Repository\PatientRepository
         factory: ['@doctrine.orm.default_entity_manager','getRepository']
         arguments: ['AppBundle\Entity\Patient']
+        calls:
+            - [setUserManager, ['@fos_user.user_manager']]
+
+    AppBundle\AdminProxy\DoctorModelManagerProxy:
+        class: AppBundle\AdminProxy\DoctorModelManagerProxy
+        parent: 'sonata.admin.manager.orm'
+        autowire: false
+        calls:
+            - [setDoctorRepository, ['@AppBundle\Repository\DoctorRepository']]
+        public: true
+
+    AppBundle\Repository\DoctorRepository:
+        class: AppBundle\Repository\DoctorRepository
+        factory: ['@doctrine.orm.default_entity_manager','getRepository']
+        arguments: ['AppBundle\Entity\Doctor']
         calls:
             - [setUserManager, ['@fos_user.user_manager']]

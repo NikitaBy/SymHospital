@@ -11,6 +11,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 use AppBundle\Entity\Room;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class DoctorAdmin extends AbstractAdmin
 {
@@ -34,7 +35,7 @@ class DoctorAdmin extends AbstractAdmin
         $formMapper->add('user.lastName');
         $formMapper->add('user.username');
         $formMapper->add('user.email');
-        $formMapper->add('user.password');
+        $formMapper->add('user.plainPassword', TextType::class, ['required'=>false]);
         $formMapper->add('room', EntityType::class, [
             'multiple' => true,
             'class' => Room::class,
