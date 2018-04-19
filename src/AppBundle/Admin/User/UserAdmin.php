@@ -23,7 +23,7 @@ class UserAdmin extends AbstractAdmin
         $formMapper->add('lastName');
         $formMapper->add('username');
         $formMapper->add('email');
-        $formMapper->add('plainPassword', TextType::class);
+        $formMapper->add('plainPassword', TextType::class, ['required'=>false]);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

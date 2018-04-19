@@ -38,7 +38,7 @@ class PatientAdmin extends AbstractAdmin
         $formMapper->add('user.lastName');
         $formMapper->add('user.username');
         $formMapper->add('user.email');
-        $formMapper->add('user.plainPassword', TextType::class);
+        $formMapper->add('user.plainPassword', TextType::class, ['required'=>false]);
         $formMapper->add('birthDate', DatePickerType::class, array('format'=>'yyyy-MMM-dd'));
     }
 
