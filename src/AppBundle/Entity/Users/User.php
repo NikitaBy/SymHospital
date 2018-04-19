@@ -40,7 +40,7 @@ class User extends BaseUser
 //    }
 
     /**
-     * @ORM\OneToMany(targetEntity="UserRole", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="UserRole", mappedBy="user", cascade={"persist", "remove"})
      */
     protected $usrRoles;
 

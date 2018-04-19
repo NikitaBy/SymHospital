@@ -22,9 +22,33 @@ class Role
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="UserRole", mappedBy="roles")
+     * @ORM\OneToMany(targetEntity="UserRole", mappedBy="roles", cascade={"persist", "remove"})
      */
     private $user;
+
+    /**
+     * @var string
+     *
+     *@ORM\Column(type="string", length=255, nullable=false)
+     */
+    private $userRole;
+
+    /**
+     * @return string
+     */
+    public function getUserRole()
+    {
+        return $this->userRole;
+    }
+
+    /**
+     * @param string $userRole
+     */
+    public function setUserRole(string $userRole)
+    {
+        $this->userRole = $userRole;
+    }
+
     /**
      * Constructor
      */

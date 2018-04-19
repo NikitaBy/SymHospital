@@ -25,13 +25,13 @@ class UserRole
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="role")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="role", cascade={"persist", "remove"})
      *
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Role", inversedBy="user")
+     * @ORM\ManyToOne(targetEntity="Role", inversedBy="user", cascade={"persist", "remove"})
      */
     private $roles;
 
