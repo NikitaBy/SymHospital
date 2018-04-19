@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: developer
- * Date: 4/12/18
- * Time: 3:17 PM
- */
 
 namespace AppBundle\Entity\Users;
 
@@ -13,13 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="role")
+ * @ORM\Table
  */
 class Role
 {
     const ROLE_DEFAULT = 'ROLE_PATIENT';
     const ROLE_DOCTOR = 'ROLE_DOCTOR';
-    const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
 
     /**
      * @ORM\Id
