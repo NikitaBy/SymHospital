@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Patient;
+use AppBundle\Entity\Users\UserRole;
 use Doctrine\ORM\EntityRepository;
 use FOS\UserBundle\Model\UserManager;
 
@@ -29,6 +30,7 @@ class PatientRepository extends EntityRepository
         $patient= new Patient();
         $user = $this->userManager->createUser();
         $patient->setUser($user);
+        $patient->getUser()->setEnabled(true);
         return $patient;
     }
 

@@ -25,13 +25,13 @@ class UserRole
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="role", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="role", cascade={"persist", "remove"})
      *
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Role", inversedBy="user", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=Role::class, inversedBy="user", cascade={"persist", "remove"})
      */
     private $roles;
 
@@ -72,21 +72,33 @@ class UserRole
     }
 
     /**
-     * Set role
+     * Constructor
+     */
+
+
+    public function __toString()
+    {
+        return (string) $this->getRoles();
+    }
+
+
+
+    /**
+     * Set roles
      *
-     * @param Role $role
+     * @param Role $roles
      *
      * @return UserRole
      */
-    public function setRoles(Role $role = null)
+    public function setRoles(Role $roles = null)
     {
-        $this->roles = $role;
+        $this->roles = $roles;
 
         return $this;
     }
 
     /**
-     * Get role
+     * Get roles
      *
      * @return Role
      */

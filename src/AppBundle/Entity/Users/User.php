@@ -8,7 +8,7 @@
 
 namespace AppBundle\Entity\Users;
 
-use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,18 +29,12 @@ class User extends BaseUser
 
     const ROLE_DEFAULT = 'ROLE_PATIENT';
     const ROLE_DOCTOR = 'ROLE_DOCTOR';
-    const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
 
 
 
-//    public function __construct()
-//    {
-//       //parent::__construct();
-//       // $this->roles->
-//    }
 
     /**
-     * @ORM\OneToMany(targetEntity="UserRole", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=UserRole::class, mappedBy="user", cascade={"persist", "remove"})
      */
     protected $usrRoles;
 
@@ -65,39 +59,12 @@ class User extends BaseUser
      */
     private $lastName;
 
-    /**
-     * Add usrRole
-     *
-     * @param UserRole $usrRole
-     *
-     * @return User
-     */
-    public function addUsrRole(UserRole $usrRole)
+    public function __construct()
     {
-        $this->usrRoles[] = $usrRole;
-
-        return $this;
+       parent::__construct();
+       $this->usrRoles=new ArrayCollection();
     }
 
-    /**
-     * Remove usrRole
-     *
-     * @param UserRole $usrRole
-     */
-    public function removeUsrRole(UserRole $usrRole)
-    {
-        $this->usrRoles->removeElement($usrRole);
-    }
-
-    /**
-     * Get usrRoles
-     *
-     * @return Collection
-     */
-    public function getUsrRoles()
-    {
-        return $this->usrRoles;
-    }
 
     /**
      * Set firstName
@@ -124,7 +91,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set midleName
+     * Set middleName
      *
      * @param string $middleName
      *
@@ -138,7 +105,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get midleName
+     * Get middleName
      *
      * @return string
      */
@@ -171,8 +138,38 @@ class User extends BaseUser
         return $this->lastName;
     }
 
-    public function __toString()
+    /**
+     * Add usrRole
+     *
+     * @param UserRole $usrRole
+     *
+     * @return User
+     */
+    public function addUsrRole(UserRole $usrRole)
     {
-        return $this->getFirstName().' '.$this->getMiddleName().' '.$this->getLastName();
+        $this->usrRoles[] = $usrRole;
+        $usrRole->setUser($this);
+        return $this;
+    }
+
+
+    /**
+     * Remove usrRole
+     *
+     * @param UserRole $usrRole
+     */
+    public function removeUsrRole(UserRole $usrRole)
+    {
+        $this->usrRoles->removeElement($usrRole);
+    }
+
+    /**
+     * Get usrRoles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsrRoles()
+    {
+        return $this->usrRoles;
     }
 }

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Users;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,7 +23,7 @@ class Role
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="UserRole", mappedBy="roles", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=UserRole::class, mappedBy="roles", cascade={"persist", "remove"})
      */
     private $user;
 
@@ -94,10 +95,15 @@ class Role
     /**
      * Get user
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getUser()
     {
         return $this->user;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getUserRole();
     }
 }

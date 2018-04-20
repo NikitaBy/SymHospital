@@ -66,6 +66,7 @@ class PatientAdmin extends AbstractAdmin
         $patient =  parent::getNewInstance();
         $user = $this->userManager->createUser();
         $patient->setUser($user);
+        $patient->getUser()->setEnabled(true);
         return $patient;
     }
 }

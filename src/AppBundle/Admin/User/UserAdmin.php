@@ -12,6 +12,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\CoreBundle\Form\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UserAdmin extends AbstractAdmin
@@ -24,6 +25,15 @@ class UserAdmin extends AbstractAdmin
         $formMapper->add('username');
         $formMapper->add('email');
         $formMapper->add('plainPassword', TextType::class, ['required'=>false]);
+        $formMapper->add('usrRoles', CollectionType::class,
+                        [
+                            'by_reference'=>false,
+                        ],
+                        [
+                            'edit'=>'inline',
+                            'inline'=>'table'
+                        ]);
+        $formMapper->add('enabled');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -34,6 +44,8 @@ class UserAdmin extends AbstractAdmin
         $datagridMapper->add('username');
         $datagridMapper->add('email');
         $datagridMapper->add('password');
+        $datagridMapper->add('usrRoles');
+        $datagridMapper->add('enabled');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -44,6 +56,10 @@ class UserAdmin extends AbstractAdmin
         $listMapper->add('username');
         $listMapper->add('email');
         $listMapper->add('password');
+        $listMapper->add('usrRoles');
+        $listMapper->add('enabled');
         $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
     }
+
 }
+
