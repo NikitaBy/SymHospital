@@ -29,10 +29,17 @@ class PatientModelManagerProxy extends ModelManager
         $this->patientRepository=$patientRepository;
     }
 
+    /**
+     * @param $object
+     *
+     * @throws ModelManagerException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
     public function create($object)
     {
         try {
-            $this->patientRepository->create();
+           $this->patientRepository->create();
+           $this->patientRepository->save($object);
         } catch (\PDOException $e) {
             throw new ModelManagerException(
                 sprintf('Failed to create object: %s', ClassUtils::getClass($object)),

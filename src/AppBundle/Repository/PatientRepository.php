@@ -24,6 +24,7 @@ class PatientRepository extends EntityRepository
 
     /**
      * @return Patient
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function create()
     {
@@ -31,7 +32,8 @@ class PatientRepository extends EntityRepository
         
         $user = $this->userManager->createUser();
         $user->setEnabled(true);
-        
+
+
         $patient->setUser($user);
         $user->setPatient($patient);
 
@@ -40,6 +42,7 @@ class PatientRepository extends EntityRepository
 
         $userRole->setRole($role);
         $user->addUserRole($userRole);
+
 
         return $patient;
     }

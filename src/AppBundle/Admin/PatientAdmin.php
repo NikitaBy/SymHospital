@@ -68,6 +68,10 @@ class PatientAdmin extends AbstractAdmin
 
     }
 
+    /**
+     * @return Patient|mixed
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
     public function getNewInstance()
     {
         return $this->patientRepository->create();

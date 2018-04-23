@@ -34,6 +34,11 @@ class Role
      */
     private $code;
 
+    public function __toString()
+    {
+        return (string) $this->getCode();
+    }
+
     /**
      * Constructor
      */

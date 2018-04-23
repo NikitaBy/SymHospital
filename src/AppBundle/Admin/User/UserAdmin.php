@@ -25,7 +25,7 @@ class UserAdmin extends AbstractAdmin
         $formMapper->add('username');
         $formMapper->add('email');
         $formMapper->add('plainPassword', TextType::class, ['required'=>false]);
-        $formMapper->add('usrRoles', CollectionType::class,
+        $formMapper->add('userRoles', CollectionType::class,
                         [
                             'by_reference'=>false,
                         ],
@@ -44,7 +44,7 @@ class UserAdmin extends AbstractAdmin
         $datagridMapper->add('username');
         $datagridMapper->add('email');
         $datagridMapper->add('password');
-        $datagridMapper->add('usrRoles');
+        $datagridMapper->add('userRoles');
         $datagridMapper->add('enabled');
     }
 
@@ -56,7 +56,7 @@ class UserAdmin extends AbstractAdmin
         $listMapper->add('username');
         $listMapper->add('email');
         $listMapper->add('password');
-        $listMapper->add('usrRoles');
+        $listMapper->add('userRoles');
         $listMapper->add('enabled');
         $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
     }
