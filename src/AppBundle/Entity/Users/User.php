@@ -1,13 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: developer
- * Date: 4/11/18
- * Time: 11:41 AM
- */
 
 namespace AppBundle\Entity\Users;
 
+use AppBundle\Entity\Doctor;
+use AppBundle\Entity\Patient;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -27,7 +23,7 @@ class User extends BaseUser
     protected $id;
 
 
-    const ROLE_DEFAULT = 'ROLE_PATIENT';
+    const ROLE_PATIENT = 'ROLE_PATIENT';
     const ROLE_DOCTOR = 'ROLE_DOCTOR';
 
 
@@ -36,7 +32,7 @@ class User extends BaseUser
     /**
      * @ORM\OneToMany(targetEntity=UserRole::class, mappedBy="user", cascade={"persist", "remove"})
      */
-    protected $usrRoles;
+    protected $userRoles; // TODO: use whole words
 
     /**
      * @var string
@@ -59,10 +55,20 @@ class User extends BaseUser
      */
     private $lastName;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Patient::class, cascade={"persist", "remove"})
+     */
+    private $patient;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Doctor::class, cascade={"persist", "remove"})
+     */
+    private $doctor;
+
     public function __construct()
     {
        parent::__construct();
-       $this->usrRoles=new ArrayCollection();
+       $this->userRoles = new ArrayCollection();
     }
 
 
@@ -145,9 +151,9 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function addUsrRole(UserRole $usrRole)
+    public function addUserRole(UserRole $usrRole)
     {
-        $this->usrRoles[] = $usrRole;
+        $this->userRoles[] = $usrRole;
         $usrRole->setUser($this);
         return $this;
     }
@@ -158,9 +164,9 @@ class User extends BaseUser
      *
      * @param UserRole $usrRole
      */
-    public function removeUsrRole(UserRole $usrRole)
+    public function removeUserRole(UserRole $usrRole)
     {
-        $this->usrRoles->removeElement($usrRole);
+        $this->userRoles->removeElement($usrRole);
     }
 
     /**
@@ -168,8 +174,56 @@ class User extends BaseUser
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getUsrRoles()
+    public function getUserRoles()
     {
-        return $this->usrRoles;
+        return $this->userRoles;
+    }
+
+    /**
+     * Set patient
+     *
+     * @param Patient $patient
+     *
+     * @return User
+     */
+    public function setPatient(Patient $patient = null)
+    {
+        $this->patient = $patient;
+
+        return $this;
+    }
+
+    /**
+     * Get patient
+     *
+     * @return Patient
+     */
+    public function getPatient()
+    {
+        return $this->patient;
+    }
+
+    /**
+     * Set doctor
+     *
+     * @param Doctor $doctor
+     *
+     * @return User
+     */
+    public function setDoctor(Doctor $doctor = null)
+    {
+        $this->doctor = $doctor;
+
+        return $this;
+    }
+
+    /**
+     * Get doctor
+     *
+     * @return Doctor
+     */
+    public function getDoctor()
+    {
+        return $this->doctor;
     }
 }

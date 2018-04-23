@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Role
 {
-    const ROLE_DEFAULT = 'ROLE_PATIENT';
+    const ROLE_PATIENT = 'ROLE_PATIENT';
     const ROLE_DOCTOR = 'ROLE_DOCTOR';
 
     /**
@@ -25,37 +25,21 @@ class Role
     /**
      * @ORM\OneToMany(targetEntity=UserRole::class, mappedBy="roles", cascade={"persist", "remove"})
      */
-    private $user;
+    private $userRole;
 
     /**
      * @var string
      *
      *@ORM\Column(type="string", length=255, nullable=false)
      */
-    private $userRole;
-
-    /**
-     * @return string
-     */
-    public function getUserRole()
-    {
-        return $this->userRole;
-    }
-
-    /**
-     * @param string $userRole
-     */
-    public function setUserRole(string $userRole)
-    {
-        $this->userRole = $userRole;
-    }
+    private $code;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->user = new ArrayCollection();
+        $this->userRole = new ArrayCollection();
     }
 
     /**
@@ -69,41 +53,60 @@ class Role
     }
 
     /**
-     * Add user
+     * Set role
      *
-     * @param UserRole $user
+     * @param string $code
      *
      * @return Role
      */
-    public function addUser(UserRole $user)
+    public function setCode($code)
     {
-        $this->user[] = $user;
+        $this->code = $code;
 
         return $this;
     }
 
     /**
-     * Remove user
+     * Get role
      *
-     * @param UserRole $user
+     * @return string
      */
-    public function removeUser(UserRole $user)
+    public function getCode()
     {
-        $this->user->removeElement($user);
+        return $this->code;
     }
 
     /**
-     * Get user
+     * Add userRole
+     *
+     * @param UserRole $userRole
+     *
+     * @return Role
+     */
+    public function addUserRole(UserRole $userRole)
+    {
+        $this->userRole[] = $userRole;
+
+        return $this;
+    }
+
+    /**
+     * Remove userRole
+     *
+     * @param UserRole $userRole
+     */
+    public function removeUserRole(UserRole $userRole)
+    {
+        $this->userRole->removeElement($userRole);
+    }
+
+    /**
+     * Get userRole
      *
      * @return Collection
      */
-    public function getUser()
+    public function getUserRole()
     {
-        return $this->user;
-    }
-
-    public function __toString()
-    {
-        return (string) $this->getUserRole();
+        return $this->userRole;
     }
 }

@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: developer
- * Date: 4/12/18
- * Time: 3:20 PM
- */
+
 
 namespace AppBundle\Entity\Users;
 
@@ -17,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
 class UserRole
 {
     /**
-     *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
@@ -33,9 +27,7 @@ class UserRole
     /**
      * @ORM\ManyToOne(targetEntity=Role::class, inversedBy="user", cascade={"persist", "remove"})
      */
-    private $roles;
-
-
+    private $role;
 
     /**
      * Get id
@@ -72,27 +64,23 @@ class UserRole
     }
 
     /**
-     * Constructor
+     * @return string
      */
-
-
     public function __toString()
     {
-        return (string) $this->getRoles();
+        return (string) $this->getRole();
     }
-
-
 
     /**
      * Set roles
      *
-     * @param Role $roles
+     * @param Role $role
      *
      * @return UserRole
      */
-    public function setRoles(Role $roles = null)
+    public function setRole(Role $role = null)
     {
-        $this->roles = $roles;
+        $this->role = $role;
 
         return $this;
     }
@@ -102,8 +90,8 @@ class UserRole
      *
      * @return Role
      */
-    public function getRoles()
+    public function getRole()
     {
-        return $this->roles;
+        return $this->role;
     }
 }

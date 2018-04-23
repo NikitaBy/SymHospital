@@ -40,6 +40,7 @@ services:
         calls:
             - [setUserManager, ['@fos_user.user_manager']]
             - [setModelManager,['@AppBundle\AdminProxy\PatientModelManagerProxy']]
+            - [setPatientRepository, ['@AppBundle\Repository\PatientRepository']]
         tags:
             - { name: sonata.admin, manager_type: orm,  group: Admin, label: Patient }
         public: true

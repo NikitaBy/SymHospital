@@ -2,6 +2,7 @@
 namespace AppBundle\Admin;
 
 use AppBundle\Entity\Patient;
+use AppBundle\Repository\PatientRepository;
 use FOS\UserBundle\Model\UserManager;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -9,7 +10,6 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\CoreBundle\Form\Type\DatePickerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class PatientAdmin extends AbstractAdmin
 {
@@ -19,9 +19,9 @@ class PatientAdmin extends AbstractAdmin
     protected $userManager;
 
     /**
-     * @var UserPasswordEncoderInterface
+     * @var PatientRepository
      */
-    protected $encoder;
+    protected $patientRepository;
 
     /**
      * @param UserManager $userManager
@@ -29,6 +29,14 @@ class PatientAdmin extends AbstractAdmin
     public function setUserManager(UserManager $userManager)
     {
         $this->userManager = $userManager;
+    }
+
+    /**
+     * @param PatientRepository $patientRepository
+     */
+    public function setPatientRepository(PatientRepository $patientRepository): void
+    {
+        $this->patientRepository = $patientRepository;
     }
 
     protected function configureFormFields(FormMapper $formMapper)
@@ -62,11 +70,6 @@ class PatientAdmin extends AbstractAdmin
 
     public function getNewInstance()
     {
-        /** @var Patient $patient */
-        $patient =  parent::getNewInstance();
-        $user = $this->userManager->createUser();
-        $patient->setUser($user);
-        $patient->getUser()->setEnabled(true);
-        return $patient;
+        return $this->patientRepository->create();
     }
 }

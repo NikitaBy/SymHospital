@@ -28,9 +28,19 @@ class PatientRepository extends EntityRepository
     public function create()
     {
         $patient= new Patient();
+        
         $user = $this->userManager->createUser();
+        $user->setEnabled(true);
+        
         $patient->setUser($user);
-        $patient->getUser()->setEnabled(true);
+        $user->setPatient($patient);
+
+        $role = $this->getEntityManager()->getRepository('AppBundle:Users\Role')->findOneBy(['id'=>'1']); // TODO: get from repository by code / magic
+        $userRole = new UserRole();
+
+        $userRole->setRole($role);
+        $user->addUserRole($userRole);
+
         return $patient;
     }
 
