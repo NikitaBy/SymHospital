@@ -24,7 +24,6 @@ class PatientRepository extends EntityRepository
 
     /**
      * @return Patient
-     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function create()
     {

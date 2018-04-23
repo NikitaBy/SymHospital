@@ -38,6 +38,7 @@ class DoctorModelManagerProxy extends ModelManager
     {
         try {
             $this->doctorRepository->create();
+            $this->doctorRepository->save($object);
         } catch (\PDOException $e) {
             throw new ModelManagerException(
                 sprintf('Failed to create object: %s', ClassUtils::getClass($object)),

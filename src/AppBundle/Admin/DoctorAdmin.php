@@ -3,6 +3,7 @@ namespace AppBundle\Admin;
 
 use AppBundle\Entity\Doctor;
 use AppBundle\Entity\Specialty;
+use AppBundle\Repository\DoctorRepository;
 use FOS\UserBundle\Model\UserManager;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -21,11 +22,24 @@ class DoctorAdmin extends AbstractAdmin
     protected $userManager;
 
     /**
+     * @var DoctorRepository
+     */
+    protected $doctorRepository;
+
+    /**
      * @param UserManager $userManager
      */
     public function setUserManager(UserManager $userManager)
     {
         $this->userManager = $userManager;
+    }
+
+    /**
+     * @param DoctorRepository $doctorRepository
+     */
+    public function setDoctorRepository(DoctorRepository $doctorRepository): void
+    {
+        $this->doctorRepository = $doctorRepository;
     }
 
     protected function configureFormFields(FormMapper $formMapper)
@@ -68,10 +82,6 @@ class DoctorAdmin extends AbstractAdmin
 
     public function getNewInstance()
     {
-        /**@var Doctor $doctor*/
-        $doctor = parent::getNewInstance();
-        $user=$this->userManager->createUser();
-        $doctor->setUser($user);
-        return $doctor;
+        return $this->doctorRepository->create();
     }
 }
