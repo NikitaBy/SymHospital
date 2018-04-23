@@ -5,6 +5,7 @@ namespace AppBundle\Entity\Users;
 use AppBundle\Entity\Doctor;
 use AppBundle\Entity\Patient;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ *
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
 class User extends BaseUser
 {
@@ -170,9 +173,9 @@ class User extends BaseUser
     }
 
     /**
-     * Get usrRoles
+     * Get userRoles
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getUserRoles()
     {

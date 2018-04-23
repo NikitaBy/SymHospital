@@ -47,7 +47,7 @@ class PatientAdmin extends AbstractAdmin
         $formMapper->add('user.username');
         $formMapper->add('user.email');
         $formMapper->add('user.plainPassword', TextType::class, ['required'=>false]);
-        $formMapper->add('birthDate', DatePickerType::class, array('format'=>'yyyy-MMM-dd'));
+        $formMapper->add('birthDate', DatePickerType::class, array('format'=>'yyyy-MMM-dd', 'required'=>true));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -70,7 +70,6 @@ class PatientAdmin extends AbstractAdmin
 
     /**
      * @return Patient|mixed
-     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function getNewInstance()
     {

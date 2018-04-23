@@ -8,7 +8,9 @@
 
 namespace AppBundle\Admin\User;
 
+use Knp\Menu\ItemInterface as MenuItemInterface;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -48,6 +50,7 @@ class UserAdmin extends AbstractAdmin
         $datagridMapper->add('enabled');
     }
 
+
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->add('firstName');
@@ -60,6 +63,14 @@ class UserAdmin extends AbstractAdmin
         $listMapper->add('enabled');
         $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
     }
+
+    protected function configureTabMenu(MenuItemInterface $menu, $action, AdminInterface $childAdmin = null)
+    {
+        $admin=$this->getSubject();
+
+        $menu->addChild('Patient', [
+//            'uri' => $admin->generateUrl('Patient', ['id' => $id])
+        ]);    }
 
 }
 

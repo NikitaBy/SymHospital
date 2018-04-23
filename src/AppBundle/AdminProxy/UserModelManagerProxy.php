@@ -8,6 +8,7 @@
 
 namespace AppBundle\AdminProxy;
 
+use AppBundle\Repository\UserRepository;
 use Doctrine\Common\Util\ClassUtils;
 use Doctrine\DBAL\DBALException;
 use FOS\UserBundle\Doctrine\UserManager;
@@ -22,6 +23,10 @@ class UserModelManagerProxy extends ModelManager
      */
     private $userManager;
 
+    /** @var UserRepository */
+    private $userRepository;
+
+
     /**
      * @param UserManager $userManager
      */
@@ -34,6 +39,8 @@ class UserModelManagerProxy extends ModelManager
     {
         try {
             $this->userManager->createUser();
+            $this->userManager->updateUser($object);
+//            $this->userRepository->save($object);
         } catch (\PDOException $e) {
             throw new ModelManagerException(
                 sprintf('Failed to create object: %s', ClassUtils::getClass($object)),
@@ -87,5 +94,11 @@ class UserModelManagerProxy extends ModelManager
         }
     }
 
-
+    /**
+     * @param UserRepository $userRepository
+     */
+    public function setUserRepository(UserRepository $userRepository): void
+    {
+        $this->userRepository = $userRepository;
+    }
 }

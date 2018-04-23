@@ -141,6 +141,7 @@ services:
         autowire: false
         calls:
             - [setUserManager, ['@fos_user.user_manager']]
+            - [setUserRepository,['@AppBundle\Repository\UserRepository']]
         public: true
 
     AppBundle\AdminProxy\PatientModelManagerProxy:
@@ -170,5 +171,12 @@ services:
         class: AppBundle\Repository\DoctorRepository
         factory: ['@doctrine.orm.default_entity_manager','getRepository']
         arguments: ['AppBundle\Entity\Doctor']
+        calls:
+            - [setUserManager, ['@fos_user.user_manager']]
+
+    AppBundle\Repository\UserRepository:
+        class: AppBundle\Repository\UserRepository
+        factory: ['@doctrine.orm.default_entity_manager','getRepository']
+        arguments: ['AppBundle\Entity\Users\User']
         calls:
             - [setUserManager, ['@fos_user.user_manager']]

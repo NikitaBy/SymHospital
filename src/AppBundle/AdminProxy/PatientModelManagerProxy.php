@@ -33,7 +33,6 @@ class PatientModelManagerProxy extends ModelManager
      * @param $object
      *
      * @throws ModelManagerException
-     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function create($object)
     {

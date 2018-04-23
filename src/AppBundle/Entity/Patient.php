@@ -28,7 +28,7 @@ class Patient
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="datetime", nullable=false)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $birthDate;
 
@@ -44,7 +44,7 @@ class Patient
     private $history;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=User::class)
      */
     private $user;
 
