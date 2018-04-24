@@ -29,8 +29,8 @@ class Version20180419125145 extends AbstractMigration
         $this->addSql('ALTER TABLE specialty CHANGE domain domain VARCHAR(15) DEFAULT NULL');
         $this->addSql('ALTER TABLE fos_user CHANGE salt salt VARCHAR(255) DEFAULT NULL, CHANGE last_login last_login DATETIME DEFAULT NULL, CHANGE confirmation_token confirmation_token VARCHAR(180) DEFAULT NULL, CHANGE password_requested_at password_requested_at DATETIME DEFAULT NULL');
         $this->addSql('ALTER TABLE user_role CHANGE roles_id roles_id INT DEFAULT NULL, CHANGE user_id user_id INT DEFAULT NULL');
-        $this->addSql('INSERT INTO role VALUE (PATIENT_ROLE)');
-        $this->addSql('INSERT INTO role VALUE (DOCTOR_ROLE)');
+        $this->addSql('INSERT INTO role VALUE (ROLE_PATIENT)');
+        $this->addSql('INSERT INTO role VALUE (ROLE_DOCTOR)');
     }
 
     /**
@@ -56,7 +56,7 @@ class Version20180419125145 extends AbstractMigration
         $this->addSql('ALTER TABLE specialty CHANGE domain domain VARCHAR(15) DEFAULT \'NULL\' COLLATE utf8_unicode_ci');
         $this->addSql('ALTER TABLE ticket CHANGE patient_id patient_id INT DEFAULT NULL, CHANGE doctor_id doctor_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE user_role CHANGE user_id user_id INT DEFAULT NULL, CHANGE roles_id roles_id INT DEFAULT NULL');
-        $this->addSql('DELETE FROM role WHERE user_role="PATIENT_ADMIN"');
-        $this->addSql('DELETE FROM role WHERE user_role="DOCTOR_ADMIN"');
+        $this->addSql('DELETE FROM role WHERE user_role="ROLE_PATIENT"');
+        $this->addSql('DELETE FROM role WHERE user_role="ROLE_DOCTOR"');
     }
 }

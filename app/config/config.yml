@@ -105,6 +105,10 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: AppBundle\Entity\Users\User
+    registration:
+        form:
+            type: AppBundle\Form\Type\RegistrationType
+            name: app_user_registration
     from_email:
         address: noreply@exanple.com
         sender_name: Demo App

@@ -41,6 +41,8 @@ services:
             - [setUserManager, ['@fos_user.user_manager']]
             - [setModelManager,['@AppBundle\AdminProxy\PatientModelManagerProxy']]
             - [setPatientRepository, ['@AppBundle\Repository\PatientRepository']]
+            - [setRouter, ['@router']]
+
         tags:
             - { name: sonata.admin, manager_type: orm,  group: Admin, label: Patient }
         public: true
@@ -59,6 +61,8 @@ services:
             - [setUserManager, ['@fos_user.user_manager']]
             - [setModelManager, ['@AppBundle\AdminProxy\DoctorModelManagerProxy']]
             - [setDoctorRepository, ['@AppBundle\Repository\DoctorRepository']]
+            - [setRouter, ['@router']]
+
         tags:
             - { name: sonata.admin, manager_type: orm,  group: Admin, label: Doctor }
         public: true
@@ -183,3 +187,8 @@ services:
             - [setPatientRepository, ['@AppBundle\Repository\PatientRepository']]
             - [setDoctorRepository, ['@AppBundle\Repository\DoctorRepository']]
             - [setUserManager, ['@fos_user.user_manager']]
+
+    AppBundle\Form\RegistrationType:
+        class: AppBundle\Form\Type\RegistrationType
+        tags:
+            - {name: form.type, alias: app_user_registration}

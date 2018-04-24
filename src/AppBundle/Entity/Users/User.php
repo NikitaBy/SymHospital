@@ -240,11 +240,20 @@ class User extends BaseUser
     }
 
     /**
-     * @return bool|null
+     * @return string
      */
     public function isDoctor()
     {
-        If(!$this->doctor) return null;
-        else return true;
+        If(!$this->doctor) return "????";
+        else return (string) "!!!!";
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
 }

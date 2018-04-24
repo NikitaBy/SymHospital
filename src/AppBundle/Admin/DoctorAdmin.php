@@ -1,17 +1,20 @@
 <?php
 namespace AppBundle\Admin;
 
-use AppBundle\Entity\Doctor;
 use AppBundle\Entity\Specialty;
 use AppBundle\Repository\DoctorRepository;
 use FOS\UserBundle\Model\UserManager;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Knp\Menu\ItemInterface as MenuItemInterface;
+
 
 use AppBundle\Entity\Room;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class DoctorAdmin extends AbstractAdmin
@@ -25,6 +28,20 @@ class DoctorAdmin extends AbstractAdmin
      * @var DoctorRepository
      */
     protected $doctorRepository;
+
+    /**
+     * @var Router
+     */
+    protected $router;
+
+    /**
+     * @param Router $router
+     */
+    public function setRouter(Router $router)
+    {
+        $this->router = $router;
+    }
+
 
     /**
      * @param UserManager $userManager
@@ -44,12 +61,15 @@ class DoctorAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('user.firstName');
-        $formMapper->add('user.middleName');
-        $formMapper->add('user.lastName');
-        $formMapper->add('user.username');
-        $formMapper->add('user.email');
-        $formMapper->add('user.plainPassword', TextType::class, ['required'=>false]);
+        $formMapper->with('General');
+            $formMapper->add('user.firstName');
+            $formMapper->add('user.middleName');
+            $formMapper->add('user.lastName');
+            $formMapper->add('user.username');
+            $formMapper->add('user.email');
+            $formMapper->add('user.plainPassword', TextType::class, ['required'=>false]);
+        $formMapper->end();
+        $formMapper->with('Doctor');
         $formMapper->add('room', EntityType::class, [
             'multiple' => true,
             'class' => Room::class,
@@ -58,6 +78,7 @@ class DoctorAdmin extends AbstractAdmin
             'multiple' => true,
             'class' => Specialty::class,
         ]);
+        $formMapper->end();
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -79,6 +100,22 @@ class DoctorAdmin extends AbstractAdmin
         $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
 
     }
+
+    protected function configureTabMenu(MenuItemInterface $menu, $action, AdminInterface $childAdmin = null)
+    {
+        $doctor = $this->getSubject();
+        if ($doctor) {
+            if ($user = $doctor->getUser()) {
+                $menu->addChild(
+                    'User',
+                    [
+                        'uri' => $this->router->generate('admin_app_users_user_edit', ['id' => $user->getId()])
+                    ]
+                );
+            }
+        }
+    }
+
 
     public function getNewInstance()
     {
