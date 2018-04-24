@@ -29,4 +29,5 @@ class RegistrationType extends AbstractType
     {
         return $this->getBlockPrefix();
     }
+
 }
