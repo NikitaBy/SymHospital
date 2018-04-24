@@ -3,6 +3,8 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Patient;
+use AppBundle\Entity\Users\Role;
+use AppBundle\Entity\Users\User;
 use AppBundle\Entity\Users\UserRole;
 use Doctrine\ORM\EntityRepository;
 use FOS\UserBundle\Model\UserManager;
@@ -23,25 +25,29 @@ class PatientRepository extends EntityRepository
     }
 
     /**
+     * @param User|null $user
+     *
      * @return Patient
      */
-    public function create()
+    public function create(User $user = null)
     {
-        $patient= new Patient();
-        
-        $user = $this->userManager->createUser();
-        $user->setEnabled(true);
+        $patient = new Patient();
 
+        if (!$user) {
+            $user = $this->userManager->createUser();
+            $user->setEnabled(true);
+
+            // TODO: get from repository by code / magic, create own repository
+            $role = $this->getEntityManager()->getRepository('AppBundle:Users\Role')->findOneBy(['code' => Role::ROLE_PATIENT]);
+
+            // TODO: separate to method addRole(string $role)
+            $userRole = new UserRole();
+            $userRole->setRole($role);
+            $user->addUserRole($userRole);
+        }
 
         $patient->setUser($user);
         $user->setPatient($patient);
-
-        $role = $this->getEntityManager()->getRepository('AppBundle:Users\Role')->findOneBy(['id'=>'1']); // TODO: get from repository by code / magic
-        $userRole = new UserRole();
-
-        $userRole->setRole($role);
-        $user->addUserRole($userRole);
-
 
         return $patient;
     }

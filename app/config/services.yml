@@ -124,6 +124,7 @@ services:
         arguments: [~, AppBundle\Entity\Users\User, ~]
         calls:
             - [setModelManager, ['@AppBundle\AdminProxy\UserModelManagerProxy']]
+            - [setRouter, ['@router']]
         tags:
             - { name: sonata.admin, manager_type: orm,  group: User, label: User }
         public: true
@@ -179,4 +180,6 @@ services:
         factory: ['@doctrine.orm.default_entity_manager','getRepository']
         arguments: ['AppBundle\Entity\Users\User']
         calls:
+            - [setPatientRepository, ['@AppBundle\Repository\PatientRepository']]
+            - [setDoctorRepository, ['@AppBundle\Repository\DoctorRepository']]
             - [setUserManager, ['@fos_user.user_manager']]

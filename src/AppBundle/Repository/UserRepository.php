@@ -2,7 +2,6 @@
 
 namespace AppBundle\Repository;
 
-use AppBundle\Entity\Patient;
 use AppBundle\Entity\Users\User;
 use Doctrine\ORM\EntityRepository;
 use FOS\UserBundle\Doctrine\UserManager;
@@ -10,9 +9,35 @@ use FOS\UserBundle\Doctrine\UserManager;
 class UserRepository extends EntityRepository
 {
     /**
+     * @var PatientRepository
+     */
+    protected $patientRepository;
+
+    /**
+     * @var DoctorRepository
+     */
+    protected $doctorRepository;
+
+    /**
      * @var UserManager
      */
     protected $userManager;
+
+    /**
+     * @param PatientRepository $patientRepository
+     */
+    public function setPatientRepository(PatientRepository $patientRepository)
+    {
+        $this->patientRepository = $patientRepository;
+    }
+
+    /**
+     * @param DoctorRepository $doctorRepository
+     */
+    public function setDoctorRepository(DoctorRepository $doctorRepository): void
+    {
+        $this->doctorRepository = $doctorRepository;
+    }
 
     /**
      * @param UserManager $userManager
@@ -25,22 +50,21 @@ class UserRepository extends EntityRepository
     /** @param User $user */
     public function save(User $user)
     {
-        $this->userManager->updateUser($user);
+        $userRoles = $user->getUserRoles();
 
-        $userRoles=$user->getUserRoles();
-
-        foreach ($userRoles as $role)
+        foreach ($userRoles as $userRole)
         {
-            if(strcmp($role->getRole()->getCode(), User::ROLE_PATIENT)===0 && $user->getPatient()===null)
+            if ($userRole->getRole()->getCode() === User::ROLE_PATIENT && !$user->isPatient())
             {
-                $patient=new Patient();
-                $user->setPatient($patient);
-                $patient->setUser($user);
-                break;
+                $this->patientRepository->create($user);
+            }
+            if ($userRole->getRole()->getCode() === User::ROLE_DOCTOR && !$user->isDoctor())
+            {
+                $this->doctorRepository->create($user);
             }
         }
 
-
+        $this->userManager->updateUser($user);
     }
 
 }

@@ -229,4 +229,22 @@ class User extends BaseUser
     {
         return $this->doctor;
     }
+
+    /**
+     * @return bool|null
+     */
+    public function isPatient()
+    {
+        If(!$this->patient) return null;
+        else return true;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function isDoctor()
+    {
+        If(!$this->doctor) return null;
+        else return true;
+    }
 }

@@ -3,6 +3,8 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Doctor;
+use AppBundle\Entity\Users\Role;
+use AppBundle\Entity\Users\User;
 use AppBundle\Entity\Users\UserRole;
 use Doctrine\ORM\EntityRepository;
 use FOS\UserBundle\Model\UserManager;
@@ -23,23 +25,26 @@ class DoctorRepository extends EntityRepository
     }
 
     /**
+     * @param User|null $user
+     *
      * @return Doctor
      */
-    public function create()
+    public function create(User $user=null)
     {
         $doctor= new Doctor();
 
-        $user = $this->userManager->createUser();
+        if(!$user) {
+            $user = $this->userManager->createUser();
+
+            $role = $this->getEntityManager()->getRepository('AppBundle:Users\Role')->findOneBy(['code' => Role::ROLE_DOCTOR]);
+
+            $userRole = new UserRole();
+            $userRole->setRole($role);
+            $user->addUserRole($userRole);
+        }
 
         $doctor->setUser($user);
         $user->setDoctor($doctor);
-
-        $role = $this->getEntityManager()->getRepository('AppBundle:Users\Role')->findOneBy(['id'=>'2']); // TODO: get from repository by code / magic
-        $userRole = new UserRole();
-
-        $userRole->setRole($role);
-        $user->addUserRole($userRole);
-
 
         return $doctor;
     }

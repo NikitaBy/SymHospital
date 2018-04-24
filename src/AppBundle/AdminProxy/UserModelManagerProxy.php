@@ -23,9 +23,10 @@ class UserModelManagerProxy extends ModelManager
      */
     private $userManager;
 
-    /** @var UserRepository */
+    /**
+     * @var UserRepository
+     */
     private $userRepository;
-
 
     /**
      * @param UserManager $userManager
@@ -35,12 +36,23 @@ class UserModelManagerProxy extends ModelManager
         $this->userManager = $userManager;
     }
 
+    /**
+     * @param UserRepository $userRepository
+     */
+    public function setUserRepository(UserRepository $userRepository): void
+    {
+        $this->userRepository = $userRepository;
+    }
+
+    /**
+     * @param $object
+     *
+     * @throws ModelManagerException
+     */
     public function create($object)
     {
         try {
-            $this->userManager->createUser();
-            $this->userManager->updateUser($object);
-//            $this->userRepository->save($object);
+            $this->userRepository->save($object);
         } catch (\PDOException $e) {
             throw new ModelManagerException(
                 sprintf('Failed to create object: %s', ClassUtils::getClass($object)),
@@ -56,6 +68,11 @@ class UserModelManagerProxy extends ModelManager
         }
     }
 
+    /**
+     * @param $object
+     *
+     * @throws ModelManagerException
+     */
     public function update($object)
     {
         try {
@@ -75,6 +92,11 @@ class UserModelManagerProxy extends ModelManager
         }
     }
 
+    /**
+     * @param $object
+     *
+     * @throws ModelManagerException
+     */
     public function delete($object)
     {
         try {
@@ -92,13 +114,5 @@ class UserModelManagerProxy extends ModelManager
                 $e
             );
         }
-    }
-
-    /**
-     * @param UserRepository $userRepository
-     */
-    public function setUserRepository(UserRepository $userRepository): void
-    {
-        $this->userRepository = $userRepository;
     }
 }

@@ -23,7 +23,6 @@ class Patient
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-    
 
     /**
      * @var \DateTime
