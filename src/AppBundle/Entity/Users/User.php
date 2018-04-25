@@ -68,9 +68,6 @@ class User extends BaseUser
      */
     private $doctor;
 
-    /** @var string */
-    private $userRolesList;
-
     public function __construct()
     {
        parent::__construct();
@@ -259,13 +256,4 @@ class User extends BaseUser
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
-    public function getUserRolesList(): string
-    {
-
-
-        return $this->userRolesList;
-    }
 }

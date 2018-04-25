@@ -136,7 +136,7 @@ class Role
     /**
      * @param string $codeName
      */
-    public function setCodeName(string $codeName): void
+    public function setCodeName(string $codeName)
     {
         $this->codeName = $codeName;
     }

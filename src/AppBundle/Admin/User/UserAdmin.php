@@ -69,7 +69,7 @@ class UserAdmin extends AbstractAdmin
         $datagridMapper->add('username');
         $datagridMapper->add('email');
         $datagridMapper->add('password');
-//        $datagridMapper->add('userRoles');
+        $datagridMapper->add('userRoles');
         $datagridMapper->add('enabled');
     }
 
@@ -83,7 +83,7 @@ class UserAdmin extends AbstractAdmin
         $listMapper->add('username');
         $listMapper->add('email');
         $listMapper->add('password');
-//        $listMapper->add('userRoles');
+        $listMapper->add('userRoles');
         $listMapper->add('enabled');
         $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
     }
@@ -119,7 +119,6 @@ class UserAdmin extends AbstractAdmin
     }
 
     protected $datagridValues =[
-        '_page'=>1,
         '_sort_order'=>'DESC',
         '_sort_by'=>'id',
     ];
