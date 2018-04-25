@@ -13,7 +13,7 @@ class ModelManagerProxy extends ModelManager
     /**
      * @var EntityRepository
      */
-    private $repository;
+    protected $repository;
 
     /**
      * @param EntityRepository $repository

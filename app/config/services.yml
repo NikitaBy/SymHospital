@@ -127,7 +127,7 @@ services:
         class: AppBundle\Admin\User\UserAdmin
         arguments: [~, AppBundle\Entity\Users\User, ~]
         calls:
-            - [setModelManager, ['@AppBundle\AdminProxy\ModelManagerProxy']]
+            - [setModelManager, ['@AppBundle\AdminProxy\UserModelManagerProxy']]
             - [setRouter, ['@router']]
         tags:
             - { name: sonata.admin, manager_type: orm,  group: User, label: User }
@@ -197,3 +197,9 @@ services:
         class: AppBundle\Form\Type\RegistrationType
         tags:
             - {name: form.type, alias: app_user_registration}
+
+    AppBundle\Controller\User\RegistrationController:
+        class: AppBundle\Controller\User\RegistrationController
+        parent: 'fos_user.registration.controller'
+        autowire: false
+        public: true

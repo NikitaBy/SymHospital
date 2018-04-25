@@ -39,7 +39,6 @@ class PatientRepository extends EntityRepository
 
             $role = $this->getEntityManager()->getRepository(Role::class)->findOneBy(['code' => Role::ROLE_PATIENT]);
 
-            // TODO: separate to method addRole(string $role)
             $userRole = new UserRole();
             $userRole->setRole($role);
             $user->addUserRole($userRole);

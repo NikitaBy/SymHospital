@@ -94,4 +94,9 @@ class UserRole
     {
         return $this->role;
     }
+
+    public function listRole()
+    {
+
+    }
 }

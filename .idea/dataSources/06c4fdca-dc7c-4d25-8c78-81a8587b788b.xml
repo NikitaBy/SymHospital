@@ -1366,1403 +1366,1515 @@
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="343" parent="2" name="history_symptoms">
+    <table id="343" parent="2" name="history_symptom">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="344" parent="2" name="medicine">
+    <table id="344" parent="2" name="history_symptoms">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="345" parent="2" name="medicine_history">
+    <table id="345" parent="2" name="medicine">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="346" parent="2" name="patient">
+    <table id="346" parent="2" name="medicine_history">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="347" parent="2" name="patient_history">
+    <table id="347" parent="2" name="patient">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="348" parent="2" name="role">
+    <table id="348" parent="2" name="patient_history">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="349" parent="2" name="room">
+    <table id="349" parent="2" name="role">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="350" parent="2" name="room_doctor">
+    <table id="350" parent="2" name="room">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="351" parent="2" name="room_equipment">
+    <table id="351" parent="2" name="room_doctor">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="352" parent="2" name="schedule">
+    <table id="352" parent="2" name="room_equipment">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="353" parent="2" name="schedule_doctor">
+    <table id="353" parent="2" name="schedule">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="354" parent="2" name="specialty">
+    <table id="354" parent="2" name="schedule_doctor">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="355" parent="2" name="specialty_doctor">
+    <table id="355" parent="2" name="specialty">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="356" parent="2" name="symptoms">
+    <table id="356" parent="2" name="specialty_doctor">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="357" parent="2" name="symptoms_history">
+    <table id="357" parent="2" name="symptom">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="358" parent="2" name="ticket">
+    <table id="358" parent="2" name="symptom_history">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="359" parent="2" name="user">
+    <table id="359" parent="2" name="symptoms">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="360" parent="2" name="user_role">
+    <table id="360" parent="2" name="symptoms_history">
       <Engine>InnoDB</Engine>
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <column id="361" parent="328" name="id">
+    <table id="361" parent="2" name="ticket">
+      <Engine>InnoDB</Engine>
+      <Collation>utf8_unicode_ci</Collation>
+    </table>
+    <table id="362" parent="2" name="user">
+      <Engine>InnoDB</Engine>
+      <Collation>utf8_unicode_ci</Collation>
+    </table>
+    <table id="363" parent="2" name="user_role">
+      <Engine>InnoDB</Engine>
+      <Collation>utf8_unicode_ci</Collation>
+    </table>
+    <column id="364" parent="328" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="328" name="Name">
+    <column id="365" parent="328" name="Name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="363" parent="328" name="Domain">
+    <column id="366" parent="328" name="Domain">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="364" parent="328" name="PRIMARY">
+    <key id="367" parent="328" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="365" parent="329" name="disease_id">
+    <column id="368" parent="329" name="disease_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="366" parent="329" name="history_id">
+    <column id="369" parent="329" name="history_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="367" parent="329" name="IDX_26D5A58BD8355341">
+    <index id="370" parent="329" name="IDX_26D5A58BD8355341">
       <ColNames>disease_id</ColNames>
     </index>
-    <index id="368" parent="329" name="IDX_26D5A58B1E058452">
+    <index id="371" parent="329" name="IDX_26D5A58B1E058452">
       <ColNames>history_id</ColNames>
     </index>
-    <key id="369" parent="329" name="PRIMARY">
+    <key id="372" parent="329" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>disease_id
 history_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="370" parent="329" name="FK_26D5A58BD8355341">
+    <foreign-key id="373" parent="329" name="FK_26D5A58BD8355341">
       <ColNames>disease_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>disease</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="371" parent="329" name="FK_26D5A58B1E058452">
+    <foreign-key id="374" parent="329" name="FK_26D5A58B1E058452">
       <ColNames>history_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>history</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="372" parent="330" name="id">
+    <column id="375" parent="330" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="330" name="user_id">
+    <column id="376" parent="330" name="user_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="374" parent="330" name="UNIQ_1FC0F36AA76ED395">
+    <index id="377" parent="330" name="UNIQ_1FC0F36AA76ED395">
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="375" parent="330" name="PRIMARY">
+    <key id="378" parent="330" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="376" parent="330" name="UNIQ_1FC0F36AA76ED395">
+    <key id="379" parent="330" name="UNIQ_1FC0F36AA76ED395">
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>UNIQ_1FC0F36AA76ED395</UnderlyingIndexName>
     </key>
-    <foreign-key id="377" parent="330" name="FK_1FC0F36AA76ED395">
+    <foreign-key id="380" parent="330" name="FK_1FC0F36AA76ED395">
       <ColNames>user_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>fos_user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="378" parent="331" name="doctor_id">
+    <column id="381" parent="331" name="doctor_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="379" parent="331" name="history_id">
+    <column id="382" parent="331" name="history_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="380" parent="331" name="IDX_B41713E687F4FB17">
+    <index id="383" parent="331" name="IDX_B41713E687F4FB17">
       <ColNames>doctor_id</ColNames>
     </index>
-    <index id="381" parent="331" name="IDX_B41713E61E058452">
+    <index id="384" parent="331" name="IDX_B41713E61E058452">
       <ColNames>history_id</ColNames>
     </index>
-    <key id="382" parent="331" name="PRIMARY">
+    <key id="385" parent="331" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>doctor_id
 history_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="383" parent="331" name="FK_B41713E687F4FB17">
+    <foreign-key id="386" parent="331" name="FK_B41713E687F4FB17">
       <ColNames>doctor_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>doctor</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="384" parent="331" name="FK_B41713E61E058452">
+    <foreign-key id="387" parent="331" name="FK_B41713E61E058452">
       <ColNames>history_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>history</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="385" parent="332" name="doctor_id">
+    <column id="388" parent="332" name="doctor_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="386" parent="332" name="room_id">
+    <column id="389" parent="332" name="room_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="387" parent="332" name="IDX_341E6FFB87F4FB17">
+    <index id="390" parent="332" name="IDX_341E6FFB87F4FB17">
       <ColNames>doctor_id</ColNames>
     </index>
-    <index id="388" parent="332" name="IDX_341E6FFB54177093">
+    <index id="391" parent="332" name="IDX_341E6FFB54177093">
       <ColNames>room_id</ColNames>
     </index>
-    <key id="389" parent="332" name="PRIMARY">
+    <key id="392" parent="332" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>doctor_id
 room_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="390" parent="332" name="FK_341E6FFB87F4FB17">
+    <foreign-key id="393" parent="332" name="FK_341E6FFB87F4FB17">
       <ColNames>doctor_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>doctor</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="391" parent="332" name="FK_341E6FFB54177093">
+    <foreign-key id="394" parent="332" name="FK_341E6FFB54177093">
       <ColNames>room_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>room</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="392" parent="333" name="doctor_id">
+    <column id="395" parent="333" name="doctor_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="393" parent="333" name="schedule_id">
+    <column id="396" parent="333" name="schedule_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="394" parent="333" name="IDX_F2CC63CD87F4FB17">
+    <index id="397" parent="333" name="IDX_F2CC63CD87F4FB17">
       <ColNames>doctor_id</ColNames>
     </index>
-    <index id="395" parent="333" name="IDX_F2CC63CDA40BC2D5">
+    <index id="398" parent="333" name="IDX_F2CC63CDA40BC2D5">
       <ColNames>schedule_id</ColNames>
     </index>
-    <key id="396" parent="333" name="PRIMARY">
+    <key id="399" parent="333" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>doctor_id
 schedule_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="397" parent="333" name="FK_F2CC63CD87F4FB17">
+    <foreign-key id="400" parent="333" name="FK_F2CC63CD87F4FB17">
       <ColNames>doctor_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>doctor</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="398" parent="333" name="FK_F2CC63CDA40BC2D5">
+    <foreign-key id="401" parent="333" name="FK_F2CC63CDA40BC2D5">
       <ColNames>schedule_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>schedule</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="399" parent="334" name="doctor_id">
+    <column id="402" parent="334" name="doctor_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="400" parent="334" name="specialty_id">
+    <column id="403" parent="334" name="specialty_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="401" parent="334" name="IDX_2F74C70787F4FB17">
+    <index id="404" parent="334" name="IDX_2F74C70787F4FB17">
       <ColNames>doctor_id</ColNames>
     </index>
-    <index id="402" parent="334" name="IDX_2F74C7079A353316">
+    <index id="405" parent="334" name="IDX_2F74C7079A353316">
       <ColNames>specialty_id</ColNames>
     </index>
-    <key id="403" parent="334" name="PRIMARY">
+    <key id="406" parent="334" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>doctor_id
 specialty_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="404" parent="334" name="FK_2F74C70787F4FB17">
+    <foreign-key id="407" parent="334" name="FK_2F74C70787F4FB17">
       <ColNames>doctor_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>doctor</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="405" parent="334" name="FK_2F74C7079A353316">
+    <foreign-key id="408" parent="334" name="FK_2F74C7079A353316">
       <ColNames>specialty_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>specialty</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="406" parent="335" name="id">
+    <column id="409" parent="335" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="407" parent="335" name="Name">
+    <column id="410" parent="335" name="Name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="408" parent="335" name="Application">
+    <column id="411" parent="335" name="Application">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="409" parent="335" name="PRIMARY">
+    <key id="412" parent="335" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="410" parent="336" name="equipment_id">
+    <column id="413" parent="336" name="equipment_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="411" parent="336" name="room_id">
+    <column id="414" parent="336" name="room_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="412" parent="336" name="IDX_481B809D517FE9FE">
+    <index id="415" parent="336" name="IDX_481B809D517FE9FE">
       <ColNames>equipment_id</ColNames>
     </index>
-    <index id="413" parent="336" name="IDX_481B809D54177093">
+    <index id="416" parent="336" name="IDX_481B809D54177093">
       <ColNames>room_id</ColNames>
     </index>
-    <key id="414" parent="336" name="PRIMARY">
+    <key id="417" parent="336" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>equipment_id
 room_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="415" parent="336" name="FK_481B809D517FE9FE">
+    <foreign-key id="418" parent="336" name="FK_481B809D517FE9FE">
       <ColNames>equipment_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>equipment</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="416" parent="336" name="FK_481B809D54177093">
+    <foreign-key id="419" parent="336" name="FK_481B809D54177093">
       <ColNames>room_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>room</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="417" parent="337" name="id">
+    <column id="420" parent="337" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="418" parent="337" name="username">
+    <column id="421" parent="337" name="username">
       <Position>2</Position>
       <DataType>varchar(180)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="419" parent="337" name="username_canonical">
+    <column id="422" parent="337" name="username_canonical">
       <Position>3</Position>
       <DataType>varchar(180)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="420" parent="337" name="email">
+    <column id="423" parent="337" name="email">
       <Position>4</Position>
       <DataType>varchar(180)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="421" parent="337" name="email_canonical">
+    <column id="424" parent="337" name="email_canonical">
       <Position>5</Position>
       <DataType>varchar(180)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="422" parent="337" name="enabled">
+    <column id="425" parent="337" name="enabled">
       <Position>6</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="423" parent="337" name="salt">
+    <column id="426" parent="337" name="salt">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="424" parent="337" name="password">
+    <column id="427" parent="337" name="password">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="425" parent="337" name="last_login">
+    <column id="428" parent="337" name="last_login">
       <Position>9</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="426" parent="337" name="confirmation_token">
+    <column id="429" parent="337" name="confirmation_token">
       <Position>10</Position>
       <DataType>varchar(180)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="427" parent="337" name="password_requested_at">
+    <column id="430" parent="337" name="password_requested_at">
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="428" parent="337" name="roles">
+    <column id="431" parent="337" name="roles">
       <Position>12</Position>
       <Comment>(DC2Type:array)</Comment>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="429" parent="337" name="first_name">
+    <column id="432" parent="337" name="first_name">
       <Position>13</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="430" parent="337" name="middle_name">
+    <column id="433" parent="337" name="middle_name">
       <Position>14</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="431" parent="337" name="last_name">
+    <column id="434" parent="337" name="last_name">
       <Position>15</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="432" parent="337" name="patient_id">
+    <column id="435" parent="337" name="patient_id">
       <Position>16</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="433" parent="337" name="doctor_id">
+    <column id="436" parent="337" name="doctor_id">
       <Position>17</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="434" parent="337" name="UNIQ_957A647992FC23A8">
+    <index id="437" parent="337" name="UNIQ_957A647992FC23A8">
       <ColNames>username_canonical</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="435" parent="337" name="UNIQ_957A6479A0D96FBF">
+    <index id="438" parent="337" name="UNIQ_957A6479A0D96FBF">
       <ColNames>email_canonical</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="436" parent="337" name="UNIQ_957A6479C05FB297">
+    <index id="439" parent="337" name="UNIQ_957A6479C05FB297">
       <ColNames>confirmation_token</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="437" parent="337" name="UNIQ_957A64796B899279">
+    <index id="440" parent="337" name="UNIQ_957A64796B899279">
       <ColNames>patient_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="438" parent="337" name="UNIQ_957A647987F4FB17">
+    <index id="441" parent="337" name="UNIQ_957A647987F4FB17">
       <ColNames>doctor_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="439" parent="337" name="PRIMARY">
+    <key id="442" parent="337" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="440" parent="337" name="UNIQ_957A647992FC23A8">
+    <key id="443" parent="337" name="UNIQ_957A647992FC23A8">
       <ColNames>username_canonical</ColNames>
       <UnderlyingIndexName>UNIQ_957A647992FC23A8</UnderlyingIndexName>
     </key>
-    <key id="441" parent="337" name="UNIQ_957A6479A0D96FBF">
+    <key id="444" parent="337" name="UNIQ_957A6479A0D96FBF">
       <ColNames>email_canonical</ColNames>
       <UnderlyingIndexName>UNIQ_957A6479A0D96FBF</UnderlyingIndexName>
     </key>
-    <key id="442" parent="337" name="UNIQ_957A6479C05FB297">
+    <key id="445" parent="337" name="UNIQ_957A6479C05FB297">
       <ColNames>confirmation_token</ColNames>
       <UnderlyingIndexName>UNIQ_957A6479C05FB297</UnderlyingIndexName>
     </key>
-    <key id="443" parent="337" name="UNIQ_957A64796B899279">
+    <key id="446" parent="337" name="UNIQ_957A64796B899279">
       <ColNames>patient_id</ColNames>
       <UnderlyingIndexName>UNIQ_957A64796B899279</UnderlyingIndexName>
     </key>
-    <key id="444" parent="337" name="UNIQ_957A647987F4FB17">
+    <key id="447" parent="337" name="UNIQ_957A647987F4FB17">
       <ColNames>doctor_id</ColNames>
       <UnderlyingIndexName>UNIQ_957A647987F4FB17</UnderlyingIndexName>
     </key>
-    <foreign-key id="445" parent="337" name="FK_957A64796B899279">
+    <foreign-key id="448" parent="337" name="FK_957A64796B899279">
       <ColNames>patient_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>patient</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="446" parent="337" name="FK_957A647987F4FB17">
+    <foreign-key id="449" parent="337" name="FK_957A647987F4FB17">
       <ColNames>doctor_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>doctor</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="447" parent="338" name="id">
+    <column id="450" parent="338" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="448" parent="338" name="VisitDate">
+    <column id="451" parent="338" name="VisitDate">
       <Position>2</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="449" parent="338" name="cureperiod">
+    <column id="452" parent="338" name="cureperiod">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="450" parent="338" name="patient_id">
+    <column id="453" parent="338" name="patient_id">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="451" parent="338" name="IDX_27BA704B6B899279">
+    <index id="454" parent="338" name="IDX_27BA704B6B899279">
       <ColNames>patient_id</ColNames>
     </index>
-    <key id="452" parent="338" name="PRIMARY">
+    <key id="455" parent="338" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="453" parent="338" name="FK_27BA704B6B899279">
+    <foreign-key id="456" parent="338" name="FK_27BA704B6B899279">
       <ColNames>patient_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>patient</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="454" parent="339" name="history_id">
+    <column id="457" parent="339" name="history_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="455" parent="339" name="disease_id">
+    <column id="458" parent="339" name="disease_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="456" parent="339" name="IDX_2B5C462B1E058452">
+    <index id="459" parent="339" name="IDX_2B5C462B1E058452">
       <ColNames>history_id</ColNames>
     </index>
-    <index id="457" parent="339" name="IDX_2B5C462BD8355341">
+    <index id="460" parent="339" name="IDX_2B5C462BD8355341">
       <ColNames>disease_id</ColNames>
     </index>
-    <key id="458" parent="339" name="PRIMARY">
+    <key id="461" parent="339" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>history_id
 disease_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="459" parent="339" name="FK_2B5C462B1E058452">
+    <foreign-key id="462" parent="339" name="FK_2B5C462B1E058452">
       <ColNames>history_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>history</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="460" parent="339" name="FK_2B5C462BD8355341">
+    <foreign-key id="463" parent="339" name="FK_2B5C462BD8355341">
       <ColNames>disease_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>disease</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="461" parent="340" name="history_id">
+    <column id="464" parent="340" name="history_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="462" parent="340" name="doctor_id">
+    <column id="465" parent="340" name="doctor_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="463" parent="340" name="IDX_CC4FBF991E058452">
+    <index id="466" parent="340" name="IDX_CC4FBF991E058452">
       <ColNames>history_id</ColNames>
     </index>
-    <index id="464" parent="340" name="IDX_CC4FBF9987F4FB17">
+    <index id="467" parent="340" name="IDX_CC4FBF9987F4FB17">
       <ColNames>doctor_id</ColNames>
     </index>
-    <key id="465" parent="340" name="PRIMARY">
+    <key id="468" parent="340" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>history_id
 doctor_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="466" parent="340" name="FK_CC4FBF991E058452">
+    <foreign-key id="469" parent="340" name="FK_CC4FBF991E058452">
       <ColNames>history_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>history</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="467" parent="340" name="FK_CC4FBF9987F4FB17">
+    <foreign-key id="470" parent="340" name="FK_CC4FBF9987F4FB17">
       <ColNames>doctor_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>doctor</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="468" parent="341" name="history_id">
+    <column id="471" parent="341" name="history_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="469" parent="341" name="medicine_id">
+    <column id="472" parent="341" name="medicine_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="470" parent="341" name="IDX_18CD46C71E058452">
+    <index id="473" parent="341" name="IDX_18CD46C71E058452">
       <ColNames>history_id</ColNames>
     </index>
-    <index id="471" parent="341" name="IDX_18CD46C72F7D140A">
+    <index id="474" parent="341" name="IDX_18CD46C72F7D140A">
       <ColNames>medicine_id</ColNames>
     </index>
-    <key id="472" parent="341" name="PRIMARY">
+    <key id="475" parent="341" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>history_id
 medicine_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="473" parent="341" name="FK_18CD46C71E058452">
+    <foreign-key id="476" parent="341" name="FK_18CD46C71E058452">
       <ColNames>history_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>history</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="474" parent="341" name="FK_18CD46C72F7D140A">
+    <foreign-key id="477" parent="341" name="FK_18CD46C72F7D140A">
       <ColNames>medicine_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>medicine</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="475" parent="342" name="history_id">
+    <column id="478" parent="342" name="history_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="476" parent="342" name="patient_id">
+    <column id="479" parent="342" name="patient_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="477" parent="342" name="IDX_3EBDFB011E058452">
+    <index id="480" parent="342" name="IDX_3EBDFB011E058452">
       <ColNames>history_id</ColNames>
     </index>
-    <index id="478" parent="342" name="IDX_3EBDFB016B899279">
+    <index id="481" parent="342" name="IDX_3EBDFB016B899279">
       <ColNames>patient_id</ColNames>
     </index>
-    <key id="479" parent="342" name="PRIMARY">
+    <key id="482" parent="342" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>history_id
 patient_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="480" parent="342" name="FK_3EBDFB011E058452">
+    <foreign-key id="483" parent="342" name="FK_3EBDFB011E058452">
       <ColNames>history_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>history</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="481" parent="342" name="FK_3EBDFB016B899279">
+    <foreign-key id="484" parent="342" name="FK_3EBDFB016B899279">
       <ColNames>patient_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>patient</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="482" parent="343" name="history_id">
+    <column id="485" parent="343" name="history_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="483" parent="343" name="symptoms_id">
+    <column id="486" parent="343" name="symptom_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="484" parent="343" name="IDX_8DC7C2591E058452">
+    <index id="487" parent="343" name="IDX_C0A5DC4A1E058452">
       <ColNames>history_id</ColNames>
     </index>
-    <index id="485" parent="343" name="IDX_8DC7C25967CA3534">
-      <ColNames>symptoms_id</ColNames>
+    <index id="488" parent="343" name="IDX_C0A5DC4ADEEFDA95">
+      <ColNames>symptom_id</ColNames>
     </index>
-    <key id="486" parent="343" name="PRIMARY">
+    <key id="489" parent="343" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>history_id
-symptoms_id</ColNames>
+symptom_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="487" parent="343" name="FK_8DC7C2591E058452">
+    <foreign-key id="490" parent="343" name="FK_C0A5DC4A1E058452">
       <ColNames>history_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>history</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="488" parent="343" name="FK_8DC7C25967CA3534">
+    <foreign-key id="491" parent="343" name="FK_C0A5DC4ADEEFDA95">
+      <ColNames>symptom_id</ColNames>
+      <RefSchemaName>hospdb</RefSchemaName>
+      <RefTableName>symptom</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="492" parent="344" name="history_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="493" parent="344" name="symptoms_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="494" parent="344" name="IDX_8DC7C2591E058452">
+      <ColNames>history_id</ColNames>
+    </index>
+    <index id="495" parent="344" name="IDX_8DC7C25967CA3534">
+      <ColNames>symptoms_id</ColNames>
+    </index>
+    <key id="496" parent="344" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>history_id
+symptoms_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="497" parent="344" name="FK_8DC7C2591E058452">
+      <ColNames>history_id</ColNames>
+      <RefSchemaName>hospdb</RefSchemaName>
+      <RefTableName>history</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="498" parent="344" name="FK_8DC7C25967CA3534">
       <ColNames>symptoms_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>symptoms</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="489" parent="344" name="id">
+    <column id="499" parent="345" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="490" parent="344" name="Name">
+    <column id="500" parent="345" name="Name">
       <Position>2</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="491" parent="344" name="Type">
+    <column id="501" parent="345" name="Type">
       <Position>3</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="492" parent="344" name="PRIMARY">
+    <key id="502" parent="345" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="493" parent="345" name="medicine_id">
+    <column id="503" parent="346" name="medicine_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="494" parent="345" name="history_id">
+    <column id="504" parent="346" name="history_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="495" parent="345" name="IDX_2A4107552F7D140A">
+    <index id="505" parent="346" name="IDX_2A4107552F7D140A">
       <ColNames>medicine_id</ColNames>
     </index>
-    <index id="496" parent="345" name="IDX_2A4107551E058452">
+    <index id="506" parent="346" name="IDX_2A4107551E058452">
       <ColNames>history_id</ColNames>
     </index>
-    <key id="497" parent="345" name="PRIMARY">
+    <key id="507" parent="346" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>medicine_id
 history_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="498" parent="345" name="FK_2A4107552F7D140A">
+    <foreign-key id="508" parent="346" name="FK_2A4107552F7D140A">
       <ColNames>medicine_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>medicine</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="499" parent="345" name="FK_2A4107551E058452">
+    <foreign-key id="509" parent="346" name="FK_2A4107551E058452">
       <ColNames>history_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>history</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="500" parent="346" name="id">
+    <column id="510" parent="347" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="501" parent="346" name="birth_date">
+    <column id="511" parent="347" name="birth_date">
       <Position>2</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="502" parent="346" name="user_id">
+    <column id="512" parent="347" name="user_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="503" parent="346" name="UNIQ_1ADAD7EBA76ED395">
+    <index id="513" parent="347" name="UNIQ_1ADAD7EBA76ED395">
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="504" parent="346" name="PRIMARY">
+    <key id="514" parent="347" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="505" parent="346" name="UNIQ_1ADAD7EBA76ED395">
+    <key id="515" parent="347" name="UNIQ_1ADAD7EBA76ED395">
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>UNIQ_1ADAD7EBA76ED395</UnderlyingIndexName>
     </key>
-    <foreign-key id="506" parent="346" name="FK_1ADAD7EBA76ED395">
+    <foreign-key id="516" parent="347" name="FK_1ADAD7EBA76ED395">
       <ColNames>user_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>fos_user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="507" parent="347" name="patient_id">
+    <column id="517" parent="348" name="patient_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="508" parent="347" name="history_id">
+    <column id="518" parent="348" name="history_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="509" parent="347" name="IDX_7AD925A06B899279">
+    <index id="519" parent="348" name="IDX_7AD925A06B899279">
       <ColNames>patient_id</ColNames>
     </index>
-    <index id="510" parent="347" name="IDX_7AD925A01E058452">
+    <index id="520" parent="348" name="IDX_7AD925A01E058452">
       <ColNames>history_id</ColNames>
     </index>
-    <key id="511" parent="347" name="PRIMARY">
+    <key id="521" parent="348" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>patient_id
 history_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="512" parent="347" name="FK_7AD925A06B899279">
+    <foreign-key id="522" parent="348" name="FK_7AD925A06B899279">
       <ColNames>patient_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>patient</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="513" parent="347" name="FK_7AD925A01E058452">
+    <foreign-key id="523" parent="348" name="FK_7AD925A01E058452">
       <ColNames>history_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>history</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="514" parent="348" name="id">
+    <column id="524" parent="349" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="515" parent="348" name="code">
+    <column id="525" parent="349" name="code">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="516" parent="348" name="PRIMARY">
+    <column id="526" parent="349" name="code_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="527" parent="349" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="517" parent="349" name="id">
+    <column id="528" parent="350" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="518" parent="349" name="Number">
+    <column id="529" parent="350" name="Number">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="519" parent="349" name="Type">
+    <column id="530" parent="350" name="Type">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="520" parent="349" name="PRIMARY">
+    <key id="531" parent="350" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="521" parent="350" name="room_id">
+    <column id="532" parent="351" name="room_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="522" parent="350" name="doctor_id">
+    <column id="533" parent="351" name="doctor_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="523" parent="350" name="IDX_5E8E35AB54177093">
+    <index id="534" parent="351" name="IDX_5E8E35AB54177093">
       <ColNames>room_id</ColNames>
     </index>
-    <index id="524" parent="350" name="IDX_5E8E35AB87F4FB17">
+    <index id="535" parent="351" name="IDX_5E8E35AB87F4FB17">
       <ColNames>doctor_id</ColNames>
     </index>
-    <key id="525" parent="350" name="PRIMARY">
+    <key id="536" parent="351" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>room_id
 doctor_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="526" parent="350" name="FK_5E8E35AB54177093">
+    <foreign-key id="537" parent="351" name="FK_5E8E35AB54177093">
       <ColNames>room_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>room</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="527" parent="350" name="FK_5E8E35AB87F4FB17">
+    <foreign-key id="538" parent="351" name="FK_5E8E35AB87F4FB17">
       <ColNames>doctor_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>doctor</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="528" parent="351" name="room_id">
+    <column id="539" parent="352" name="room_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="529" parent="351" name="equipment_id">
+    <column id="540" parent="352" name="equipment_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="530" parent="351" name="IDX_4F9135EA54177093">
+    <index id="541" parent="352" name="IDX_4F9135EA54177093">
       <ColNames>room_id</ColNames>
     </index>
-    <index id="531" parent="351" name="IDX_4F9135EA517FE9FE">
+    <index id="542" parent="352" name="IDX_4F9135EA517FE9FE">
       <ColNames>equipment_id</ColNames>
     </index>
-    <key id="532" parent="351" name="PRIMARY">
+    <key id="543" parent="352" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>room_id
 equipment_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="533" parent="351" name="FK_4F9135EA54177093">
+    <foreign-key id="544" parent="352" name="FK_4F9135EA54177093">
       <ColNames>room_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>room</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="534" parent="351" name="FK_4F9135EA517FE9FE">
+    <foreign-key id="545" parent="352" name="FK_4F9135EA517FE9FE">
       <ColNames>equipment_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>equipment</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="535" parent="352" name="id">
+    <column id="546" parent="353" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="536" parent="352" name="Day">
+    <column id="547" parent="353" name="Day">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="537" parent="352" name="work_time">
+    <column id="548" parent="353" name="work_time">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="538" parent="352" name="PRIMARY">
+    <key id="549" parent="353" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="539" parent="353" name="schedule_id">
+    <column id="550" parent="354" name="schedule_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="540" parent="353" name="doctor_id">
+    <column id="551" parent="354" name="doctor_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="541" parent="353" name="IDX_7DE1B775A40BC2D5">
+    <index id="552" parent="354" name="IDX_7DE1B775A40BC2D5">
       <ColNames>schedule_id</ColNames>
     </index>
-    <index id="542" parent="353" name="IDX_7DE1B77587F4FB17">
+    <index id="553" parent="354" name="IDX_7DE1B77587F4FB17">
       <ColNames>doctor_id</ColNames>
     </index>
-    <key id="543" parent="353" name="PRIMARY">
+    <key id="554" parent="354" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>schedule_id
 doctor_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="544" parent="353" name="FK_7DE1B775A40BC2D5">
+    <foreign-key id="555" parent="354" name="FK_7DE1B775A40BC2D5">
       <ColNames>schedule_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>schedule</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="545" parent="353" name="FK_7DE1B77587F4FB17">
+    <foreign-key id="556" parent="354" name="FK_7DE1B77587F4FB17">
       <ColNames>doctor_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>doctor</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="546" parent="354" name="id">
+    <column id="557" parent="355" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="547" parent="354" name="Spec">
+    <column id="558" parent="355" name="Spec">
       <Position>2</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="548" parent="354" name="domain">
+    <column id="559" parent="355" name="domain">
       <Position>3</Position>
       <DataType>varchar(15)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="549" parent="354" name="PRIMARY">
+    <key id="560" parent="355" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="550" parent="355" name="specialty_id">
+    <column id="561" parent="356" name="specialty_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="551" parent="355" name="doctor_id">
+    <column id="562" parent="356" name="doctor_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="552" parent="355" name="IDX_2DBBE9AC9A353316">
+    <index id="563" parent="356" name="IDX_2DBBE9AC9A353316">
       <ColNames>specialty_id</ColNames>
     </index>
-    <index id="553" parent="355" name="IDX_2DBBE9AC87F4FB17">
+    <index id="564" parent="356" name="IDX_2DBBE9AC87F4FB17">
       <ColNames>doctor_id</ColNames>
     </index>
-    <key id="554" parent="355" name="PRIMARY">
+    <key id="565" parent="356" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>specialty_id
 doctor_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="555" parent="355" name="FK_2DBBE9AC9A353316">
+    <foreign-key id="566" parent="356" name="FK_2DBBE9AC9A353316">
       <ColNames>specialty_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>specialty</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="556" parent="355" name="FK_2DBBE9AC87F4FB17">
+    <foreign-key id="567" parent="356" name="FK_2DBBE9AC87F4FB17">
       <ColNames>doctor_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>doctor</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="557" parent="356" name="id">
+    <column id="568" parent="357" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="558" parent="356" name="Description">
+    <column id="569" parent="357" name="description">
       <Position>2</Position>
-      <DataType>varchar(30)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="559" parent="356" name="PRIMARY">
+    <key id="570" parent="357" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="560" parent="357" name="symptoms_id">
+    <column id="571" parent="358" name="symptom_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="561" parent="357" name="history_id">
+    <column id="572" parent="358" name="history_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="562" parent="357" name="IDX_D46FE47167CA3534">
-      <ColNames>symptoms_id</ColNames>
+    <index id="573" parent="358" name="IDX_1CB592C3DEEFDA95">
+      <ColNames>symptom_id</ColNames>
     </index>
-    <index id="563" parent="357" name="IDX_D46FE4711E058452">
+    <index id="574" parent="358" name="IDX_1CB592C31E058452">
       <ColNames>history_id</ColNames>
     </index>
-    <key id="564" parent="357" name="PRIMARY">
+    <key id="575" parent="358" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>symptoms_id
+      <ColNames>symptom_id
 history_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="565" parent="357" name="FK_D46FE47167CA3534">
-      <ColNames>symptoms_id</ColNames>
+    <foreign-key id="576" parent="358" name="FK_1CB592C3DEEFDA95">
+      <ColNames>symptom_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
-      <RefTableName>symptoms</RefTableName>
+      <RefTableName>symptom</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="566" parent="357" name="FK_D46FE4711E058452">
+    <foreign-key id="577" parent="358" name="FK_1CB592C31E058452">
       <ColNames>history_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>history</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="567" parent="358" name="id">
+    <column id="578" parent="359" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="568" parent="358" name="patient_id">
+    <column id="579" parent="359" name="Description">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="580" parent="359" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="581" parent="360" name="symptoms_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="582" parent="360" name="history_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="583" parent="360" name="IDX_D46FE47167CA3534">
+      <ColNames>symptoms_id</ColNames>
+    </index>
+    <index id="584" parent="360" name="IDX_D46FE4711E058452">
+      <ColNames>history_id</ColNames>
+    </index>
+    <key id="585" parent="360" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>symptoms_id
+history_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="586" parent="360" name="FK_D46FE47167CA3534">
+      <ColNames>symptoms_id</ColNames>
+      <RefSchemaName>hospdb</RefSchemaName>
+      <RefTableName>symptoms</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="587" parent="360" name="FK_D46FE4711E058452">
+      <ColNames>history_id</ColNames>
+      <RefSchemaName>hospdb</RefSchemaName>
+      <RefTableName>history</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="588" parent="361" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="589" parent="361" name="patient_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="569" parent="358" name="doctor_id">
+    <column id="590" parent="361" name="doctor_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="570" parent="358" name="visit_date">
+    <column id="591" parent="361" name="visit_date">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="571" parent="358" name="visit_time">
+    <column id="592" parent="361" name="visit_time">
       <Position>5</Position>
       <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="572" parent="358" name="IDX_97A0ADA36B899279">
+    <index id="593" parent="361" name="IDX_97A0ADA36B899279">
       <ColNames>patient_id</ColNames>
     </index>
-    <index id="573" parent="358" name="IDX_97A0ADA387F4FB17">
+    <index id="594" parent="361" name="IDX_97A0ADA387F4FB17">
       <ColNames>doctor_id</ColNames>
     </index>
-    <key id="574" parent="358" name="PRIMARY">
+    <key id="595" parent="361" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="575" parent="358" name="FK_97A0ADA36B899279">
+    <foreign-key id="596" parent="361" name="FK_97A0ADA36B899279">
       <ColNames>patient_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>patient</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="576" parent="358" name="FK_97A0ADA387F4FB17">
+    <foreign-key id="597" parent="361" name="FK_97A0ADA387F4FB17">
       <ColNames>doctor_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>doctor</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="577" parent="359" name="id">
+    <column id="598" parent="362" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="578" parent="359" name="username">
+    <column id="599" parent="362" name="username">
       <Position>2</Position>
       <DataType>varchar(180)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="579" parent="359" name="username_canonical">
+    <column id="600" parent="362" name="username_canonical">
       <Position>3</Position>
       <DataType>varchar(180)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="580" parent="359" name="email">
+    <column id="601" parent="362" name="email">
       <Position>4</Position>
       <DataType>varchar(180)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="581" parent="359" name="email_canonical">
+    <column id="602" parent="362" name="email_canonical">
       <Position>5</Position>
       <DataType>varchar(180)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="582" parent="359" name="enabled">
+    <column id="603" parent="362" name="enabled">
       <Position>6</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="583" parent="359" name="salt">
+    <column id="604" parent="362" name="salt">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="584" parent="359" name="password">
+    <column id="605" parent="362" name="password">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="585" parent="359" name="last_login">
+    <column id="606" parent="362" name="last_login">
       <Position>9</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="586" parent="359" name="confirmation_token">
+    <column id="607" parent="362" name="confirmation_token">
       <Position>10</Position>
       <DataType>varchar(180)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="587" parent="359" name="password_requested_at">
+    <column id="608" parent="362" name="password_requested_at">
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="588" parent="359" name="roles">
+    <column id="609" parent="362" name="roles">
       <Position>12</Position>
       <Comment>(DC2Type:array)</Comment>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="589" parent="359" name="first_name">
+    <column id="610" parent="362" name="first_name">
       <Position>13</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="590" parent="359" name="middle_name">
+    <column id="611" parent="362" name="middle_name">
       <Position>14</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="591" parent="359" name="last_name">
+    <column id="612" parent="362" name="last_name">
       <Position>15</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="592" parent="359" name="UNIQ_8D93D64992FC23A8">
+    <index id="613" parent="362" name="UNIQ_8D93D64992FC23A8">
       <ColNames>username_canonical</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="593" parent="359" name="UNIQ_8D93D649A0D96FBF">
+    <index id="614" parent="362" name="UNIQ_8D93D649A0D96FBF">
       <ColNames>email_canonical</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="594" parent="359" name="UNIQ_8D93D649C05FB297">
+    <index id="615" parent="362" name="UNIQ_8D93D649C05FB297">
       <ColNames>confirmation_token</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="595" parent="359" name="PRIMARY">
+    <key id="616" parent="362" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="596" parent="359" name="UNIQ_8D93D64992FC23A8">
+    <key id="617" parent="362" name="UNIQ_8D93D64992FC23A8">
       <ColNames>username_canonical</ColNames>
       <UnderlyingIndexName>UNIQ_8D93D64992FC23A8</UnderlyingIndexName>
     </key>
-    <key id="597" parent="359" name="UNIQ_8D93D649A0D96FBF">
+    <key id="618" parent="362" name="UNIQ_8D93D649A0D96FBF">
       <ColNames>email_canonical</ColNames>
       <UnderlyingIndexName>UNIQ_8D93D649A0D96FBF</UnderlyingIndexName>
     </key>
-    <key id="598" parent="359" name="UNIQ_8D93D649C05FB297">
+    <key id="619" parent="362" name="UNIQ_8D93D649C05FB297">
       <ColNames>confirmation_token</ColNames>
       <UnderlyingIndexName>UNIQ_8D93D649C05FB297</UnderlyingIndexName>
     </key>
-    <column id="599" parent="360" name="id">
+    <column id="620" parent="363" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="600" parent="360" name="user_id">
+    <column id="621" parent="363" name="user_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="601" parent="360" name="role_id">
+    <column id="622" parent="363" name="role_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="602" parent="360" name="IDX_2DE8C6A3A76ED395">
+    <index id="623" parent="363" name="IDX_2DE8C6A3A76ED395">
       <ColNames>user_id</ColNames>
     </index>
-    <index id="603" parent="360" name="IDX_2DE8C6A3D60322AC">
+    <index id="624" parent="363" name="IDX_2DE8C6A3D60322AC">
       <ColNames>role_id</ColNames>
     </index>
-    <key id="604" parent="360" name="PRIMARY">
+    <key id="625" parent="363" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="605" parent="360" name="FK_2DE8C6A3A76ED395">
+    <foreign-key id="626" parent="363" name="FK_2DE8C6A3A76ED395">
       <ColNames>user_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>fos_user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="606" parent="360" name="FK_2DE8C6A3D60322AC">
+    <foreign-key id="627" parent="363" name="FK_2DE8C6A3D60322AC">
       <ColNames>role_id</ColNames>
       <RefSchemaName>hospdb</RefSchemaName>
       <RefTableName>role</RefTableName>

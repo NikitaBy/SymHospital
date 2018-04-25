@@ -34,9 +34,19 @@ class Role
      */
     private $code;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    private $codeName;
+
+    /**
+     * @return string
+     */
     public function __toString()
     {
-        return (string) $this->getCode();
+        return (string) $this->getCodeName();
     }
 
     /**
@@ -113,5 +123,21 @@ class Role
     public function getUserRole()
     {
         return $this->userRole;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCodeName(): string
+    {
+        return $this->codeName;
+    }
+
+    /**
+     * @param string $codeName
+     */
+    public function setCodeName(string $codeName): void
+    {
+        $this->codeName = $codeName;
     }
 }
