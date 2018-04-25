@@ -3,7 +3,6 @@
 namespace AppBundle\Controller\User;
 
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
-use FOS\UserBundle\Form\Factory\FormFactory;
 use FOS\UserBundle\Form\Factory\FactoryInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
