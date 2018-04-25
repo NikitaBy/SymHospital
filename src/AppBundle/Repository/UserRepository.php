@@ -67,4 +67,8 @@ class UserRepository extends EntityRepository
         $this->userManager->updateUser($user);
     }
 
+    public function delete(User $user)
+    {
+        $this->userManager->deleteUser($user);
+    }
 }

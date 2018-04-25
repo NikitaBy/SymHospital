@@ -92,7 +92,7 @@ services:
         class: AppBundle\Admin\SymptomsAdmin
         arguments: [~, AppBundle\Entity\Symptoms, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm,  group: Admin, label: Symptoms }
+            - { name: sonata.admin, manager_type: orm,  group: Admin, label: Symptom }
         public: true
 
     admin.specialty:
@@ -127,7 +127,7 @@ services:
         class: AppBundle\Admin\User\UserAdmin
         arguments: [~, AppBundle\Entity\Users\User, ~]
         calls:
-            - [setModelManager, ['@AppBundle\AdminProxy\UserModelManagerProxy']]
+            - [setModelManager, ['@AppBundle\AdminProxy\ModelManagerProxy']]
             - [setRouter, ['@router']]
         tags:
             - { name: sonata.admin, manager_type: orm,  group: User, label: User }
@@ -141,21 +141,26 @@ services:
         public: true
 
     AppBundle\AdminProxy\UserModelManagerProxy:
-        class:  AppBundle\AdminProxy\UserModelManagerProxy
+        class:  AppBundle\AdminProxy\ModelManagerProxy
         parent: 'sonata.admin.manager.orm'
         autowire: false
         calls:
-            - [setUserManager, ['@fos_user.user_manager']]
-            - [setUserRepository,['@AppBundle\Repository\UserRepository']]
+            - [setRepository,['@AppBundle\Repository\UserRepository']]
         public: true
 
     AppBundle\AdminProxy\PatientModelManagerProxy:
-        class:  AppBundle\AdminProxy\PatientModelManagerProxy
+        class:  AppBundle\AdminProxy\ModelManagerProxy
         parent: 'sonata.admin.manager.orm'
         autowire: false
         calls:
-            - [setPatientRepository, ['@AppBundle\Repository\PatientRepository']]
+            - [setRepository, ['@AppBundle\Repository\PatientRepository']]
         public: true
+
+#    AppBundle\AdminProxy\ModelManagerProxy:
+#        class:  AppBundle\AdminProxy\ModelManagerProxy
+#        parent: 'sonata.admin.manager.orm'
+#        autowire: false
+#        public: true
 
     AppBundle\Repository\PatientRepository:
         class: AppBundle\Repository\PatientRepository
@@ -165,11 +170,11 @@ services:
             - [setUserManager, ['@fos_user.user_manager']]
 
     AppBundle\AdminProxy\DoctorModelManagerProxy:
-        class: AppBundle\AdminProxy\DoctorModelManagerProxy
+        class: AppBundle\AdminProxy\ModelManagerProxy
         parent: 'sonata.admin.manager.orm'
         autowire: false
         calls:
-            - [setDoctorRepository, ['@AppBundle\Repository\DoctorRepository']]
+            - [setRepository, ['@AppBundle\Repository\DoctorRepository']]
         public: true
 
     AppBundle\Repository\DoctorRepository:

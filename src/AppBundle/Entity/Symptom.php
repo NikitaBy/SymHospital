@@ -6,12 +6,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Symptoms
+ * Symptom
  *
  * @ORM\Table
  * @ORM\Entity
  */
-class Symptoms
+class Symptom
 {
     /**
      * @var integer
@@ -25,7 +25,7 @@ class Symptoms
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=30, nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $description;
 
@@ -57,7 +57,7 @@ class Symptoms
      *
      * @param string $description
      *
-     * @return Symptoms
+     * @return Symptom
      */
     public function setDescription($description)
     {
@@ -81,7 +81,7 @@ class Symptoms
      *
      * @param History $history
      *
-     * @return Symptoms
+     * @return Symptom
      */
     public function addHistory(History $history)
     {

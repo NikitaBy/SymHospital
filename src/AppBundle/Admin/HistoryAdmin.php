@@ -17,7 +17,7 @@ use Sonata\CoreBundle\Form\Type\DatePickerType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use AppBundle\Entity\Patient;
 use AppBundle\Entity\Doctor;
-use AppBundle\Entity\Symptoms;
+use AppBundle\Entity\Symptom;
 use AppBundle\Entity\Disease;
 use AppBundle\Entity\Medicine;
 
@@ -42,7 +42,7 @@ class HistoryAdmin extends AbstractAdmin
         ]);
         $formMapper->add('symptoms', EntityType::class, [
             'multiple'=>true,
-            'class' => Symptoms::class,
+            'class' => Symptom::class,
             'choice_label' => 'description',
         ]);
         $formMapper->add('disease', EntityType::class, [

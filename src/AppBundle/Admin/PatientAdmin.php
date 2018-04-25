@@ -14,7 +14,10 @@ use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Knp\Menu\ItemInterface as MenuItemInterface;
 
-
+/**
+ * Class PatientAdmin
+ * @method Patient getSubject()
+ */
 class PatientAdmin extends AbstractAdmin
 {
     /**
@@ -100,15 +103,13 @@ class PatientAdmin extends AbstractAdmin
     protected function configureTabMenu(MenuItemInterface $menu, $action, AdminInterface $childAdmin = null)
     {
         $patient = $this->getSubject();
-        if ($patient) {
-            if ($user = $patient->getUser()) {
-                $menu->addChild(
-                    'User',
-                    [
-                        'uri' => $this->router->generate('admin_app_users_user_edit', ['id' => $user->getId()])
-                    ]
-                );
-            }
+        if ($patient && $patient->getId() && $user = $patient->getUser()) {
+            $menu->addChild(
+                'User',
+                [
+                    'uri' => $this->router->generate('admin_app_users_user_edit', ['id' => $user->getId()])
+                ]
+            );
         }
     }
 

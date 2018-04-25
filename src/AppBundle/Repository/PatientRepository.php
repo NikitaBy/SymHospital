@@ -37,8 +37,7 @@ class PatientRepository extends EntityRepository
             $user = $this->userManager->createUser();
             $user->setEnabled(true);
 
-            // TODO: get from repository by code / magic, create own repository
-            $role = $this->getEntityManager()->getRepository('AppBundle:Users\Role')->findOneBy(['code' => Role::ROLE_PATIENT]);
+            $role = $this->getEntityManager()->getRepository(Role::class)->findOneBy(['code' => Role::ROLE_PATIENT]);
 
             // TODO: separate to method addRole(string $role)
             $userRole = new UserRole();
@@ -47,7 +46,6 @@ class PatientRepository extends EntityRepository
         }
 
         $patient->setUser($user);
-        $user->setPatient($patient);
 
         return $patient;
     }

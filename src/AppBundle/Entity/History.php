@@ -51,7 +51,7 @@ class History
     private $patient;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Symptoms::class,cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity=Symptom::class,cascade={"persist", "remove"})
      */
     private $symptoms;
 
@@ -180,11 +180,11 @@ class History
     /**
      * Add symptom
      *
-     * @param Symptoms $symptom
+     * @param Symptom $symptom
      *
      * @return History
      */
-    public function addSymptom(Symptoms $symptom)
+    public function addSymptom(Symptom $symptom)
     {
         $this->symptoms[] = $symptom;
         $symptom->addHistory($this);
@@ -194,9 +194,9 @@ class History
     /**
      * Remove symptom
      *
-     * @param Symptoms $symptom
+     * @param Symptom $symptom
      */
-    public function removeSymptom(Symptoms $symptom)
+    public function removeSymptom(Symptom $symptom)
     {
         $this->symptoms->removeElement($symptom);
     }

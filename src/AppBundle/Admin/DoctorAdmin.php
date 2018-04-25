@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Admin;
 
+use AppBundle\Entity\Doctor;
 use AppBundle\Entity\Specialty;
 use AppBundle\Repository\DoctorRepository;
 use FOS\UserBundle\Model\UserManager;
@@ -17,6 +18,11 @@ use AppBundle\Entity\Room;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+/**
+ * Class DoctorAdmin
+ *
+ * @method Doctor getSubject()
+ */
 class DoctorAdmin extends AbstractAdmin
 {
     /**
@@ -101,18 +107,23 @@ class DoctorAdmin extends AbstractAdmin
 
     }
 
+    /**
+     * @param MenuItemInterface $menu
+     * @param string $action
+     * @param AdminInterface|null $childAdmin
+     *
+     * @return mixed|void
+     */
     protected function configureTabMenu(MenuItemInterface $menu, $action, AdminInterface $childAdmin = null)
     {
         $doctor = $this->getSubject();
-        if ($doctor) {
-            if ($user = $doctor->getUser()) {
-                $menu->addChild(
-                    'User',
-                    [
-                        'uri' => $this->router->generate('admin_app_users_user_edit', ['id' => $user->getId()])
-                    ]
-                );
-            }
+        if ($doctor && $doctor->getId() && $user = $doctor->getUser()) {
+            $menu->addChild(
+                'User',
+                [
+                    'uri' => $this->router->generate('admin_app_users_user_edit', ['id' => $user->getId()])
+                ]
+            );
         }
     }
 

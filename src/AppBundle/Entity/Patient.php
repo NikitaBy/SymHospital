@@ -180,7 +180,7 @@ class Patient
     public function setUser(User $user = null)
     {
         $this->user = $user;
-
+        $user->setPatient($this);
         return $this;
     }
 
