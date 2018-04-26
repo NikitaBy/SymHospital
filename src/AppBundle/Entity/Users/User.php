@@ -175,7 +175,7 @@ class User extends BaseUser
     /**
      * Get userRoles
      *
-     * @return Collection
+     * @return Collection|UserRole[]
      */
     public function getUserRoles()
     {
@@ -235,8 +235,13 @@ class User extends BaseUser
      */
     public function isPatient()
     {
-        If(!$this->patient) return null;
-        else return true;
+        foreach ($this->getUserRoles() as $userRole)
+        {
+            if ($userRole->getRole()->isPatientRole())  {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -244,8 +249,13 @@ class User extends BaseUser
      */
     public function isDoctor()
     {
-        If(!$this->doctor) return "????";
-        else return (string) "!!!!";
+        foreach ($this->getUserRoles() as $userRole)
+        {
+            if ($userRole->getRole()->isDoctorRole())  {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

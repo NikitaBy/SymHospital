@@ -19,3 +19,7 @@ _sonata_admin:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_user_registration_register:
+    path: /register/
+    defaults: {_controller: 'AppBundle:User\MyRegistration:register'}

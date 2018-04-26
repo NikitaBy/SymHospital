@@ -33,10 +33,22 @@ class PatientRepository extends EntityRepository
     {
         $patient = new Patient();
 
+        $hasRole = false;
+
         if (!$user) {
             $user = $this->userManager->createUser();
-            $user->setEnabled(true);
+        }
+        else{
+            foreach ($user->getUserRoles() as $userRole){
+                if($userRole->getRole()->isPatientRole()){
+                    $hasRole=true;
+                    break;
+                }
+            }
+        }
 
+
+        if(!$hasRole){
             $role = $this->getEntityManager()->getRepository(Role::class)->findOneBy(['code' => Role::ROLE_PATIENT]);
 
             $userRole = new UserRole();
@@ -44,6 +56,7 @@ class PatientRepository extends EntityRepository
             $user->addUserRole($userRole);
         }
 
+        $user->setEnabled(true);
         $patient->setUser($user);
 
         return $patient;

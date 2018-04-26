@@ -16,7 +16,7 @@ class RegistrationType extends AbstractType
         $builder->add('middleName');
         $builder->add('lastName');
         $builder->add(
-            'Role',
+            'role',
             EntityType::class,
             [
                 'class'=>Role::class,

@@ -269,7 +269,7 @@ class Doctor
     public function setUser(User $user = null)
     {
         $this->user = $user;
-
+        $user->setDoctor($this);
         return $this;
     }
 

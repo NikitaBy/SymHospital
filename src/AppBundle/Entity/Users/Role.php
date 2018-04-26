@@ -140,4 +140,14 @@ class Role
     {
         $this->codeName = $codeName;
     }
+
+    public function isPatientRole()
+    {
+        return $this->getCode() === static::ROLE_PATIENT;
+    }
+
+    public function isDoctorRole()
+    {
+        return $this->getCode() === static::ROLE_DOCTOR;
+    }
 }

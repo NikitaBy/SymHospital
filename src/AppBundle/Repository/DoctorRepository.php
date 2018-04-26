@@ -32,10 +32,23 @@ class DoctorRepository extends EntityRepository
     public function create(User $user=null)
     {
         $doctor= new Doctor();
+        $hasRole = false;
 
-        if(!$user) {
+        if (!$user) {
             $user = $this->userManager->createUser();
+        }
+        else{
+            foreach ($user->getUserRoles() as $userRole){
+                if($userRole->getRole()->isDoctorRole()){
+                    $hasRole=true;
+                    break;
+                }
+            }
+        }
 
+
+
+        if(!$hasRole) {
             $role = $this->getEntityManager()->getRepository('AppBundle:Users\Role')->findOneBy(['code' => Role::ROLE_DOCTOR]);
 
             $userRole = new UserRole();
@@ -44,7 +57,6 @@ class DoctorRepository extends EntityRepository
         }
 
         $doctor->setUser($user);
-        $user->setDoctor($doctor);
 
         return $doctor;
     }
