@@ -22,4 +22,4 @@ fos_user:
 
 fos_user_registration_register:
     path: /register/
-    defaults: {_controller: 'AppBundle:User\MyRegistration:register'}
+    defaults: {_controller: 'AppBundle:User\Registration:register'}

@@ -198,8 +198,8 @@ services:
         tags:
             - {name: form.type, alias: app_user_registration}
 
-    AppBundle\Controller\User\MyRegistrationController:
-        class: AppBundle\Controller\User\MyRegistrationController
+    AppBundle\Controller\User\RegistrationController:
+        class: AppBundle\Controller\User\RegistrationController
         parent: 'fos_user.registration.controller'
         calls:
             - [setPatientRepository, ['@AppBundle\Repository\PatientRepository']]
