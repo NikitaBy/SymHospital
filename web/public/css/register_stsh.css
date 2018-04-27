@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto);
+/*@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);*/
 
 /****** REGISTER ******/
 .register-container {
@@ -52,11 +53,6 @@
 
 .register-container select{
     display: block;
-    /*padding: 50px 80px;*/
-    /*width: 130%;*/
-    /*border: none;*/
-    /*box-shadow: none;*/
-    /*background-color: #4d90fe;*/
     background: snow;
     width: auto;
     padding: 5px;
