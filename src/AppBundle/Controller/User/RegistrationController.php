@@ -15,6 +15,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class RegistrationController extends BaseController
 {
@@ -72,6 +73,7 @@ class RegistrationController extends BaseController
                 {
                     $patient = $this->patientRepository->create($user);
                     $this->patientRepository->save($patient);
+                    $patient->setBirthDate($form->get('birthDate'));
                 }
                 elseif ($form->get('role')->getData()->isDoctorRole())
                 {

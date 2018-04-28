@@ -9,6 +9,7 @@ use Sonata\CoreBundle\Form\Type\DatePickerType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class RegistrationType extends AbstractType
@@ -26,9 +27,9 @@ class RegistrationType extends AbstractType
                 'mapped'=>false
             ]
         );
-        $builder->add('birthDate', DatePickerType::class,[
+        $builder->add('birthDate', TextType::class,[
 //            'widget'=>'single_text',
-            'html5'=>false,
+//            'html5'=>false,
 //            'format'=>'yyyy-MMM-dd',
             'mapped'=>false,
             'attr'=> ['class'=>'datepicker']

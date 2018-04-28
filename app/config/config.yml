@@ -39,7 +39,10 @@ twig:
     strict_variables: '%kernel.debug%'
     form_themes:
             - '@SonataCore/Form/datepicker.html.twig'
-
+            - fields.html.twig
+#    form:
+#        resources:
+#            - 'AppBundle:Form:fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
