@@ -157,7 +157,7 @@ class Doctor
     public function addSpecialty(Specialty $specialty)
     {
         $this->specialty[] = $specialty;
-
+        $specialty->addDoctor($this);
         return $this;
     }
 

@@ -121,4 +121,10 @@ class PatientAdmin extends AbstractAdmin
     {
         return $this->patientRepository->create();
     }
+
+    protected $datagridValues =[
+        '_sort_order'=>'DESC',
+        '_sort_by'=>'id',
+    ];
+
 }
