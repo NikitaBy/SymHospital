@@ -206,3 +206,7 @@ services:
             - [setDoctorRepository, ['@AppBundle\Repository\DoctorRepository']]
         autowire: false
         public: true
+
+    AppBundle\Controller\User\AuthenticationSuccessHandler:
+        class: AppBundle\Controller\User\AuthenticationSuccessHandler
+        arguments: ['@router','@security.authorization_checker']

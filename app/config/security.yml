@@ -5,6 +5,8 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
+        ROLE_PATIENT:     ROLE_PATIENT
+        ROLE_DOCTOR:      ROLE_DOCTOR
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
     providers:
@@ -27,8 +29,22 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
+                success_handler: AppBundle\Controller\User\AuthenticationSuccessHandler
             logout:       true
             anonymous:    true
+
+#        admin:
+#            pattern: ^/admin/
+#            form_login:
+#                provider: fos_userbundle
+#                csrf_token_generator: security.csrf.token_manager
+#                login_path: /login
+#                check_path: /admin/login_check
+#                always_use_default_target_path: false
+#                default_target_path: /admin/dashboard
+#            logout:       true
+#            anonymous:    true
+
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }

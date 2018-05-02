@@ -24,3 +24,8 @@ fos_user_registration_register:
     path: /register/
     defaults: {_controller: 'AppBundle:User\Registration:register'}
 
+homepage:
+    path: /
+    defaults:  { _controller: 'FOSUserBundle:Security:login' }
+
+
