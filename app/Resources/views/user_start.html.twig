@@ -1,0 +1,13 @@
+<!DOCTYPE>
+<html>
+    <head>
+        {{ app.user.username }}
+    </head>
+
+    <body>
+    <div>
+        <a href="{{ path('fos_user_security_logout')}}" class="btn btn-default" role="button" >Logout</a>
+    </div>
+        {{ app.user.username }}
+    </body>
+</html>

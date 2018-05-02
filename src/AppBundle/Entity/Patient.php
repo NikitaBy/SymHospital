@@ -102,7 +102,7 @@ class Patient
     public function addTicket(Ticket $ticket)
     {
         $this->ticket[] = $ticket;
-
+        $ticket->setPatient($this);
         return $this;
     }
 

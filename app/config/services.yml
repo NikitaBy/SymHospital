@@ -210,3 +210,8 @@ services:
     AppBundle\Authentication\AuthenticationSuccessHandler:
         class: AppBundle\Authentication\AuthenticationSuccessHandler
         arguments: ['@router','@security.authorization_checker']
+
+    AppBundle\Controller\TicketController:
+        class: AppBundle\Controller\TicketController
+#        calls:
+#            - [setEntityManager, '@']

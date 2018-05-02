@@ -25,10 +25,9 @@ class AuthenticationSuccessHandler implements AuthenticationSuccessHandlerInterf
 
         if ($this->authorizationChecker->isGranted('ROLE_ADMIN')) {
             $response = new RedirectResponse($this->router->generate('sonata_admin_dashboard'));
+        }else if ($this->authorizationChecker->isGranted('ROLE_USER')) {
+            $response = new RedirectResponse($this->router->generate('user_page'));
         }
-//        else if ($this->authorizationChecker->isGranted('ROLE_USER')) {
-//            $response = new RedirectResponse($this->router->generate('frontend'));
-//        }
 
         return $response;
     }

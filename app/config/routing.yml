@@ -28,4 +28,12 @@ homepage:
     path: /
     defaults:  { _controller: 'FOSUserBundle:Security:login' }
 
+user_page:
+    path: /personal/
+    defaults: {_controller: 'AppBundle:UserStart:index'}
+
+ticket_list:
+    path: /ticket_list/
+    defaults: {_controller: 'AppBundle:Ticket:index'}
+
 
