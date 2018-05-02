@@ -29,7 +29,7 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-                success_handler: AppBundle\Controller\User\AuthenticationSuccessHandler
+                success_handler: AppBundle\Authentication\AuthenticationSuccessHandler
             logout:       true
             anonymous:    true
 

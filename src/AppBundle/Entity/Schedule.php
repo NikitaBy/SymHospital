@@ -2,9 +2,9 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 /**
  * Schedule
@@ -24,35 +24,36 @@ class Schedule
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @var DateType
+     * @ORM\Column(type="date", nullable=false)
      */
     private $day;
 
     /**
-     * @var string
+     * @var DateTimeType
      *
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="datetime",nullable=false)
      */
-    private $workTime;
+    private $timeStart;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Doctor::class,cascade={"persist", "remove"})
+     * @var DateTimeType
+     *
+     * @ORM\Column(type="datetime", nullable=false)
+     */
+    private $timeEnd;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Doctor::class, inversedBy="schedule", cascade={"persist", "remove"})
      */
     private $doctor;
 
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->doctor = new ArrayCollection();
-    }
+
 
     /**
-     * Get idSch
+     * Get id
      *
      * @return integer
      */
@@ -64,7 +65,7 @@ class Schedule
     /**
      * Set day
      *
-     * @param string $day
+     * @param \DateTime $day
      *
      * @return Schedule
      */
@@ -78,7 +79,7 @@ class Schedule
     /**
      * Get day
      *
-     * @return string
+     * @return \DateTime
      */
     public function getDay()
     {
@@ -86,57 +87,71 @@ class Schedule
     }
 
     /**
-     * Set worktime
+     * Set timeStart
      *
-     * @param string $workTime
+     * @param \DateTime $timeStart
      *
      * @return Schedule
      */
-    public function setWorkTime($workTime)
+    public function setTimeStart($timeStart)
     {
-        $this->workTime = $workTime;
+        $this->timeStart = $timeStart;
 
         return $this;
     }
 
     /**
-     * Get worktime
+     * Get timeStart
      *
-     * @return string
+     * @return DateTimeType
      */
-    public function getWorkTime()
+    public function getTimeStart()
     {
-        return $this->workTime;
+        return $this->timeStart;
     }
 
     /**
-     * Add doctor
+     * Set timeEnd
      *
-     * @param Doctor $doctor
+     * @param \DateTime $timeEnd
      *
      * @return Schedule
      */
-    public function addDoctor(Doctor $doctor)
+    public function setTimeEnd($timeEnd)
     {
-        $this->doctor[] = $doctor;
+        $this->timeEnd = $timeEnd;
 
         return $this;
     }
 
     /**
-     * Remove doctor
+     * Get timeEnd
+     *
+     * @return DateTimeType
+     */
+    public function getTimeEnd()
+    {
+        return $this->timeEnd;
+    }
+
+    /**
+     * Set doctor
      *
      * @param Doctor $doctor
+     *
+     * @return Schedule
      */
-    public function removeDoctor(Doctor $doctor)
+    public function setDoctor(Doctor $doctor = null)
     {
-        $this->doctor->removeElement($doctor);
+        $this->doctor = $doctor;
+
+        return $this;
     }
 
     /**
      * Get doctor
      *
-     * @return Collection
+     * @return Doctor
      */
     public function getDoctor()
     {

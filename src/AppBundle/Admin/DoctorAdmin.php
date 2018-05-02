@@ -10,6 +10,7 @@ use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\CoreBundle\Form\Type\CollectionType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Knp\Menu\ItemInterface as MenuItemInterface;
 
@@ -84,6 +85,14 @@ class DoctorAdmin extends AbstractAdmin
             'multiple' => true,
             'class' => Specialty::class,
         ]);
+        $formMapper->add('schedule', CollectionType::class,
+            [
+                'by_reference'=>false
+            ],
+            [
+                'edit'=>'inline',
+                'inline'=>'table'
+            ]);
         $formMapper->end();
     }
 

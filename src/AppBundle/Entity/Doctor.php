@@ -42,7 +42,7 @@ class Doctor
     private $specialty;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Schedule::class,cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=Schedule::class, mappedBy="doctor", cascade={"persist", "remove"})
      */
     private $schedule;
 
@@ -181,39 +181,6 @@ class Doctor
         return $this->specialty;
     }
 
-    /**
-     * Add schedule
-     *
-     * @param Schedule $schedule
-     *
-     * @return Doctor
-     */
-    public function addSchedule(Schedule $schedule)
-    {
-        $this->schedule[] = $schedule;
-
-        return $this;
-    }
-
-    /**
-     * Remove schedule
-     *
-     * @param Schedule $schedule
-     */
-    public function removeSchedule(Schedule $schedule)
-    {
-        $this->schedule->removeElement($schedule);
-    }
-
-    /**
-     * Get schedule
-     *
-     * @return Collection
-     */
-    public function getSchedule()
-    {
-        return $this->schedule;
-    }
 
     /**
      * Add room
@@ -286,5 +253,39 @@ class Doctor
     public function __toString()
     {
         return (string) $this->user;
+    }
+
+    /**
+     * Add schedule
+     *
+     * @param Schedule $schedule
+     *
+     * @return Doctor
+     */
+    public function addSchedule(Schedule $schedule)
+    {
+        $this->schedule[] = $schedule;
+        $schedule->setDoctor($this);
+        return $this;
+    }
+
+    /**
+     * Remove schedule
+     *
+     * @param Schedule $schedule
+     */
+    public function removeSchedule(Schedule $schedule)
+    {
+        $this->schedule->removeElement($schedule);
+    }
+
+    /**
+     * Get schedule
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSchedule()
+    {
+        return $this->schedule;
     }
 }

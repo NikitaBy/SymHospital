@@ -207,6 +207,6 @@ services:
         autowire: false
         public: true
 
-    AppBundle\Controller\User\AuthenticationSuccessHandler:
-        class: AppBundle\Controller\User\AuthenticationSuccessHandler
+    AppBundle\Authentication\AuthenticationSuccessHandler:
+        class: AppBundle\Authentication\AuthenticationSuccessHandler
         arguments: ['@router','@security.authorization_checker']
