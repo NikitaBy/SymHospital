@@ -1,20 +1,29 @@
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('public/css/personal.css') }}" >
+    <link rel="stylesheet" href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') }}" >
 {% endblock stylesheets %}
 
 {% block content %}
     <head>
         {{ app.user.username }}
     </head>
-    <div>
-        {% for ticket in ticketList|sort %}
-            {% if ticket.visitDate|date('d-M-Y') > "now"|date('d-M-Y') %}
-                <div>
-                    {{ ticket.patient }}
-                    {{ ticket.visitDate| date('d-M-Y') }}
-                    {{ ticket.visitTime| date('H:i') }}
-                    {{ ticket.doctor }}
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
+       <div class="personal-container">
+            <form>
+                {% for ticket in ticketList|sort %}
+                        <div class="text">
+                            <output>
+                                {{ ticket.patient }}
+                                {{ ticket.visitDate| date('d-M-Y') }}
+                                {{ ticket.visitTime| date('H:i') }}
+                                {{ ticket.doctor }}
+                            </output>
+                        </div>
+                {% endfor %}
+            </form>
+           <div class="personal-button">
+               <a type="text" href="{{ path('user_page') }}" class="personal personal-button" role="button" >Home</a>
+               {#<input type="submit" href="{{ path('user_page') }}" class="personal personal-button" id="_home" name="_home"  />#}
+           </div>
+
+       </div>
 {% endblock content %}

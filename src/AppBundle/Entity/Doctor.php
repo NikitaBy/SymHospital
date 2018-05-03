@@ -282,10 +282,24 @@ class Doctor
     /**
      * Get schedule
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getSchedule()
     {
         return $this->schedule;
     }
+
+    public function isWorking(\DateTime $selectedDay)
+    {
+        $flag=false;
+        foreach ($this->getSchedule() as $day)
+        {
+            if($day->getDay()===$selectedDay){
+                $flag=true;
+                break;
+            }
+        }
+        return $flag;
+    }
+
 }

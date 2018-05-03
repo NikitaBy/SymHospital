@@ -1,16 +1,19 @@
-<!DOCTYPE>
-<html>
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('public/css/personal.css') }}" >
+    <link rel="stylesheet" href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') }}" >
+{% endblock stylesheet %}
+
+{% block content %}
     <head>
         {{ app.user.username }}
     </head>
 
-    <body>
-    <div>
-        <a href="{{ path('fos_user_security_logout')}}" class="btn btn-default" role="button" >Logout</a>
+    <div class="personal-container">
+        <div class="personal-button">
+            <a href="{{ path('fos_user_security_logout')}}" class="personal personal-button" role="button"  >Logout</a>
+        </div>
+        <div class="personal-button">
+            <a href="{{ path('ticket_list') }}" class="personal personal-button" role="button">Active Ticket</a>
+        </div>
     </div>
-        {{ app.user.username }}
-    <div>
-        <a href="{{ path('ticket_list') }}">Active Ticket</a>
-    </div>
-    </body>
-</html>
+{% endblock %}

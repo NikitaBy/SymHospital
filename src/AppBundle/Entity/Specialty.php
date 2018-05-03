@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Specialty
  *
  * @ORM\Table
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SpecialtyRepository")
  */
 class Specialty
 {

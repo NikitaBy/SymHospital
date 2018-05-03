@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
  * Schedule
  *
  * @ORM\Table
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ScheduleRepository")
  */
 class Schedule
 {

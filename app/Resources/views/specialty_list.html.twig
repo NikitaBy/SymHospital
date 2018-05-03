@@ -1,0 +1,17 @@
+{% block stylesheet %}
+{% endblock stylesheet %}
+
+{% block content %}
+    <div>
+        <table>
+            {% for specialty in specialties %}
+                <div>
+                    {{ specialty }}
+                    <button >
+                        <a href="{{ path('doctor_list', {specialty: specialty.id}) }}">Next</a>
+                    </button>
+                </div>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock content %}

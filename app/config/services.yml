@@ -105,6 +105,8 @@ services:
     admin.schedule:
         class: AppBundle\Admin\ScheduleAdmin
         arguments: [~, AppBundle\Entity\Schedule, ~]
+        calls:
+            - [setRouter, ['@router']]
         tags:
             - { name: sonata.admin, manager_type: orm,  group: Admin, label: Schedule }
         public: true
@@ -156,12 +158,6 @@ services:
             - [setRepository, ['@AppBundle\Repository\PatientRepository']]
         public: true
 
-#    AppBundle\AdminProxy\ModelManagerProxy:
-#        class:  AppBundle\AdminProxy\ModelManagerProxy
-#        parent: 'sonata.admin.manager.orm'
-#        autowire: false
-#        public: true
-
     AppBundle\Repository\PatientRepository:
         class: AppBundle\Repository\PatientRepository
         factory: ['@doctrine.orm.default_entity_manager','getRepository']
@@ -183,6 +179,7 @@ services:
         arguments: ['AppBundle\Entity\Doctor']
         calls:
             - [setUserManager, ['@fos_user.user_manager']]
+            - [setEntityManager, ['@doctrine.orm.entity_manager']]
 
     AppBundle\Repository\UserRepository:
         class: AppBundle\Repository\UserRepository
@@ -213,5 +210,15 @@ services:
 
     AppBundle\Controller\TicketController:
         class: AppBundle\Controller\TicketController
-#        calls:
-#            - [setEntityManager, '@']
+        calls:
+            - [setSpecialtyRepository, ['@AppBundle\Repository\SpecialtyRepository']]
+            - [setDoctorRepository,['@AppBundle\Repository\DoctorRepository']]
+        autowire: false
+        public: true
+
+    AppBundle\Repository\SpecialtyRepository:
+        class: AppBundle\Repository\SpecialtyRepository
+        factory: ['@doctrine.orm.default_entity_manager','getRepository']
+        arguments: ['AppBundle\Entity\Specialty']
+        calls:
+            - [setEntityManager, ['@doctrine.orm.entity_manager']]

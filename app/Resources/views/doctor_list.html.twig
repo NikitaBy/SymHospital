@@ -1,0 +1,15 @@
+{% block stylesheet %}
+{% endblock stylesheet %}
+
+{% block content %}
+    <div>
+        <table>
+            {% for doctor in doctors %}
+                <div>
+                    {{ doctor }}
+                    <a href="{{ path('date_list', {doctor: doctor.id}) }}">Next</a>
+                </div>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock content %}

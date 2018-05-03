@@ -42,8 +42,11 @@ class RegistrationController extends BaseController
         $this->tokenStorage = $tokenStorage;
     }
 
-
-
+    /**
+     * @param Request $request
+     *
+     * @return null|RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function registerAction(Request $request)
     {
         $user = $this->userManager->createUser();
@@ -66,7 +69,6 @@ class RegistrationController extends BaseController
                 $event = new FormEvent($form, $request);
                 $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
-//                $this->userManager->updateUser($user);
 
                 if($form->get('role')->getData()->isPatientRole() && $form->get('birthDate'))
                 {

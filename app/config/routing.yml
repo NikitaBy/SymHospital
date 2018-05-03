@@ -33,7 +33,22 @@ user_page:
     defaults: {_controller: 'AppBundle:UserStart:index'}
 
 ticket_list:
-    path: /ticket_list/
+    path: /ticket-list/
     defaults: {_controller: 'AppBundle:Ticket:activeTickets'}
+
+specialty_list:
+    path: /specialty-list/
+    defaults: {_controller: 'AppBundle:Ticket:specialty'}
+
+doctor_list:
+    path: /doctor-list/{specialty}
+    defaults: {_controller: 'AppBundle:Ticket:doctor'}
+    requirements:
+        page: '\d+'
+
+date_list:
+    path: /date-list/{doctor}
+    defaults: {_controller: 'AppBundle:Ticket:date'}
+
 
 
