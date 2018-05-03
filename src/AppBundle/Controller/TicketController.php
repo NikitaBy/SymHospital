@@ -12,7 +12,7 @@ class TicketController extends Controller
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction()
+    public function activeTicketsAction()
     {
 
         $entityManager=$this->getDoctrine()->getManager();
@@ -20,7 +20,17 @@ class TicketController extends Controller
         $user=$this->get('security.token_storage')->getToken()->getUser();
         $ticketList=$entityManager->getRepository('AppBundle:Ticket')->findBy(['patient'=>$user->getPatient()->getId()]);
 
-        return $this->render('ticket_list.html.twig', ['ticketList'=>$ticketList]);
+        $ticketListFiltered=array();
+        foreach ($ticketList as $ticket)
+        {
+            $ticketDate=$ticket->getVisitDate()->format("Y-m-d");
+            if($ticketDate>date("Y-m-d"))
+            {
+                $ticketListFiltered[]=$ticket;
+            }
+        }
+
+        return $this->render('ticket_list.html.twig', ['ticketList'=>$ticketListFiltered]);
     }
 
 //    /**

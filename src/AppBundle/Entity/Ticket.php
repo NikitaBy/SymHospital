@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\Extension\Core\Type\DateTime;
 
 /**
  * Ticket
@@ -29,14 +30,14 @@ class Ticket
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $visitDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="time")
+     * @ORM\Column(type="datetime")
      */
     private $visitTime;
 
@@ -114,7 +115,7 @@ class Ticket
     public function setPatient(Patient $patient = null)
     {
         $this->patient = $patient;
-        $patient->addTicket($this);
+//        $patient->addTicket($this);
         return $this;
     }
 

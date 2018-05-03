@@ -6,13 +6,15 @@
         {{ app.user.username }}
     </head>
     <div>
-        {% for ticket in ticketList %}
-            <div>
-                {{ ticket.patient }}
-                {{ ticket.visitDate| date('d-M-Y') }}
-                {{ ticket.visitTime| date('H:i') }}
-                {{ ticket.doctor }}
-            </div>
+        {% for ticket in ticketList|sort %}
+            {% if ticket.visitDate|date('d-M-Y') > "now"|date('d-M-Y') %}
+                <div>
+                    {{ ticket.patient }}
+                    {{ ticket.visitDate| date('d-M-Y') }}
+                    {{ ticket.visitTime| date('H:i') }}
+                    {{ ticket.doctor }}
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock content %}

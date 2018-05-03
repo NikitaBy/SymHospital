@@ -9,5 +9,8 @@
         <a href="{{ path('fos_user_security_logout')}}" class="btn btn-default" role="button" >Logout</a>
     </div>
         {{ app.user.username }}
+    <div>
+        <a href="{{ path('ticket_list') }}">Active Ticket</a>
+    </div>
     </body>
 </html>

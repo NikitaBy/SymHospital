@@ -34,6 +34,6 @@ user_page:
 
 ticket_list:
     path: /ticket_list/
-    defaults: {_controller: 'AppBundle:Ticket:index'}
+    defaults: {_controller: 'AppBundle:Ticket:activeTickets'}
 
 
