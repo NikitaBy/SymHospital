@@ -119,4 +119,9 @@ class DoctorRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function getById(int $id)
+    {
+        return $this->entityManager->getRepository(Doctor::class)->find($id);
+    }
+
 }

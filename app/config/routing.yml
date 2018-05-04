@@ -49,6 +49,12 @@ doctor_list:
 date_list:
     path: /date-list/{doctor}
     defaults: {_controller: 'AppBundle:Ticket:date'}
+    requirements:
+        page: '\d+'
+
+time_list:
+    path: /time-list/{doctor}/{date}
+    defaults: {_controller: 'AppBundle:Ticket:time'}
 
 
 

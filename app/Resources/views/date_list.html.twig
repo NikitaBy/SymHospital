@@ -5,15 +5,20 @@
 {% block javascripts %}
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
-    <script src="{{ asset('public/js/date_list.js') }}"></script>
+    <script src="{{ asset('public/js/general_datapicker.js') }}"></script>
 {% endblock javascripts %}
 
 
 {% block content %}
-    <div class="input-group date" data-provide="datepicker">
-        <input type="text" class="form-control">
-        <div class="input-group-addon">
-            <span class="glyphicon glyphicon-th"></span>
-        </div>
-    </div>
+    {{ doctor }}
+    {#<div class="input-group date" >#}
+        {#<input type="text" class="datepicker">#}
+        {#<div class="input-group-addon">#}
+            {#<span class="glyphicon glyphicon-th"></span>#}
+        {#</div>#}
+        {#<div>#}
+            {#<a href="{{ path('time_list', {{ doctor: doctor.id}}}) }}"></a>#}
+        {#</div>#}
+    {#</div>#}
+    {{ form(form, 'app_ticket_date_add') }}
 {% endblock content %}

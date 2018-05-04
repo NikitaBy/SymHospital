@@ -1,8 +1,4 @@
 $(function () {
-    $('.datepicker').datepicker({
-        format: 'd-MM-yyyy'
-    });
-
     $('#app_user_registration_role').on('change', function () {
         checkRegistrationRole();
     });
