@@ -2,12 +2,9 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Specialty;
-use AppBundle\Form\DateListForm;
 use AppBundle\Repository\DoctorRepository;
 use AppBundle\Repository\SpecialtyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class TicketController extends Controller
@@ -80,14 +77,8 @@ class TicketController extends Controller
         $this->doctorRepository = $doctorRepository;
     }
 
-    public function dateAction(int $doctor, $date)
+    public function dateAction(int $doctor, \DateTime $date = null)
     {
-        $form=$this->createForm(DateListForm::class );
-        if ($this->doctorRepository->getById($doctor)->isWorking($date)){
-
-        }
-
-        return $this->render('date_list.html.twig',['doctor'=>$this->doctorRepository->getById($doctor), 'form'=>$form->createView()]);
     }
 
     public function timeAction()

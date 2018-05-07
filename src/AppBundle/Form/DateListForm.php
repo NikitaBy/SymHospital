@@ -6,7 +6,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DateListForm extends AbstractType
 {
@@ -27,6 +26,7 @@ class DateListForm extends AbstractType
                 'label'=>'next'
             ]
         );
+//        $builder->add('times', )
     }
 
     public function getBlockPrefix()

@@ -223,18 +223,18 @@ services:
         calls:
             - [setEntityManager, ['@doctrine.orm.entity_manager']]
 
-    AppBundle\Repository\ScheduleRepository:
-        class: AppBundle\Repository\ScheduleRepository
-        factory: ['@doctrine.orm.default_entity_manager','getRepository']
-        calls:
-            - [setEntityManager, ['@doctrine.orm.entity_manager']]
-            - [setTicketRepository, '@AppBundle\Repository\TicketRepository']
-
     AppBundle\Repository\TicketRepository:
         class: AppBundle\Repository\TicketRepository
         factory: ['@doctrine.orm.default_entity_manager','getRepository']
         calls:
             - [setEntityManager, ['@doctrine.orm.entity_manager']]
+
+    AppBundle\Repository\ScheduleRepository:
+        class: AppBundle\Repository\ScheduleRepository
+        factory: ['@doctrine.orm.default_entity_manager','getRepository']
+        calls:
+            - [setEntityManager, ['@doctrine.orm.entity_manager']]
+            - [setTicketRepository, ['@AppBundle\Repository\TicketRepository']]
 
     AppBundle\Form\DateListForm:
         class: AppBundle\Form\DateListForm
