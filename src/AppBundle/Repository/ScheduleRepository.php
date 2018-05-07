@@ -10,17 +10,28 @@ class ScheduleRepository extends EntityRepository
 {
     /** @var EntityManager */
     protected $entityManager;
+
+    /** @var TicketRepository */
+    protected $ticketRepository;
+
+    /**
+     * @param Schedule $schedule
+     *
+     * @return array
+     * @throws \Exception
+     */
     public function getTimes(Schedule $schedule)
     {
         $startTime = $schedule->getTimeStart();
         $endTime = $schedule->getTimeEnd();
-        $intervals = array();
-        while ($startTime < $endTime) {
-            $intervals[]=date('H:m', $startTime);
-//            $startTime->modify('+15 minutes')->format('H:i:s');
-            $startTime = strtotime('+15 minutes', $startTime);
+        $freeTimes=array();
+        while ($startTime < $endTime){
+            $startTime->add(new \DateInterval('PT15M'));
+            if($this->ticketRepository->checkTime($schedule->getDoctor(), $schedule->getDay(), $startTime)){
+                $freeTimes[]=$startTime;
+            }
         }
-        return $intervals;
+        return $freeTimes;
     }
 
     /**
@@ -29,5 +40,13 @@ class ScheduleRepository extends EntityRepository
     public function setEntityManager(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
+    }
+
+    /**
+     * @param TicketRepository $ticketRepository
+     */
+    public function setTicketRepository(TicketRepository $ticketRepository)
+    {
+        $this->ticketRepository = $ticketRepository;
     }
 }

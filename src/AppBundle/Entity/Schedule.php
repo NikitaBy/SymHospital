@@ -3,8 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 /**
  * Schedule
@@ -24,20 +22,20 @@ class Schedule
     private $id;
 
     /**
-     * @var DateType
+     * @var \DateTime
      * @ORM\Column(type="date", nullable=false)
      */
     private $day;
 
     /**
-     * @var DateTimeType
+     * @var \DateTime
      *
      * @ORM\Column(type="datetime",nullable=false)
      */
     private $timeStart;
 
     /**
-     * @var DateTimeType
+     * @var \DateTime
      *
      * @ORM\Column(type="datetime", nullable=false)
      */
@@ -103,7 +101,7 @@ class Schedule
     /**
      * Get timeStart
      *
-     * @return DateTimeType
+     * @return \DateTime
      */
     public function getTimeStart()
     {
@@ -127,7 +125,7 @@ class Schedule
     /**
      * Get timeEnd
      *
-     * @return DateTimeType
+     * @return \DateTime
      */
     public function getTimeEnd()
     {
