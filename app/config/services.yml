@@ -213,8 +213,6 @@ services:
         calls:
             - [setSpecialtyRepository, ['@AppBundle\Repository\SpecialtyRepository']]
             - [setDoctorRepository,['@AppBundle\Repository\DoctorRepository']]
-        tags:
-            - {name: form.type, alias: app_ticket_date_add}
         autowire: false
         public: true
 
@@ -224,3 +222,22 @@ services:
         arguments: ['AppBundle\Entity\Specialty']
         calls:
             - [setEntityManager, ['@doctrine.orm.entity_manager']]
+
+    AppBundle\Repository\ScheduleRepository:
+        class: AppBundle\Repository\ScheduleRepository
+        factory: ['@doctrine.orm.default_entity_manager','getRepository']
+        calls:
+            - [setEntityManager, ['@doctrine.orm.entity_manager']]
+            - [setTicketRepository, '@AppBundle\Repository\TicketRepository']
+
+    AppBundle\Repository\TicketRepository:
+        class: AppBundle\Repository\TicketRepository
+        factory: ['@doctrine.orm.default_entity_manager','getRepository']
+        calls:
+            - [setEntityManager, ['@doctrine.orm.entity_manager']]
+
+    AppBundle\Form\DateListForm:
+        class: AppBundle\Form\DateListForm
+        tags:
+            - {name: form.type, alias: app_ticket_date_add}
+

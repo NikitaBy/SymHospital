@@ -22,12 +22,12 @@ class TicketRepository extends EntityRepository
 
     /**
      * @param Doctor $doctor
-     * @param $date
-     * @param $time
+     * @param \DateTime $date
+     * @param \DateTime $time
      *
      * @return bool|null
      */
-    public function checkTime(Doctor $doctor, $date, $time)
+    public function checkTime(Doctor $doctor, \DateTime $date, \DateTime $time)
     {
         $freeTime = null;
         if(!$this->entityManager->getRepository(Ticket::class)->findBy(['doctor'=>$doctor, 'visitDate'=>$date, 'visitTime'=>$time])){

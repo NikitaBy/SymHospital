@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Schedule;
+use AppBundle\Entity\Ticket;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 
@@ -24,10 +25,14 @@ class ScheduleRepository extends EntityRepository
     {
         $startTime = $schedule->getTimeStart();
         $endTime = $schedule->getTimeEnd();
-        $freeTimes=array();
+        $tickets=$this->entityManager->getRepository(Ticket::class)->findBy(['doctor'=>$schedule->getDoctor(), 'visitDate'=>$schedule->getDay()]);
+        foreach ($tickets as $ticket){
+            $tickets[$ticket->getVisitTime()->getTimestamp()]=$ticket;
+        }
+        $freeTimes=[];
         while ($startTime < $endTime){
             $startTime->add(new \DateInterval('PT15M'));
-            if($this->ticketRepository->checkTime($schedule->getDoctor(), $schedule->getDay(), $startTime)){
+            if(!array_search($startTime, $tickets)){
                 $freeTimes[]=$startTime;
             }
         }
