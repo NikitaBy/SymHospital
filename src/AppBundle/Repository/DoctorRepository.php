@@ -3,8 +3,6 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Doctor;
-use AppBundle\Entity\Schedule;
-use AppBundle\Entity\Specialty;
 use AppBundle\Entity\Users\Role;
 use AppBundle\Entity\Users\User;
 use AppBundle\Entity\Users\UserRole;

@@ -9,16 +9,14 @@
 namespace AppBundle\Admin;
 
 
-use AppBundle\Entity\Schedule;
 use AppBundle\Repository\ScheduleRepository;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\CoreBundle\Form\Type\DatePickerType;
+use Sonata\CoreBundle\Form\Type\DateTimePickerType;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Knp\Menu\ItemInterface as MenuItemInterface;
 
 class ScheduleAdmin extends AbstractAdmin
@@ -49,15 +47,13 @@ class ScheduleAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('day', DatePickerType::class, array('format'=>'dd-MMM-yyyy'));
-        $formMapper->add('timeStart', TimeType::class);
-        $formMapper->add('timeEnd', TimeType::class);
+        $formMapper->add('timeStart', DateTimePickerType::class, ['format'=>'dd-MMM-yyyy H:mm']);
+        $formMapper->add('timeEnd', DateTimePickerType::class, ['format'=>'dd-MMM-yyyy H:mm']);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper->add('doctor');
-        $datagridMapper->add('day');
         $datagridMapper->add('timeStart');
         $datagridMapper->add('timeEnd');
     }
@@ -65,7 +61,6 @@ class ScheduleAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->add('doctor');
-        $listMapper->add('day');
         $listMapper->add('timeStart');
         $listMapper->add('timeEnd');
         $listMapper->add('_actions', 'actions', ['actions' => ['edit' => [], 'delete' => []]]);
@@ -91,18 +86,5 @@ class ScheduleAdmin extends AbstractAdmin
         }
     }
 
-    /** @var Schedule $object */
-    public function preUpdate($object)
-    {
-        $this->scheduleRepository->modifyTime($object);
-    }
-
-    /** @var Schedule $object */
-    public function prePersist($object)
-    {
-        $this->scheduleRepository->modifyTime($object);
-    }
-
-
-
+    //TODO Delete unnecessary cascades
 }

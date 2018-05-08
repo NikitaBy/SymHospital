@@ -4,51 +4,36 @@ namespace AppBundle\Repository;
 
 use AppBundle\Entity\Doctor;
 use AppBundle\Entity\Schedule;
-use AppBundle\Entity\Ticket;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 
+/**
+ * Class ScheduleRepository
+ *
+ * @method Schedule findOneBy(array $criteria, array $orderBy = null)
+ */
 class ScheduleRepository extends EntityRepository
 {
-    /** @var EntityManager */
+    /**
+     * @var EntityManager
+     */
     protected $entityManager;
 
-    /** @var TicketRepository */
+    /**
+     * @var TicketRepository
+     */
     protected $ticketRepository;
 
     /**
-     * @param Schedule $schedule
+     * @param string $alias
+     * @param null $indexBy
      *
-     * @return array
-     * @throws \Exception
+     * @return \Doctrine\ORM\QueryBuilder
      */
-    public function getTimes(Schedule $schedule)
+    public function createQueryBuilder($alias = 'Schedule', $indexBy = null)
     {
-        $startTime = $schedule->getTimeStart();
-        $endTime = $schedule->getTimeEnd();
-        $tickets=[];
-        foreach ($this->entityManager->getRepository(Ticket::class)->findBy(['doctor'=>$schedule->getDoctor(), 'visitDate'=>$schedule->getDay()]) as $ticket){
-            $tickets[$ticket->getVisitTime()->getTimestamp()]=$ticket;
-        }
-        $freeTimes=[];
-        while ($startTime < $endTime){
-            if(!array_key_exists($startTime->getTimestamp(), $tickets)){
-                $freeTimes[] = clone $startTime;
-            }
-            $startTime->add(new \DateInterval('PT15M'));
-        }
-        return $freeTimes;
-    }
-
-    /**
-     * @param Doctor $doctor
-     * @param \DateTime $day
-     *
-     * @return Schedule|null|
-     */
-    public function getScheduleForDay(Doctor $doctor,\DateTime $day)
-    {
-        return $this->entityManager->getRepository(Schedule::class)->findOneBy(['doctor' => $doctor, 'day' => $day]);
+        return parent::createQueryBuilder($alias, $indexBy);
     }
 
 
@@ -68,13 +53,57 @@ class ScheduleRepository extends EntityRepository
         $this->ticketRepository = $ticketRepository;
     }
 
-    public function modifyTime(Schedule $schedule)
+
+    /**
+     * @param Schedule $schedule
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function getTimes(Schedule $schedule)
     {
-        $day = $schedule->getDay();
-        $timeStart = $schedule->getTimeStart();
-        $timeEnd = $schedule->getTimeEnd();
-        $timeStart->setDate($day->format('Y'), $day->format('m'), $day->format('d'));
-        $timeEnd->setDate($day->format('Y'), $day->format('m'), $day->format('d'));
+        $startTime = $schedule->getTimeStart();
+        $endTime = $schedule->getTimeEnd();
+        $tickets=[];
+
+        foreach ($this->ticketRepository->findBy(['doctor'=>$schedule->getDoctor(), 'visitDate'=>$schedule->getTimeStart()->format('d-m-Y')]) as $ticket){
+            $tickets[$ticket->getVisitDate()->getTimestamp()]=$ticket;
+        }
+        $freeTimes=[];
+        while ($startTime < $endTime){
+            if(!array_key_exists($startTime->getTimestamp(), $tickets)){
+                $freeTimes[] = clone $startTime;
+            }
+            $startTime->add(new \DateInterval('PT15M'));
+        }
+        return $freeTimes;
     }
+
+
+
+    /**
+     * @param Doctor $doctor
+     * @param \DateTime $date
+     *
+     * @return mixed
+     * @throws NonUniqueResultException
+     */
+    public function getDoctorScheduleByDate(Doctor $doctor, \DateTime $date)
+    {
+        $dateStart = clone $date;
+        $dateEnd = clone $date;
+        $dateStart->setTime(0, 0, 0);
+        $dateEnd->setTime(23, 59, 59);
+        $qb = $this->createQueryBuilder();
+
+        $qb
+            ->where('Schedule.doctor = :doctor')
+            ->setParameter('doctor', $doctor)
+            ->andWhere('Schedule.timeStart BETWEEN :dateStart AND :dateEnd')
+            ->setParameter('dateStart', $dateStart)
+            ->setParameter('dateEnd', $dateEnd);
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+    //TODO validation
 
 }

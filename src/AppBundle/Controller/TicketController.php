@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Doctor;
 use AppBundle\Form\ConfirmTicketForm;
 use AppBundle\Form\DateListForm;
 use AppBundle\Repository\DoctorRepository;
@@ -84,7 +83,7 @@ class TicketController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $doctorSchedule = $this->get(ScheduleRepository::class)->getScheduleForDay($selectedDoctor, \DateTime::createFromFormat('d-m-Y', $form->get('date')->getData()));
+            $doctorSchedule = $this->get(ScheduleRepository::class)->getDoctorScheduleByDate($selectedDoctor, \DateTime::createFromFormat('d-m-Y', $form->get('date')->getData()));
             if ($doctorSchedule){
                 $times = $this->get(ScheduleRepository::class)->getTimes($doctorSchedule);
             }

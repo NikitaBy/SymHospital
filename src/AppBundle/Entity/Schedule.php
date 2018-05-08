@@ -23,12 +23,6 @@ class Schedule
 
     /**
      * @var \DateTime
-     * @ORM\Column(type="date", nullable=false)
-     */
-    private $day;
-
-    /**
-     * @var \DateTime
      *
      * @ORM\Column(type="datetime",nullable=false)
      */
@@ -41,14 +35,10 @@ class Schedule
      */
     private $timeEnd;
 
-
     /**
      * @ORM\ManyToOne(targetEntity=Doctor::class, inversedBy="schedule", cascade={"persist", "remove"})
      */
     private $doctor;
-
-
-
 
     /**
      * Get id
@@ -58,30 +48,6 @@ class Schedule
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set day
-     *
-     * @param \DateTime $day
-     *
-     * @return Schedule
-     */
-    public function setDay($day)
-    {
-        $this->day = $day;
-
-        return $this;
-    }
-
-    /**
-     * Get day
-     *
-     * @return \DateTime
-     */
-    public function getDay()
-    {
-        return $this->day;
     }
 
     /**
