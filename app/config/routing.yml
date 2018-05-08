@@ -47,14 +47,14 @@ doctor_list:
         page: '\d+'
 
 date_list:
-    path: /date-list/{doctor}
-    defaults: {_controller: 'AppBundle:Ticket:date'}
+    path: /date-list/{doctor}/{date}
+    defaults: {_controller: 'AppBundle:Ticket:date', date: null}
     requirements:
         page: '\d+'
 
 time_list:
-    path: /time-list/{doctor}/{date}
-    defaults: {_controller: 'AppBundle:Ticket:time'}
+    path: /ticket-confirm/
+    defaults: {_controller: 'AppBundle:Ticket:confirmTicket'}
 
 
 

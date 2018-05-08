@@ -9,6 +9,8 @@
 namespace AppBundle\Admin;
 
 
+use AppBundle\Entity\Schedule;
+use AppBundle\Repository\ScheduleRepository;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -26,12 +28,23 @@ class ScheduleAdmin extends AbstractAdmin
      */
     protected $router;
 
+    /** @var ScheduleRepository */
+    protected $scheduleRepository;
+
     /**
      * @param Router $router
      */
     public function setRouter(Router $router)
     {
         $this->router = $router;
+    }
+
+    /**
+     * @param ScheduleRepository $scheduleRepository
+     */
+    public function setScheduleRepository(ScheduleRepository $scheduleRepository)
+    {
+        $this->scheduleRepository = $scheduleRepository;
     }
 
     protected function configureFormFields(FormMapper $formMapper)
@@ -77,5 +90,19 @@ class ScheduleAdmin extends AbstractAdmin
             );
         }
     }
+
+    /** @var Schedule $object */
+    public function preUpdate($object)
+    {
+        $this->scheduleRepository->modifyTime($object);
+    }
+
+    /** @var Schedule $object */
+    public function prePersist($object)
+    {
+        $this->scheduleRepository->modifyTime($object);
+    }
+
+
 
 }

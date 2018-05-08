@@ -289,13 +289,18 @@ class Doctor
         return $this->schedule;
     }
 
+    /**
+     * @param \DateTime $selectedDay
+     *
+     * @return Schedule|null
+     */
     public function isWorking(\DateTime $selectedDay)
     {
-        $flag=false;
+        $flag=null;
         foreach ($this->getSchedule() as $day)
         {
             if($day->getDay()===$selectedDay){
-                $flag=true;
+                $flag=$day;
                 break;
             }
         }

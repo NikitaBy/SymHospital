@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Doctor;
+use AppBundle\Entity\Schedule;
 use AppBundle\Entity\Specialty;
 use AppBundle\Entity\Users\Role;
 use AppBundle\Entity\Users\User;
@@ -92,6 +93,7 @@ class DoctorRepository extends EntityRepository
     public function save(Doctor $doctor)
     {
         $this->userManager->updateUser($doctor->getUser());
+
     }
 
     /**
@@ -123,5 +125,6 @@ class DoctorRepository extends EntityRepository
     {
         return $this->entityManager->getRepository(Doctor::class)->find($id);
     }
+
 
 }

@@ -2,56 +2,53 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Doctor;
+use AppBundle\Form\ConfirmTicketForm;
+use AppBundle\Form\DateListForm;
 use AppBundle\Repository\DoctorRepository;
+use AppBundle\Repository\ScheduleRepository;
 use AppBundle\Repository\SpecialtyRepository;
+use AppBundle\Repository\TicketRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class TicketController extends Controller
 {
-    /** @var SpecialtyRepository */
-    protected $specialtyRepository;
-
-    /** @var DoctorRepository */
-    protected $doctorRepository;
-
     /**
-     * @param SpecialtyRepository $specialtyRepository
-     */
-    public function setSpecialtyRepository(SpecialtyRepository $specialtyRepository)
-    {
-        $this->specialtyRepository = $specialtyRepository;
-    }
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function activeTicketsAction()
     {
 
-        $entityManager=$this->getDoctrine()->getManager();
-        $user=$this->get('security.token_storage')->getToken()->getUser();
-        $ticketList=$entityManager->getRepository('AppBundle:Ticket')->findBy(['patient'=>$user->getPatient()->getId()]);
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $ticketList =  $this->get(TicketRepository::class)->findBy(['patient'=>$user->getPatient()->getId()]);
+        $ticketListFiltered = [];
 
-        $ticketListFiltered=array();
+        $currentDate = new \DateTime();
+
         foreach ($ticketList as $ticket)
         {
-            $ticketDate=$ticket->getVisitDate()->format("Y-m-d");
-            if($ticketDate>date("Y-m-d"))
-            {
-                $ticketListFiltered[]=$ticket;
+            $ticketDate = $ticket->getVisitDate();
+
+            if ($ticketDate > $currentDate) {
+                $ticketListFiltered[] = $ticket;
             }
         }
 
 
-        return $this->render('ticket_list.html.twig', ['ticketList'=>$ticketListFiltered]);
+        return $this->render('ticket_list.html.twig', ['ticketList' => $ticketListFiltered]);
     }
 
-
+    /**
+     * @return Response
+     */
     public function specialtyAction()
     {
-        return $this->render('specialty_list.html.twig',
-            ['specialties'=>$this->specialtyRepository->getSpecialties()]);
+        return $this->render(
+            'specialty_list.html.twig',
+            ['specialties' => $this->get(SpecialtyRepository::class)->getSpecialties()]
+        );
     }
 
     /**
@@ -64,25 +61,46 @@ class TicketController extends Controller
         return $this->render(
             'doctor_list.html.twig',
             [
-                'doctors'=>$this->doctorRepository->selectBySpecialty($specialty)
+                'doctors' => $this->get(DoctorRepository::class)->selectBySpecialty($specialty)
             ]
         );
     }
 
     /**
-     * @param DoctorRepository $doctorRepository
+     * @param Request $request
+     *
+     * @return Response
+     * @throws \Exception
      */
-    public function setDoctorRepository(DoctorRepository $doctorRepository)
+    public function dateAction(Request $request)
     {
-        $this->doctorRepository = $doctorRepository;
+        $form = $this->get('form.factory')->create(DateListForm::class);
+        $selectedDoctor = $this->get(DoctorRepository::class)->getById($request->get('doctor'));
+
+        $times=[];
+
+//        dump($selectedDoctor);
+//        die;
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $doctorSchedule = $this->get(ScheduleRepository::class)->getScheduleForDay($selectedDoctor, \DateTime::createFromFormat('d-m-Y', $form->get('date')->getData()));
+            if ($doctorSchedule){
+                $times = $this->get(ScheduleRepository::class)->getTimes($doctorSchedule);
+            }
+
+        }
+
+        return $this->render('date_list.html.twig', ['form' => $form->createView(), 'doctor' => $selectedDoctor, 'times'=>$times]);
     }
 
-    public function dateAction(int $doctor, \DateTime $date = null)
+    public function confirmTicketAction(Request $request)
     {
-    }
+        $form = $this->get('form.factory')->create(ConfirmTicketForm::class);
+        $form->handleRequest($request);
 
-    public function timeAction()
-    {
+        if ($form->isSubmitted() && $form->isValid()){
 
+        }
     }
 }

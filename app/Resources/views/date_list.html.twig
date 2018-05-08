@@ -11,14 +11,13 @@
 
 {% block content %}
     {{ doctor }}
-    <div class="input-group date" >
-        <input type="text" class="datepicker">
-        <div class="input-group-addon">
-            <span class="glyphicon glyphicon-th"></span>
-        </div>
-        {#<div>#}
-            {#<a href="{{ path('time_list', {{ doctor: doctor.id}}}) }}"></a>#}
-        {#</div>#}
-    {#</div>#}
-    {{ form(form, 'app_ticket_date_add') }}
+    {{ form(form) }}
+    {% if times %}
+        {% for time in times %}
+            <div>
+                {{ time | date('H:i')}}
+                <a href="confirm_ticket.twig"></a>
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock content %}

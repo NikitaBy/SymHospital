@@ -50,6 +50,8 @@ services:
     admin.ticket:
         class: AppBundle\Admin\TicketAdmin
         arguments: [~, AppBundle\Entity\Ticket, ~]
+        calls:
+            - [setTicketRepository, ['@AppBundle\Repository\TicketRepository']]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Admin, label: Ticket }
         public: true
@@ -107,6 +109,7 @@ services:
         arguments: [~, AppBundle\Entity\Schedule, ~]
         calls:
             - [setRouter, ['@router']]
+            - [setScheduleRepository, ['@AppBundle\Repository\ScheduleRepository']]
         tags:
             - { name: sonata.admin, manager_type: orm,  group: Admin, label: Schedule }
         public: true
@@ -208,33 +211,33 @@ services:
         class: AppBundle\Authentication\AuthenticationSuccessHandler
         arguments: ['@router','@security.authorization_checker']
 
-    AppBundle\Controller\TicketController:
-        class: AppBundle\Controller\TicketController
-        calls:
-            - [setSpecialtyRepository, ['@AppBundle\Repository\SpecialtyRepository']]
-            - [setDoctorRepository,['@AppBundle\Repository\DoctorRepository']]
-        autowire: false
-        public: true
-
     AppBundle\Repository\SpecialtyRepository:
         class: AppBundle\Repository\SpecialtyRepository
         factory: ['@doctrine.orm.default_entity_manager','getRepository']
         arguments: ['AppBundle\Entity\Specialty']
         calls:
             - [setEntityManager, ['@doctrine.orm.entity_manager']]
+        public: true
 
     AppBundle\Repository\TicketRepository:
         class: AppBundle\Repository\TicketRepository
         factory: ['@doctrine.orm.default_entity_manager','getRepository']
+        arguments: [AppBundle\Entity\Ticket]
         calls:
             - [setEntityManager, ['@doctrine.orm.entity_manager']]
+        autowire: false
+        public: true
+
 
     AppBundle\Repository\ScheduleRepository:
         class: AppBundle\Repository\ScheduleRepository
         factory: ['@doctrine.orm.default_entity_manager','getRepository']
+        arguments: [AppBundle\Entity\Schedule]
         calls:
             - [setEntityManager, ['@doctrine.orm.entity_manager']]
             - [setTicketRepository, ['@AppBundle\Repository\TicketRepository']]
+        autowire: false
+        public: true
 
     AppBundle\Form\DateListForm:
         class: AppBundle\Form\DateListForm

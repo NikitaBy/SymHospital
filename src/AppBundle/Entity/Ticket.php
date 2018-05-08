@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateTime;
  * Ticket
  *
  * @ORM\Table
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TicketRepository")
  */
 class Ticket
 {
@@ -30,16 +30,10 @@ class Ticket
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $visitDate;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(type="datetime")
-     */
-    private $visitTime;
 
     /**
      * @ORM\ManyToOne(targetEntity=Doctor::class, inversedBy="ticket", cascade={"persist", "remove"},)
@@ -81,29 +75,6 @@ class Ticket
         return $this->visitDate;
     }
 
-    /**
-     * Set visitTime
-     *
-     * @param \DateTime $visitTime
-     *
-     * @return Ticket
-     */
-    public function setVisitTime($visitTime)
-    {
-        $this->visitTime = $visitTime;
-
-        return $this;
-    }
-
-    /**
-     * Get visitTime
-     *
-     * @return \DateTime
-     */
-    public function getVisitTime()
-    {
-        return $this->visitTime;
-    }
 
     /**
      * Set patient
